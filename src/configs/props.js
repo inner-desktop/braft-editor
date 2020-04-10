@@ -1,5 +1,5 @@
 export default {
-  language: 'en',
+  language: 'zh',
   controls: [
     'undo',
     'redo',

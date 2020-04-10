@@ -3,7 +3,7 @@ import {
   convertHTMLToEditorState,
   convertEditorStateToRaw,
   convertEditorStateToHTML,
-} from 'braft-convert';
+} from '@inner-desktop/braft-convert';
 
 import {
   createExtensibleEditor,

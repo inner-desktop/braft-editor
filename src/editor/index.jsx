@@ -261,13 +261,13 @@ class BraftEditor extends React.Component {
       return restProps;
     }
 
-    let porpsMap = Map(restProps);
+    let propsMap = Map(restProps);
 
     propInterceptors.forEach((interceptor) => {
-      porpsMap = porpsMap.merge(Map(interceptor(porpsMap.toJS(), this) || {}));
+      propsMap = propsMap.merge(Map(interceptor(propsMap.toJS(), this) || {}));
     });
 
-    return porpsMap.toJS();
+    return propsMap.toJS();
   }
 
   onChange = (editorState, callback) => {

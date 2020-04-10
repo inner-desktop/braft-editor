@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("react"), require("braft-utils"), require("draft-js"), require("immutable"), require("braft-convert"), require("react-dom"), require("braft-finder"), require("draftjs-utils"));
+		module.exports = factory(require("react"), require("braft-utils"), require("draft-js"), require("immutable"), require("react-dom"), require("braft-finder"), require("draftjs-utils"), require("draft-convert"));
 	else if(typeof define === 'function' && define.amd)
-		define(["react", "braft-utils", "draft-js", "immutable", "braft-convert", "react-dom", "braft-finder", "draftjs-utils"], factory);
+		define(["react", "braft-utils", "draft-js", "immutable", "react-dom", "braft-finder", "draftjs-utils", "draft-convert"], factory);
 	else {
-		var a = typeof exports === 'object' ? factory(require("react"), require("braft-utils"), require("draft-js"), require("immutable"), require("braft-convert"), require("react-dom"), require("braft-finder"), require("draftjs-utils")) : factory(root["react"], root["braft-utils"], root["draft-js"], root["immutable"], root["braft-convert"], root["react-dom"], root["braft-finder"], root["draftjs-utils"]);
+		var a = typeof exports === 'object' ? factory(require("react"), require("braft-utils"), require("draft-js"), require("immutable"), require("react-dom"), require("braft-finder"), require("draftjs-utils"), require("draft-convert")) : factory(root["react"], root["braft-utils"], root["draft-js"], root["immutable"], root["react-dom"], root["braft-finder"], root["draftjs-utils"], root["draft-convert"]);
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
-})(window, function(__WEBPACK_EXTERNAL_MODULE__0__, __WEBPACK_EXTERNAL_MODULE__4__, __WEBPACK_EXTERNAL_MODULE__7__, __WEBPACK_EXTERNAL_MODULE__14__, __WEBPACK_EXTERNAL_MODULE__15__, __WEBPACK_EXTERNAL_MODULE__17__, __WEBPACK_EXTERNAL_MODULE__20__, __WEBPACK_EXTERNAL_MODULE__30__) {
+})(window, function(__WEBPACK_EXTERNAL_MODULE__0__, __WEBPACK_EXTERNAL_MODULE__4__, __WEBPACK_EXTERNAL_MODULE__6__, __WEBPACK_EXTERNAL_MODULE__14__, __WEBPACK_EXTERNAL_MODULE__17__, __WEBPACK_EXTERNAL_MODULE__20__, __WEBPACK_EXTERNAL_MODULE__30__, __WEBPACK_EXTERNAL_MODULE__31__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 53);
+/******/ 	return __webpack_require__(__webpack_require__.s = 55);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -114,7 +114,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__0__;
 if (false) { var throwOnDirectAccess, ReactIs; } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(35)();
+  module.exports = __webpack_require__(37)();
 }
 
 
@@ -194,18 +194,24 @@ Object.defineProperty(exports, "v5", {
   }
 });
 
-var _v = _interopRequireDefault(__webpack_require__(37));
+var _v = _interopRequireDefault(__webpack_require__(39));
 
-var _v2 = _interopRequireDefault(__webpack_require__(38));
+var _v2 = _interopRequireDefault(__webpack_require__(40));
 
-var _v3 = _interopRequireDefault(__webpack_require__(40));
+var _v3 = _interopRequireDefault(__webpack_require__(42));
 
-var _v4 = _interopRequireDefault(__webpack_require__(41));
+var _v4 = _interopRequireDefault(__webpack_require__(43));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
 /* 6 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__6__;
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports) {
 
 function _getPrototypeOf(o) {
@@ -216,12 +222,6 @@ function _getPrototypeOf(o) {
 }
 
 module.exports = _getPrototypeOf;
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__7__;
 
 /***/ }),
 /* 8 */
@@ -261,7 +261,7 @@ module.exports = _createClass;
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var setPrototypeOf = __webpack_require__(34);
+var setPrototypeOf = __webpack_require__(36);
 
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
@@ -326,13 +326,13 @@ module.exports = _extends;
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayWithoutHoles = __webpack_require__(43);
+var arrayWithoutHoles = __webpack_require__(45);
 
-var iterableToArray = __webpack_require__(44);
+var iterableToArray = __webpack_require__(46);
 
 var unsupportedIterableToArray = __webpack_require__(21);
 
-var nonIterableSpread = __webpack_require__(45);
+var nonIterableSpread = __webpack_require__(47);
 
 function _toConsumableArray(arr) {
   return arrayWithoutHoles(arr) || iterableToArray(arr) || unsupportedIterableToArray(arr) || nonIterableSpread();
@@ -348,9 +348,95 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__14__;
 
 /***/ }),
 /* 15 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__15__;
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.convertRawToEditorState = exports.convertEditorStateToRaw = exports.convertHTMLToEditorState = exports.convertEditorStateToHTML = exports.convertHTMLToRaw = exports.convertRawToHTML = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _draftConvert = __webpack_require__(31);
+
+var _configs = __webpack_require__(32);
+
+var _draftJs = __webpack_require__(6);
+
+var defaultConvertOptions = {
+  fontFamilies: _configs.defaultFontFamilies
+};
+
+var convertRawToHTML = exports.convertRawToHTML = function convertRawToHTML(rawContent, options) {
+
+  options = _extends({}, defaultConvertOptions, options);
+
+  try {
+    var contentState = (0, _draftJs.convertFromRaw)(rawContent);
+    options.contentState = contentState;
+    return (0, _draftConvert.convertToHTML)((0, _configs.getToHTMLConfig)(options))(contentState);
+  } catch (error) {
+    console.warn(error);
+    return '';
+  }
+};
+
+var convertHTMLToRaw = exports.convertHTMLToRaw = function convertHTMLToRaw(HTMLString, options, source) {
+
+  options = _extends({}, defaultConvertOptions, options);
+
+  try {
+    var contentState = (0, _draftConvert.convertFromHTML)((0, _configs.getFromHTMLConfig)(options, source))(HTMLString);
+    return (0, _draftJs.convertToRaw)(contentState);
+  } catch (error) {
+    console.warn(error);
+    return {};
+  }
+};
+
+var convertEditorStateToHTML = exports.convertEditorStateToHTML = function convertEditorStateToHTML(editorState, options) {
+
+  options = _extends({}, defaultConvertOptions, options);
+
+  try {
+    var contentState = editorState.getCurrentContent();
+    options.contentState = contentState;
+    return (0, _draftConvert.convertToHTML)((0, _configs.getToHTMLConfig)(options))(contentState);
+  } catch (error) {
+    console.warn(error);
+    return '';
+  }
+};
+
+var convertHTMLToEditorState = exports.convertHTMLToEditorState = function convertHTMLToEditorState(HTMLString, editorDecorators, options, source) {
+
+  options = _extends({}, defaultConvertOptions, options);
+
+  try {
+    return _draftJs.EditorState.createWithContent((0, _draftConvert.convertFromHTML)((0, _configs.getFromHTMLConfig)(options, source))(HTMLString), editorDecorators);
+  } catch (error) {
+    console.warn(error);
+    return _draftJs.EditorState.createEmpty(editorDecorators);
+  }
+};
+
+var convertEditorStateToRaw = exports.convertEditorStateToRaw = function convertEditorStateToRaw(editorState) {
+  return (0, _draftJs.convertToRaw)(editorState.getCurrentContent());
+};
+
+var convertRawToEditorState = exports.convertRawToEditorState = function convertRawToEditorState(rawContent, editorDecorators) {
+
+  try {
+    return _draftJs.EditorState.createWithContent((0, _draftJs.convertFromRaw)(rawContent), editorDecorators);
+  } catch (error) {
+    console.warn(error);
+    return _draftJs.EditorState.createEmpty(editorDecorators);
+  }
+};
+//# sourceMappingURL=index.js.map
 
 /***/ }),
 /* 16 */
@@ -805,13 +891,13 @@ module.exports = findRangesImmutable;
 /* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayWithHoles = __webpack_require__(31);
+var arrayWithHoles = __webpack_require__(33);
 
-var iterableToArrayLimit = __webpack_require__(32);
+var iterableToArrayLimit = __webpack_require__(34);
 
 var unsupportedIterableToArray = __webpack_require__(21);
 
-var nonIterableRest = __webpack_require__(33);
+var nonIterableRest = __webpack_require__(35);
 
 function _slicedToArray(arr, i) {
   return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
@@ -823,7 +909,7 @@ module.exports = _slicedToArray;
 /* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var objectWithoutPropertiesLoose = __webpack_require__(46);
+var objectWithoutPropertiesLoose = __webpack_require__(48);
 
 function _objectWithoutProperties(source, excluded) {
   if (source == null) return {};
@@ -863,7 +949,7 @@ module.exports = _objectWithoutProperties;
  */
 
 
-var getContentStateFragment = __webpack_require__(47);
+var getContentStateFragment = __webpack_require__(49);
 
 function getFragmentFromSelection(editorState) {
   var selectionState = editorState.getSelection();
@@ -887,6 +973,716 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__30__;
 /* 31 */
 /***/ (function(module, exports) {
 
+module.exports = __WEBPACK_EXTERNAL_MODULE__31__;
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getFromHTMLConfig = exports.getToHTMLConfig = exports.blocks = exports.getHexColor = exports.defaultFontFamilies = exports.namedColors = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+var namedColors = exports.namedColors = {
+  "aliceblue": "#f0f8ff",
+  "antiquewhite": "#faebd7",
+  "aqua": "#00ffff",
+  "aquamarine": "#7fffd4",
+  "azure": "#f0ffff",
+  "beige": "#f5f5dc",
+  "bisque": "#ffe4c4",
+  "black": "#000000",
+  "blanchedalmond": "#ffebcd",
+  "blue": "#0000ff",
+  "blueviolet": "#8a2be2",
+  "brown": "#a52a2a",
+  "burlywood": "#deb887",
+  "cadetblue": "#5f9ea0",
+  "chartreuse": "#7fff00",
+  "chocolate": "#d2691e",
+  "coral": "#ff7f50",
+  "cornflowerblue": "#6495ed",
+  "cornsilk": "#fff8dc",
+  "crimson": "#dc143c",
+  "cyan": "#00ffff",
+  "darkblue": "#00008b",
+  "darkcyan": "#008b8b",
+  "darkgoldenrod": "#b8860b",
+  "darkgray": "#a9a9a9",
+  "darkgreen": "#006400",
+  "darkkhaki": "#bdb76b",
+  "darkmagenta": "#8b008b",
+  "darkolivegreen": "#556b2f",
+  "darkorange": "#ff8c00",
+  "darkorchid": "#9932cc",
+  "darkred": "#8b0000",
+  "darksalmon": "#e9967a",
+  "darkseagreen": "#8fbc8f",
+  "darkslateblue": "#483d8b",
+  "darkslategray": "#2f4f4f",
+  "darkturquoise": "#00ced1",
+  "darkviolet": "#9400d3",
+  "deeppink": "#ff1493",
+  "deepskyblue": "#00bfff",
+  "dimgray": "#696969",
+  "dodgerblue": "#1e90ff",
+  "firebrick": "#b22222",
+  "floralwhite": "#fffaf0",
+  "forestgreen": "#228b22",
+  "fuchsia": "#ff00ff",
+  "gainsboro": "#dcdcdc",
+  "ghostwhite": "#f8f8ff",
+  "gold": "#ffd700",
+  "goldenrod": "#daa520",
+  "gray": "#808080",
+  "green": "#008000",
+  "greenyellow": "#adff2f",
+  "honeydew": "#f0fff0",
+  "hotpink": "#ff69b4",
+  "indianred ": "#cd5c5c",
+  "indigo": "#4b0082",
+  "ivory": "#fffff0",
+  "khaki": "#f0e68c",
+  "lavender": "#e6e6fa",
+  "lavenderblush": "#fff0f5",
+  "lawngreen": "#7cfc00",
+  "lemonchiffon": "#fffacd",
+  "lightblue": "#add8e6",
+  "lightcoral": "#f08080",
+  "lightcyan": "#e0ffff",
+  "lightgoldenrodyellow": "#fafad2",
+  "lightgrey": "#d3d3d3",
+  "lightgreen": "#90ee90",
+  "lightpink": "#ffb6c1",
+  "lightsalmon": "#ffa07a",
+  "lightseagreen": "#20b2aa",
+  "lightskyblue": "#87cefa",
+  "lightslategray": "#778899",
+  "lightsteelblue": "#b0c4de",
+  "lightyellow": "#ffffe0",
+  "lime": "#00ff00",
+  "limegreen": "#32cd32",
+  "linen": "#faf0e6",
+  "magenta": "#ff00ff",
+  "maroon": "#800000",
+  "mediumaquamarine": "#66cdaa",
+  "mediumblue": "#0000cd",
+  "mediumorchid": "#ba55d3",
+  "mediumpurple": "#9370d8",
+  "mediumseagreen": "#3cb371",
+  "mediumslateblue": "#7b68ee",
+  "mediumspringgreen": "#00fa9a",
+  "mediumturquoise": "#48d1cc",
+  "mediumvioletred": "#c71585",
+  "midnightblue": "#191970",
+  "mintcream": "#f5fffa",
+  "mistyrose": "#ffe4e1",
+  "moccasin": "#ffe4b5",
+  "navajowhite": "#ffdead",
+  "navy": "#000080",
+  "oldlace": "#fdf5e6",
+  "olive": "#808000",
+  "olivedrab": "#6b8e23",
+  "orange": "#ffa500",
+  "orangered": "#ff4500",
+  "orchid": "#da70d6",
+  "palegoldenrod": "#eee8aa",
+  "palegreen": "#98fb98",
+  "paleturquoise": "#afeeee",
+  "palevioletred": "#d87093",
+  "papayawhip": "#ffefd5",
+  "peachpuff": "#ffdab9",
+  "peru": "#cd853f",
+  "pink": "#ffc0cb",
+  "plum": "#dda0dd",
+  "powderblue": "#b0e0e6",
+  "purple": "#800080",
+  "rebeccapurple": "#663399",
+  "red": "#ff0000",
+  "rosybrown": "#bc8f8f",
+  "royalblue": "#4169e1",
+  "saddlebrown": "#8b4513",
+  "salmon": "#fa8072",
+  "sandybrown": "#f4a460",
+  "seagreen": "#2e8b57",
+  "seashell": "#fff5ee",
+  "sienna": "#a0522d",
+  "silver": "#c0c0c0",
+  "skyblue": "#87ceeb",
+  "slateblue": "#6a5acd",
+  "slategray": "#708090",
+  "snow": "#fffafa",
+  "springgreen": "#00ff7f",
+  "steelblue": "#4682b4",
+  "tan": "#d2b48c",
+  "teal": "#008080",
+  "thistle": "#d8bfd8",
+  "tomato": "#ff6347",
+  "turquoise": "#40e0d0",
+  "violet": "#ee82ee",
+  "wheat": "#f5deb3",
+  "white": "#ffffff",
+  "whitesmoke": "#f5f5f5",
+  "yellow": "#ffff00",
+  "yellowgreen": "#9acd32"
+};
+
+var getStyleValue = function getStyleValue(style) {
+  return style.split('-')[1];
+};
+var defaultUnitExportFn = function defaultUnitExportFn(unit) {
+  return unit + 'px';
+};
+var defaultUnitImportFn = function defaultUnitImportFn(unit) {
+  return unit.replace('px', '');
+};
+
+var ignoredNodeAttributes = ['style'];
+var ignoredEntityNodeAttributes = ['style', 'href', 'target', 'alt', 'title', 'id', 'controls', 'autoplay', 'loop', 'poster'];
+
+var spreadNodeAttributes = function spreadNodeAttributes(attributesObject) {
+  return Object.keys(attributesObject).reduce(function (attributeString, attributeName) {
+    return attributeString + " " + attributeName + "=\"" + attributesObject[attributeName] + "\"";
+  }, '').replace(/^\s$/, '');
+};
+
+var defaultFontFamilies = exports.defaultFontFamilies = [{
+  name: 'Araial',
+  family: 'Arial, Helvetica, sans-serif'
+}, {
+  name: 'Georgia',
+  family: 'Georgia, serif'
+}, {
+  name: 'Impact',
+  family: 'Impact, serif'
+}, {
+  name: 'Monospace',
+  family: '"Courier New", Courier, monospace'
+}, {
+  name: 'Tahoma',
+  family: "tahoma, arial, 'Hiragino Sans GB', 宋体, sans-serif"
+}];
+
+var getHexColor = exports.getHexColor = function getHexColor(color) {
+
+  color = color.replace('color:', '').replace(';', '').replace(' ', '');
+
+  if (/^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$/.test(color)) {
+    return color;
+  } else if (namedColors[color]) {
+    return namedColors[color];
+  } else if (color.indexOf('rgb') === 0) {
+
+    var rgbArray = color.split(',');
+    var convertedColor = rgbArray.length < 3 ? null : '#' + [rgbArray[0], rgbArray[1], rgbArray[2]].map(function (x) {
+      var hex = parseInt(x.replace(/\D/g, ''), 10).toString(16);
+      return hex.length === 1 ? '0' + hex : hex;
+    }).join('');
+
+    return (/^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$/.test(convertedColor) ? convertedColor : null
+    );
+  } else {
+    return null;
+  }
+};
+
+var blocks = exports.blocks = {
+  'header-one': 'h1',
+  'header-two': 'h2',
+  'header-three': 'h3',
+  'header-four': 'h4',
+  'header-five': 'h5',
+  'header-six': 'h6',
+  'unstyled': 'p',
+  'blockquote': 'blockquote'
+};
+
+var blockTypes = Object.keys(blocks);
+var blockNames = blockTypes.map(function (key) {
+  return blocks[key];
+});
+
+var convertAtomicBlock = function convertAtomicBlock(block, contentState, blockNodeAttributes) {
+
+  if (!block || !block.key) {
+    return _react2.default.createElement("p", null);
+  }
+
+  var contentBlock = contentState.getBlockForKey(block.key);
+
+  var className = blockNodeAttributes.class,
+      nodeAttrAsProps = _objectWithoutProperties(blockNodeAttributes, ["class"]);
+
+  nodeAttrAsProps.className = className;
+
+  if (!contentBlock) {
+    return _react2.default.createElement("p", null);
+  }
+
+  var entityKey = contentBlock.getEntityAt(0);
+
+  if (!entityKey) {
+    return _react2.default.createElement("p", null);
+  }
+
+  var entity = contentState.getEntity(entityKey);
+  var mediaType = entity.getType().toLowerCase();
+
+  var _block$data = block.data,
+      float = _block$data.float,
+      alignment = _block$data.alignment;
+
+  var _entity$getData = entity.getData(),
+      url = _entity$getData.url,
+      link = _entity$getData.link,
+      link_target = _entity$getData.link_target,
+      width = _entity$getData.width,
+      height = _entity$getData.height,
+      meta = _entity$getData.meta;
+
+  if (mediaType === 'image') {
+
+    var imageWrapStyle = {};
+    var styledClassName = '';
+
+    if (float) {
+      imageWrapStyle.float = float;
+      styledClassName += ' float-' + float;
+    } else if (alignment) {
+      imageWrapStyle.textAlign = alignment;
+      styledClassName += ' align-' + alignment;
+    }
+
+    if (link) {
+      return _react2.default.createElement(
+        "div",
+        { className: "media-wrap image-wrap" + styledClassName, style: imageWrapStyle },
+        _react2.default.createElement(
+          "a",
+          { style: { display: 'inline-block' }, href: link, target: link_target },
+          _react2.default.createElement("img", _extends({}, nodeAttrAsProps, meta, { src: url, width: width, height: height, style: { width: width, height: height } }))
+        )
+      );
+    } else {
+      return _react2.default.createElement(
+        "div",
+        { className: "media-wrap image-wrap" + styledClassName, style: imageWrapStyle },
+        _react2.default.createElement("img", _extends({}, nodeAttrAsProps, meta, { src: url, width: width, height: height, style: { width: width, height: height } }))
+      );
+    }
+  } else if (mediaType === 'audio') {
+    return _react2.default.createElement(
+      "div",
+      { className: "media-wrap audio-wrap" },
+      _react2.default.createElement("audio", _extends({ controls: true }, nodeAttrAsProps, meta, { src: url }))
+    );
+  } else if (mediaType === 'video') {
+    return _react2.default.createElement(
+      "div",
+      { className: "media-wrap video-wrap" },
+      _react2.default.createElement("video", _extends({ controls: true }, nodeAttrAsProps, meta, { src: url, width: width, height: height }))
+    );
+  } else if (mediaType === 'embed') {
+    return _react2.default.createElement(
+      "div",
+      { className: "media-wrap embed-wrap" },
+      _react2.default.createElement("div", { dangerouslySetInnerHTML: { __html: url } })
+    );
+  } else if (mediaType === 'hr') {
+    return _react2.default.createElement("hr", null);
+  } else {
+    return _react2.default.createElement("p", null);
+  }
+};
+
+var entityToHTML = function entityToHTML(options) {
+  return function (entity, originalText) {
+    var entityExportFn = options.entityExportFn;
+
+    var entityType = entity.type.toLowerCase();
+
+    if (entityExportFn) {
+      var customOutput = entityExportFn(entity, originalText);
+      if (customOutput) {
+        return customOutput;
+      }
+    }
+
+    if (entityType === 'link') {
+      var _ref = entity.data.nodeAttributes || {},
+          className = _ref.class,
+          nodeAttrAsProps = _objectWithoutProperties(_ref, ["class"]);
+
+      nodeAttrAsProps.className = className;
+      return _react2.default.createElement("a", _extends({ href: entity.data.href, target: entity.data.target }, nodeAttrAsProps));
+    }
+  };
+};
+
+var styleToHTML = function styleToHTML(options) {
+  return function (style) {
+
+    var unitExportFn = options.unitExportFn || defaultUnitExportFn;
+
+    if (options.styleExportFn) {
+      var customOutput = options.styleExportFn(style, options);
+      if (customOutput) {
+        return customOutput;
+      }
+    }
+
+    style = style.toLowerCase();
+
+    if (style === 'strikethrough') {
+      return _react2.default.createElement("span", { style: { textDecoration: 'line-through' } });
+    } else if (style === 'superscript') {
+      return _react2.default.createElement("sup", null);
+    } else if (style === 'subscript') {
+      return _react2.default.createElement("sub", null);
+    } else if (style.indexOf('color-') === 0) {
+      return _react2.default.createElement("span", { style: { color: '#' + getStyleValue(style) } });
+    } else if (style.indexOf('bgcolor-') === 0) {
+      return _react2.default.createElement("span", { style: { backgroundColor: '#' + getStyleValue(style) } });
+    } else if (style.indexOf('fontsize-') === 0) {
+      return _react2.default.createElement("span", { style: { fontSize: unitExportFn(getStyleValue(style), 'font-size', 'html') } });
+    } else if (style.indexOf('lineheight-') === 0) {
+      return _react2.default.createElement("span", { style: { lineHeight: unitExportFn(getStyleValue(style), 'line-height', 'html') } });
+    } else if (style.indexOf('letterspacing-') === 0) {
+      return _react2.default.createElement("span", { style: { letterSpacing: unitExportFn(getStyleValue(style), 'letter-spacing', 'html') } });
+    } else if (style.indexOf('fontfamily-') === 0) {
+      var fontFamily = options.fontFamilies.find(function (item) {
+        return item.name.toLowerCase() === getStyleValue(style);
+      });
+      if (!fontFamily) return;
+      return _react2.default.createElement("span", { style: { fontFamily: fontFamily.family } });
+    }
+  };
+};
+
+var blockToHTML = function blockToHTML(options) {
+  return function (block) {
+    var blockExportFn = options.blockExportFn,
+        contentState = options.contentState;
+
+
+    if (blockExportFn) {
+      var customOutput = blockExportFn(contentState, block);
+      if (customOutput) {
+        return customOutput;
+      }
+    }
+
+    var blockStyle = '';
+
+    var blockType = block.type.toLowerCase();
+    var _block$data2 = block.data,
+        textAlign = _block$data2.textAlign,
+        textIndent = _block$data2.textIndent,
+        _block$data2$nodeAttr = _block$data2.nodeAttributes,
+        nodeAttributes = _block$data2$nodeAttr === undefined ? {} : _block$data2$nodeAttr;
+
+    var attributeString = spreadNodeAttributes(nodeAttributes);
+
+    if (textAlign || textIndent) {
+
+      blockStyle = ' style="';
+
+      if (textAlign) {
+        blockStyle += "text-align:" + textAlign + ";";
+      }
+
+      if (textIndent && !isNaN(textIndent) && textIndent > 0) {
+        blockStyle += "text-indent:" + textIndent * 2 + "em;";
+      }
+
+      blockStyle += '"';
+    }
+
+    if (blockType === 'atomic') {
+      return convertAtomicBlock(block, contentState, nodeAttributes);
+    } else if (blockType === 'code-block') {
+
+      var previousBlock = contentState.getBlockBefore(block.key);
+      var nextBlock = contentState.getBlockAfter(block.key);
+      var previousBlockType = previousBlock && previousBlock.getType();
+      var nextBlockType = nextBlock && nextBlock.getType();
+
+      var start = '';
+      var end = '';
+
+      if (previousBlockType !== 'code-block') {
+        start = "<pre" + attributeString + "><code>";
+      } else {
+        start = '';
+      }
+
+      if (nextBlockType !== 'code-block') {
+        end = '</code></pre>';
+      } else {
+        end = '<br/>';
+      }
+
+      return { start: start, end: end };
+    } else if (blocks[blockType]) {
+      return {
+        start: "<" + blocks[blockType] + blockStyle + attributeString + ">",
+        end: "</" + blocks[blockType] + ">"
+      };
+    } else if (blockType === 'unordered-list-item') {
+      return {
+        start: "<li" + blockStyle + attributeString + ">",
+        end: '</li>',
+        nest: _react2.default.createElement("ul", null)
+      };
+    } else if (blockType === 'ordered-list-item') {
+      return {
+        start: "<li" + blockStyle + attributeString + ">",
+        end: '</li>',
+        nest: _react2.default.createElement("ol", null)
+      };
+    }
+  };
+};
+
+var htmlToStyle = function htmlToStyle(options, source) {
+  return function (nodeName, node, currentStyle) {
+
+    if (!node || !node.style) {
+      return currentStyle;
+    }
+
+    var unitImportFn = options.unitImportFn || defaultUnitImportFn;
+    var newStyle = currentStyle;
+
+    [].forEach.call(node.style, function (style) {
+
+      if (nodeName === 'span' && style === 'color') {
+        var color = getHexColor(node.style.color);
+        newStyle = color ? newStyle.add('COLOR-' + color.replace('#', '').toUpperCase()) : newStyle;
+      } else if (nodeName === 'span' && style === 'background-color') {
+        var _color = getHexColor(node.style.backgroundColor);
+        newStyle = _color ? newStyle.add('BGCOLOR-' + _color.replace('#', '').toUpperCase()) : newStyle;
+      } else if (nodeName === 'span' && style === 'font-size') {
+        newStyle = newStyle.add('FONTSIZE-' + unitImportFn(node.style.fontSize, 'font-size', source));
+      } else if (nodeName === 'span' && style === 'line-height' && !isNaN(parseFloat(node.style.lineHeight, 10))) {
+        newStyle = newStyle.add('LINEHEIGHT-' + unitImportFn(node.style.lineHeight, 'line-height', source));
+      } else if (nodeName === 'span' && style === 'letter-spacing' && !isNaN(parseFloat(node.style.letterSpacing, 10))) {
+        newStyle = newStyle.add('LETTERSPACING-' + unitImportFn(node.style.letterSpacing, 'letter-spacing', source));
+      } else if (nodeName === 'span' && style === 'text-decoration') {
+        if (node.style.textDecoration === 'line-through') {
+          newStyle = newStyle.add('STRIKETHROUGH');
+        } else if (node.style.textDecoration === 'underline') {
+          newStyle = newStyle.add('UNDERLINE');
+        }
+      } else if (nodeName === 'span' && style === 'font-family') {
+        var fontFamily = options.fontFamilies.find(function (item) {
+          return item.family.toLowerCase() === node.style.fontFamily.toLowerCase();
+        });
+        if (!fontFamily) return;
+        newStyle = newStyle.add('FONTFAMILY-' + fontFamily.name.toUpperCase());
+      }
+    });
+
+    if (nodeName === 'sup') {
+      newStyle = newStyle.add('SUPERSCRIPT');
+    } else if (nodeName === 'sub') {
+      newStyle = newStyle.add('SUBSCRIPT');
+    }
+
+    options.styleImportFn && (newStyle = options.styleImportFn(nodeName, node, newStyle, source) || newStyle);
+    return newStyle;
+  };
+};
+
+var htmlToEntity = function htmlToEntity(options, source) {
+  return function (nodeName, node, createEntity) {
+
+    if (options && options.entityImportFn) {
+      var customInput = options.entityImportFn(nodeName, node, createEntity, source);
+      if (customInput) {
+        return customInput;
+      }
+    }
+
+    nodeName = nodeName.toLowerCase();
+
+    var alt = node.alt,
+        title = node.title,
+        id = node.id,
+        controls = node.controls,
+        autoplay = node.autoplay,
+        loop = node.loop,
+        poster = node.poster;
+
+    var meta = {};
+    var nodeAttributes = {};
+
+    id && (meta.id = id);
+    alt && (meta.alt = alt);
+    title && (meta.title = title);
+    controls && (meta.controls = controls);
+    autoplay && (meta.autoPlay = autoplay);
+    loop && (meta.loop = loop);
+    poster && (meta.poster = poster);
+
+    node.attributes && Object.keys(node.attributes).forEach(function (key) {
+      var attr = node.attributes[key];
+      ignoredEntityNodeAttributes.indexOf(attr.name) === -1 && (nodeAttributes[attr.name] = attr.value);
+    });
+
+    if (nodeName === 'a' && !node.querySelectorAll('img').length) {
+      var href = node.getAttribute('href');
+      var _target = node.getAttribute('target');
+      return createEntity('LINK', 'MUTABLE', { href: href, target: _target, nodeAttributes: nodeAttributes });
+    } else if (nodeName === 'audio') {
+      return createEntity('AUDIO', 'IMMUTABLE', { url: node.getAttribute('src'), meta: meta, nodeAttributes: nodeAttributes });
+    } else if (nodeName === 'video') {
+      return createEntity('VIDEO', 'IMMUTABLE', { url: node.getAttribute('src'), meta: meta, nodeAttributes: nodeAttributes });
+    } else if (nodeName === 'img') {
+
+      var parentNode = node.parentNode;
+      var entityData = { meta: meta };
+      var _node$style = node.style,
+          width = _node$style.width,
+          height = _node$style.height;
+
+
+      entityData.url = node.getAttribute('src');
+      width && (entityData.width = width);
+      height && (entityData.height = height);
+
+      if (parentNode.nodeName.toLowerCase() === 'a') {
+        entityData.link = parentNode.getAttribute('href');
+        entityData.link_target = parentNode.getAttribute('target');
+      }
+
+      return createEntity('IMAGE', 'IMMUTABLE', entityData);
+    } else if (nodeName === 'hr') {
+      return createEntity('HR', 'IMMUTABLE', {});
+    } else if (node.parentNode && node.parentNode.classList.contains('embed-wrap')) {
+
+      var embedContent = node.innerHTML || node.outerHTML;
+
+      if (embedContent) {
+        return createEntity('EMBED', 'IMMUTABLE', {
+          url: embedContent
+        });
+      }
+    }
+  };
+};
+
+var htmlToBlock = function htmlToBlock(options, source) {
+  return function (nodeName, node) {
+
+    if (options && options.blockImportFn) {
+      var customInput = options.blockImportFn(nodeName, node, source);
+      if (customInput) {
+        return customInput;
+      }
+    }
+
+    var nodeAttributes = {};
+    var nodeStyle = node.style || {};
+
+    node.attributes && Object.keys(node.attributes).forEach(function (key) {
+      var attr = node.attributes[key];
+      ignoredNodeAttributes.indexOf(attr.name) === -1 && (nodeAttributes[attr.name] = attr.value);
+    });
+
+    if (node.classList && node.classList.contains('media-wrap')) {
+
+      return {
+        type: 'atomic',
+        data: {
+          nodeAttributes: nodeAttributes,
+          float: nodeStyle.float,
+          alignment: nodeStyle.textAlign
+        }
+      };
+    } else if (nodeName === 'img') {
+
+      return {
+        type: 'atomic',
+        data: {
+          nodeAttributes: nodeAttributes,
+          float: nodeStyle.float,
+          alignment: nodeStyle.textAlign
+        }
+      };
+    } else if (nodeName === 'hr') {
+
+      return {
+        type: 'atomic',
+        data: { nodeAttributes: nodeAttributes }
+      };
+    } else if (nodeName === 'pre') {
+
+      node.innerHTML = node.innerHTML.replace(/<code(.*?)>/g, '').replace(/<\/code>/g, '');
+
+      return {
+        type: 'code-block',
+        data: { nodeAttributes: nodeAttributes }
+      };
+    } else if (blockNames.indexOf(nodeName) !== -1) {
+
+      var blockData = { nodeAttributes: nodeAttributes };
+
+      if (nodeStyle.textAlign) {
+        blockData.textAlign = nodeStyle.textAlign;
+      }
+
+      if (nodeStyle.textIndent) {
+        blockData.textIndent = /^\d+em$/.test(nodeStyle.textIndent) ? Math.ceil(parseInt(nodeStyle.textIndent, 10) / 2) : 1;
+      }
+
+      return {
+        type: blockTypes[blockNames.indexOf(nodeName)],
+        data: blockData
+      };
+    }
+  };
+};
+
+var getToHTMLConfig = exports.getToHTMLConfig = function getToHTMLConfig(options) {
+
+  return {
+    styleToHTML: styleToHTML(options),
+    entityToHTML: entityToHTML(options),
+    blockToHTML: blockToHTML(options)
+  };
+};
+
+var getFromHTMLConfig = exports.getFromHTMLConfig = function getFromHTMLConfig(options) {
+  var source = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'unknow';
+
+
+  return {
+    htmlToStyle: htmlToStyle(options, source),
+    htmlToEntity: htmlToEntity(options, source),
+    htmlToBlock: htmlToBlock(options, source)
+  };
+};
+//# sourceMappingURL=configs.js.map
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports) {
+
 function _arrayWithHoles(arr) {
   if (Array.isArray(arr)) return arr;
 }
@@ -894,7 +1690,7 @@ function _arrayWithHoles(arr) {
 module.exports = _arrayWithHoles;
 
 /***/ }),
-/* 32 */
+/* 34 */
 /***/ (function(module, exports) {
 
 function _iterableToArrayLimit(arr, i) {
@@ -927,7 +1723,7 @@ function _iterableToArrayLimit(arr, i) {
 module.exports = _iterableToArrayLimit;
 
 /***/ }),
-/* 33 */
+/* 35 */
 /***/ (function(module, exports) {
 
 function _nonIterableRest() {
@@ -937,7 +1733,7 @@ function _nonIterableRest() {
 module.exports = _nonIterableRest;
 
 /***/ }),
-/* 34 */
+/* 36 */
 /***/ (function(module, exports) {
 
 function _setPrototypeOf(o, p) {
@@ -952,7 +1748,7 @@ function _setPrototypeOf(o, p) {
 module.exports = _setPrototypeOf;
 
 /***/ }),
-/* 35 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -965,7 +1761,7 @@ module.exports = _setPrototypeOf;
 
 
 
-var ReactPropTypesSecret = __webpack_require__(36);
+var ReactPropTypesSecret = __webpack_require__(38);
 
 function emptyFunction() {}
 function emptyFunctionWithReset() {}
@@ -1023,7 +1819,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 36 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1042,7 +1838,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 37 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1156,7 +1952,7 @@ exports.default = _default;
 module.exports = exports.default;
 
 /***/ }),
-/* 38 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1169,7 +1965,7 @@ exports.default = void 0;
 
 var _v = _interopRequireDefault(__webpack_require__(24));
 
-var _md = _interopRequireDefault(__webpack_require__(39));
+var _md = _interopRequireDefault(__webpack_require__(41));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1179,7 +1975,7 @@ exports.default = _default;
 module.exports = exports.default;
 
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1410,7 +2206,7 @@ exports.default = _default;
 module.exports = exports.default;
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1457,7 +2253,7 @@ exports.default = _default;
 module.exports = exports.default;
 
 /***/ }),
-/* 41 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1470,7 +2266,7 @@ exports.default = void 0;
 
 var _v = _interopRequireDefault(__webpack_require__(24));
 
-var _sha = _interopRequireDefault(__webpack_require__(42));
+var _sha = _interopRequireDefault(__webpack_require__(44));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1480,7 +2276,7 @@ exports.default = _default;
 module.exports = exports.default;
 
 /***/ }),
-/* 42 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1582,7 +2378,7 @@ exports.default = _default;
 module.exports = exports.default;
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var arrayLikeToArray = __webpack_require__(22);
@@ -1594,7 +2390,7 @@ function _arrayWithoutHoles(arr) {
 module.exports = _arrayWithoutHoles;
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, exports) {
 
 function _iterableToArray(iter) {
@@ -1604,7 +2400,7 @@ function _iterableToArray(iter) {
 module.exports = _iterableToArray;
 
 /***/ }),
-/* 45 */
+/* 47 */
 /***/ (function(module, exports) {
 
 function _nonIterableSpread() {
@@ -1614,7 +2410,7 @@ function _nonIterableSpread() {
 module.exports = _nonIterableSpread;
 
 /***/ }),
-/* 46 */
+/* 48 */
 /***/ (function(module, exports) {
 
 function _objectWithoutPropertiesLoose(source, excluded) {
@@ -1635,7 +2431,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 module.exports = _objectWithoutPropertiesLoose;
 
 /***/ }),
-/* 47 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1651,9 +2447,9 @@ module.exports = _objectWithoutPropertiesLoose;
  */
 
 
-var randomizeBlockMapKeys = __webpack_require__(48);
+var randomizeBlockMapKeys = __webpack_require__(50);
 
-var removeEntitiesAtEdges = __webpack_require__(51);
+var removeEntitiesAtEdges = __webpack_require__(53);
 
 var getContentStateFragment = function getContentStateFragment(contentState, selectionState) {
   var startKey = selectionState.getStartKey();
@@ -1700,7 +2496,7 @@ var getContentStateFragment = function getContentStateFragment(contentState, sel
 module.exports = getContentStateFragment;
 
 /***/ }),
-/* 48 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1716,9 +2512,9 @@ module.exports = getContentStateFragment;
  */
 
 
-var ContentBlockNode = __webpack_require__(49);
+var ContentBlockNode = __webpack_require__(51);
 
-var generateRandomKey = __webpack_require__(50);
+var generateRandomKey = __webpack_require__(52);
 
 var Immutable = __webpack_require__(14);
 
@@ -1815,7 +2611,7 @@ var randomizeBlockMapKeys = function randomizeBlockMapKeys(blockMap) {
 module.exports = randomizeBlockMapKeys;
 
 /***/ }),
-/* 49 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1969,7 +2765,7 @@ function (_ref) {
 module.exports = ContentBlockNode;
 
 /***/ }),
-/* 50 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2002,7 +2798,7 @@ function generateRandomKey() {
 module.exports = generateRandomKey;
 
 /***/ }),
-/* 51 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2022,7 +2818,7 @@ var CharacterMetadata = __webpack_require__(25);
 
 var findRangesImmutable = __webpack_require__(26);
 
-var invariant = __webpack_require__(52);
+var invariant = __webpack_require__(54);
 
 function removeEntitiesAtEdges(contentState, selectionState) {
   var blockMap = contentState.getBlockMap();
@@ -2130,7 +2926,7 @@ function removeForBlock(entityMap, block, offset) {
 module.exports = removeEntitiesAtEdges;
 
 /***/ }),
-/* 52 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2188,7 +2984,7 @@ function invariant(condition, format) {
 module.exports = invariant;
 
 /***/ }),
-/* 53 */
+/* 55 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2207,8 +3003,8 @@ var typeof_default = /*#__PURE__*/__webpack_require__.n(helpers_typeof);
 var defineProperty = __webpack_require__(2);
 var defineProperty_default = /*#__PURE__*/__webpack_require__.n(defineProperty);
 
-// EXTERNAL MODULE: external "braft-convert"
-var external_braft_convert_ = __webpack_require__(15);
+// EXTERNAL MODULE: ../node_modules/@inner-desktop/braft-convert/dist/index.js
+var dist = __webpack_require__(15);
 
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__(0);
@@ -2608,7 +3404,7 @@ var external_immutable_ = __webpack_require__(14);
 var external_immutable_default = /*#__PURE__*/__webpack_require__.n(external_immutable_);
 
 // EXTERNAL MODULE: external "draft-js"
-var external_draft_js_ = __webpack_require__(7);
+var external_draft_js_ = __webpack_require__(6);
 
 // CONCATENATED MODULE: ./renderers/block/blockRenderMap.js
 
@@ -2678,7 +3474,7 @@ var possibleConstructorReturn = __webpack_require__(11);
 var possibleConstructorReturn_default = /*#__PURE__*/__webpack_require__.n(possibleConstructorReturn);
 
 // EXTERNAL MODULE: ../node_modules/@babel/runtime/helpers/getPrototypeOf.js
-var getPrototypeOf = __webpack_require__(6);
+var getPrototypeOf = __webpack_require__(7);
 var getPrototypeOf_default = /*#__PURE__*/__webpack_require__.n(getPrototypeOf);
 
 // EXTERNAL MODULE: ../node_modules/prop-types/index.js
@@ -2686,7 +3482,7 @@ var prop_types = __webpack_require__(1);
 var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
 
 // EXTERNAL MODULE: ../node_modules/uuid/dist/index.js
-var dist = __webpack_require__(5);
+var uuid_dist = __webpack_require__(5);
 
 // EXTERNAL MODULE: external "braft-utils"
 var external_braft_utils_ = __webpack_require__(4);
@@ -2961,7 +3757,7 @@ const mergeClassNames = (...classNames) => {
 /* harmony default export */ var dist_mergeClassNames = (mergeClassNames);
 //# sourceMappingURL=mergeClassNames.js.map
 // EXTERNAL MODULE: ./components/common/Switch/style.scss
-var Switch_style = __webpack_require__(54);
+var Switch_style = __webpack_require__(56);
 
 // CONCATENATED MODULE: ./components/common/Switch/index.jsx
 
@@ -2994,7 +3790,7 @@ Switch_Switch.propTypes = {
 };
 /* harmony default export */ var common_Switch = (Switch_Switch);
 // EXTERNAL MODULE: ./renderers/atomics/Image/style.scss
-var Image_style = __webpack_require__(56);
+var Image_style = __webpack_require__(58);
 
 // CONCATENATED MODULE: ./renderers/atomics/Image/index.jsx
 
@@ -3535,14 +4331,14 @@ var Image_Image = /*#__PURE__*/function (_React$Component) {
           return /*#__PURE__*/external_react_default.a.createElement("a", {
             className: item === 'link' && link ? 'active' : '',
             role: "presentation",
-            key: Object(dist["v4"])(),
+            key: Object(uuid_dist["v4"])(),
             onClick: function onClick() {
               return _this2.executeCommand(imageControlItems[item].command);
             }
           }, imageControlItems[item].text);
         } else if (item && (item.render || item.text)) {
           return item.render ? item.render(mediaData, _this2.props.block) : /*#__PURE__*/external_react_default.a.createElement("a", {
-            key: Object(dist["v4"])(),
+            key: Object(uuid_dist["v4"])(),
             role: "presentation",
             onClick: function onClick() {
               return item.onClick && _this2.executeCommand(item.onClick);
@@ -3677,7 +4473,7 @@ var external_react_dom_ = __webpack_require__(17);
 var external_react_dom_default = /*#__PURE__*/__webpack_require__.n(external_react_dom_);
 
 // EXTERNAL MODULE: ./components/common/Modal/style.scss
-var Modal_style = __webpack_require__(57);
+var Modal_style = __webpack_require__(59);
 
 // CONCATENATED MODULE: ./components/common/Modal/index.jsx
 
@@ -3979,7 +4775,7 @@ Modal_Modal.propTypes = {
 };
 /* harmony default export */ var common_Modal = (Modal_Modal);
 // EXTERNAL MODULE: ./components/business/PlayerModal/style.scss
-var PlayerModal_style = __webpack_require__(58);
+var PlayerModal_style = __webpack_require__(60);
 
 // CONCATENATED MODULE: ./components/business/PlayerModal/index.jsx
 
@@ -4055,7 +4851,7 @@ PlayerModal_PlayerModal.propTypes = {
 };
 /* harmony default export */ var business_PlayerModal = (PlayerModal_PlayerModal);
 // EXTERNAL MODULE: ./renderers/atomics/Video/style.scss
-var Video_style = __webpack_require__(59);
+var Video_style = __webpack_require__(61);
 
 // CONCATENATED MODULE: ./renderers/atomics/Video/index.jsx
 /* eslint-disable jsx-a11y/media-has-caption */
@@ -4110,7 +4906,7 @@ Video_Video.propTypes = {
 };
 /* harmony default export */ var atomics_Video = (Video_Video);
 // EXTERNAL MODULE: ./renderers/atomics/Audio/style.scss
-var Audio_style = __webpack_require__(60);
+var Audio_style = __webpack_require__(62);
 
 // CONCATENATED MODULE: ./renderers/atomics/Audio/index.jsx
 /* eslint-disable jsx-a11y/media-has-caption */
@@ -4161,7 +4957,7 @@ Audio_Audio.propTypes = {
 };
 /* harmony default export */ var atomics_Audio = (Audio_Audio);
 // EXTERNAL MODULE: ./renderers/atomics/Embed/style.scss
-var Embed_style = __webpack_require__(61);
+var Embed_style = __webpack_require__(63);
 
 // CONCATENATED MODULE: ./renderers/atomics/Embed/index.jsx
 /* eslint-disable react/no-danger */
@@ -4212,7 +5008,7 @@ Embed_Embed.propTypes = {
 };
 /* harmony default export */ var atomics_Embed = (Embed_Embed);
 // EXTERNAL MODULE: ./renderers/atomics/HorizontalLine/style.scss
-var HorizontalLine_style = __webpack_require__(62);
+var HorizontalLine_style = __webpack_require__(64);
 
 // CONCATENATED MODULE: ./renderers/atomics/HorizontalLine/index.jsx
 
@@ -4747,716 +5543,12 @@ var external_braft_finder_default = /*#__PURE__*/__webpack_require__.n(external_
     embed: '嵌入式媒体'
   }
 });
-// CONCATENATED MODULE: ./languages/zh-hant.js
-/* harmony default export */ var zh_hant = ({
-  base: {
-    remove: '刪除',
-    cancel: '取消',
-    confirm: '確定',
-    inert: '插入',
-    width: '宽度',
-    height: '高度'
-  },
-  controls: {
-    clear: '清除内容',
-    undo: '撤銷',
-    redo: '重做',
-    fontSize: '字號',
-    color: '顏色',
-    textColor: '文字顏色',
-    backgroundColor: '背景顏色',
-    tempColors: '臨時顏色',
-    bold: '加粗',
-    lineHeight: '行高',
-    letterSpacing: '字間距',
-    textIndent: '段落縮進',
-    increaseIndent: '增加縮進',
-    decreaseIndent: '减少縮進',
-    border: '邊框',
-    italic: '斜體',
-    underline: '下劃線',
-    strikeThrough: '刪除線',
-    fontFamily: '字體',
-    textAlign: '文本對齊',
-    alignLeft: '居左',
-    alignCenter: '居中',
-    alignRight: '居右',
-    alignJustify: '兩端對齊',
-    floatLeft: '左浮動',
-    floatRight: '右浮動',
-    superScript: '上標',
-    subScript: '下標',
-    removeStyles: '清除样式',
-    headings: '標題',
-    header: '標題',
-    normal: '常規',
-    orderedList: '有序列表',
-    unorderedList: '無序列表',
-    blockQuote: '引用',
-    code: '代碼',
-    link: '鏈接',
-    unlink: '清除鏈接',
-    hr: '水平线',
-    media: '媒體',
-    mediaLibirary: '媒體库',
-    emoji: '小表情',
-    fullscreen: '全熒幕',
-    exitFullscreen: '退出全熒幕'
-  },
-  linkEditor: {
-    textInputPlaceHolder: '輸入鏈接文字',
-    linkInputPlaceHolder: '輸入鏈接地址',
-    inputWithEnterPlaceHolder: '輸入鏈接地址並回車',
-    openInNewWindow: '在新窗口打開',
-    removeLink: '移除鏈接'
-  },
-  audioPlayer: {
-    title: '播放音頻文件'
-  },
-  videoPlayer: {
-    title: '播放視頻文件',
-    embedTitle: '嵌入式媒體'
-  },
-  media: {
-    image: '圖像',
-    video: '視頻',
-    audio: '音頻',
-    embed: '嵌入式媒體'
-  }
-});
-// CONCATENATED MODULE: ./languages/pl.js
-/* harmony default export */ var pl = ({
-  base: {
-    remove: 'Usuń',
-    cancel: 'Anuluj',
-    confirm: 'Potwierdź',
-    inert: 'Wstaw',
-    width: 'Szerokość',
-    height: 'Wysokość'
-  },
-  controls: {
-    clear: 'Wyczyść',
-    undo: 'Cofnij',
-    redo: 'Przywróć',
-    fontSize: 'Wielkość',
-    color: 'Kolor',
-    textColor: 'Kolor tekstu',
-    tempColors: 'Kolory',
-    backgroundColor: 'Tło',
-    bold: 'Pogrubienie',
-    lineHeight: 'Wysokość linii',
-    letterSpacing: 'Odstęp znaków',
-    textIndent: 'Wcięcie tekstu',
-    increaseIndent: 'Zwiększ wcięcie',
-    decreaseIndent: 'Zmniejsz wcięcie',
-    italic: 'Italiki',
-    underline: 'Podkreślenie',
-    strikeThrough: 'Przekreślenie',
-    fontFamily: 'Czcionka',
-    textAlign: 'Wyrównanie tekstu',
-    alignLeft: 'Do lewej',
-    alignCenter: 'Wycentruj',
-    alignRight: 'Do prawej',
-    alignJustify: 'Wyjustuj',
-    floatLeft: 'Do lewej',
-    floatRight: 'Do prawej',
-    superScript: 'Superskrypt',
-    subScript: 'Subskrypt',
-    removeStyles: 'Usuń stylowanie',
-    headings: 'Nagłówki',
-    header: 'Nagłówek',
-    normal: 'Normalny',
-    orderedList: 'Lista uporządkowana',
-    unorderedList: 'Lista nieuporządkowana',
-    blockQuote: 'Cytat',
-    code: 'Kod',
-    link: 'Link',
-    unlink: 'Usuń link',
-    hr: 'Linia pozioma',
-    media: 'Media',
-    mediaLibirary: 'Biblioteka mediów',
-    emoji: 'Emoji'
-  },
-  linkEditor: {
-    textInputPlaceHolder: 'Wpisz tekst linku',
-    linkInputPlaceHolder: 'Wpisz Adres URL',
-    inputWithEnterPlaceHolder: 'Wpisz adres URL i naciśnij Enter',
-    openInNewWindow: 'Otwórz w nowym oknie',
-    removeLink: 'Usuń link'
-  },
-  audioPlayer: {
-    title: 'Odtwórz audio'
-  },
-  videoPlayer: {
-    title: 'Odtwórz wideo',
-    embedTitle: 'Tytuł'
-  },
-  media: {
-    image: 'Obraz',
-    video: 'Wideo',
-    audio: 'Audio',
-    embed: 'Obiekt osadzony'
-  }
-});
-// CONCATENATED MODULE: ./languages/kr.js
-/* harmony default export */ var kr = ({
-  base: {
-    remove: '삭제',
-    cancel: '취소',
-    confirm: '결정',
-    inert: '삽입',
-    width: '너비',
-    height: '높이'
-  },
-  controls: {
-    clear: '콘텐츠지우기',
-    undo: '취소',
-    redo: '다시하기',
-    fontSize: '글자크기',
-    lineHeight: '행높이',
-    letterSpacing: '단어간격',
-    textIndent: '단락들여쓰기',
-    increaseIndent: '들여쓰기늘리기',
-    decreaseIndent: '들여쓰기줄이기',
-    border: '국경',
-    color: '색상',
-    textColor: '텍스트색상',
-    backgroundColor: '배경색상',
-    tempColors: '임시색',
-    bold: '굵게',
-    italic: '기울임꼴',
-    underline: '밑줄',
-    strikeThrough: '취소선',
-    fontFamily: '글꼴',
-    textAlign: '텍스트정렬',
-    alignLeft: '왼쪽',
-    alignCenter: '중심',
-    alignRight: '오른쪽',
-    alignJustify: '양쪽끝',
-    floatLeft: '떠다니기',
-    floatRight: '오른쪽부동',
-    superScript: '위첨자',
-    subScript: '첨자',
-    removeStyles: '스타일지우기',
-    headings: '제목',
-    header: '제목',
-    normal: '재래식',
-    orderedList: '순서가지정된목록',
-    unorderedList: '정렬되지않은목록',
-    blockQuote: '참고문헌',
-    code: '코드',
-    link: '링크',
-    unlink: '링크삭제',
-    hr: '수평선',
-    media: '미디어',
-    mediaLibirary: '미디어라이브러리',
-    emoji: '작은표현',
-    fullscreen: '전체화면',
-    exitFullscreen: '전체화면종료'
-  },
-  linkEditor: {
-    textInputPlaceHolder: '링크텍스트입력',
-    linkInputPlaceHolder: '링크주소입력',
-    inputWithEnterPlaceHolder: '링크주소입력.',
-    openInNewWindow: '새창열기',
-    removeLink: '링크삭제'
-  },
-  audioPlayer: {
-    title: '오디오파일재생'
-  },
-  videoPlayer: {
-    title: '비디오파일재생',
-    embedTitle: '임베디드미디어'
-  },
-  media: {
-    image: '이미지',
-    video: '비디오',
-    audio: '오디오',
-    embed: '임베디드미디어'
-  }
-});
-// CONCATENATED MODULE: ./languages/tr.js
-/* harmony default export */ var tr = ({
-  base: {
-    remove: 'Kaldır',
-    cancel: 'İptal',
-    confirm: 'Onayla',
-    inert: 'Ekle',
-    width: 'Genişlik',
-    height: 'Yükseklik'
-  },
-  controls: {
-    clear: 'Temizle',
-    undo: 'Geri al',
-    redo: 'İleri al',
-    fontSize: 'Yazı boyutu',
-    color: 'Renk',
-    textColor: 'Yazı rengi',
-    tempColors: 'Geçici renkler',
-    backgroundColor: 'Arkaplan',
-    bold: 'Kalın',
-    lineHeight: 'Satır yüksekliği',
-    letterSpacing: 'Harf aralığı',
-    textIndent: 'Çentik aralığı',
-    increaseIndent: 'Çentiği genişlet',
-    decreaseIndent: 'Çentiği daralt',
-    italic: 'Eğik',
-    underline: 'Altı çizili',
-    strikeThrough: 'Üstü çizili',
-    fontFamily: 'Yazı tipi',
-    textAlign: 'Metin Hizalama',
-    alignLeft: 'Sola hizala',
-    alignCenter: 'Ortaya hizala',
-    alignRight: 'Sağa hizala',
-    alignJustify: 'Her iki tarafa hizala',
-    floatLeft: 'Sola yatır',
-    floatRight: 'Sağa yatır',
-    superScript: 'Ana kod',
-    subScript: 'Alt kod',
-    removeStyles: 'Stilleri kaldır',
-    headings: 'Başlıklar',
-    header: 'Başlık',
-    normal: 'Normal',
-    orderedList: 'Sıralı liste',
-    unorderedList: 'Sırasız liste',
-    blockQuote: 'Alıntı',
-    code: 'Kod',
-    link: 'Bağlantı',
-    unlink: 'Bağlantıyı kaldır',
-    hr: 'Yatay çizgi',
-    media: 'Medya',
-    mediaLibirary: 'Kütüphane',
-    emoji: 'İfade',
-    fullscreen: 'Tam ekran',
-    exitFullscreen: 'Tam ekrandan çık'
-  },
-  linkEditor: {
-    textInputPlaceHolder: 'Bağlantı metnini girin',
-    linkInputPlaceHolder: "Bağlantı URL' si girin",
-    inputWithEnterPlaceHolder: "Bağlantı URL'si girin ve Enter' a basın",
-    openInNewWindow: 'Yeni pencerede aç',
-    removeLink: 'Bağlantıyı kaldır'
-  },
-  audioPlayer: {
-    title: 'Ses çal'
-  },
-  videoPlayer: {
-    title: 'Görüntü oynat',
-    embedTitle: 'Görüntüyü göm'
-  },
-  media: {
-    image: 'Resim',
-    video: 'Görüntü',
-    audio: 'Ses',
-    embed: 'Gömülü nesne'
-  }
-});
-// CONCATENATED MODULE: ./languages/jpn.js
-/* harmony default export */ var jpn = ({
-  base: {
-    remove: '削除',
-    cancel: 'キャンセル',
-    confirm: '決定',
-    inert: '挿入',
-    width: '幅',
-    height: '高さ'
-  },
-  controls: {
-    clear: 'クリアコンテンツ',
-    undo: 'キャンセル',
-    redo: 'キャンセル',
-    fontSize: 'フォントサイズ',
-    lineHeight: 'フォントサイズ',
-    letterSpacing: 'ワード間隔',
-    textIndent: '段落のインデント',
-    increaseIndent: 'インデントを増やす',
-    decreaseIndent: 'インデントを減らす',
-    border: '国境',
-    color: '色',
-    textColor: 'テキストの色',
-    backgroundColor: '背景色',
-    tempColors: '仮色',
-    bold: '太字',
-    italic: 'イタリック体',
-    underline: '下線',
-    strikeThrough: '取り消し線',
-    fontFamily: 'フォント',
-    textAlign: 'テキストの配置',
-    alignLeft: '左',
-    alignCenter: '中央揃え',
-    alignRight: '右に立つ',
-    alignJustify: '両端',
-    floatLeft: '左フローティング',
-    floatRight: '右フローティング',
-    superScript: '上付き',
-    subScript: '下付き文字',
-    removeStyles: 'クリアスタイル',
-    headings: '役職',
-    header: '役職',
-    normal: '従来の',
-    orderedList: '順序付きリスト',
-    unorderedList: '番号なしリスト',
-    blockQuote: '参照',
-    code: 'コード',
-    link: 'リンク',
-    unlink: 'リンクを解除',
-    hr: '横線',
-    media: 'メディア',
-    mediaLibirary: 'メディアライブラリー',
-    emoji: '小さな表現',
-    fullscreen: '全画面',
-    exitFullscreen: '全画面を退く'
-  },
-  linkEditor: {
-    textInputPlaceHolder: 'リンクテキストを入力',
-    linkInputPlaceHolder: 'リンクアドレスを入力',
-    inputWithEnterPlaceHolder: 'リンクアドレスを入力して戻ります',
-    openInNewWindow: '新しいウィンドウで開く',
-    removeLink: '新しいウィンドウで開く'
-  },
-  audioPlayer: {
-    title: 'オーディオファイルを再生する'
-  },
-  videoPlayer: {
-    title: 'ビデオファイルを再生する',
-    embedTitle: '埋め込みメディア'
-  },
-  media: {
-    image: '画像',
-    video: 'ビデオ',
-    audio: '音声',
-    embed: '埋め込みメディア'
-  }
-});
-// CONCATENATED MODULE: ./languages/ru.js
-/* harmony default export */ var ru = ({
-  base: {
-    remove: 'Удалить',
-    cancel: 'Отмена',
-    confirm: 'Подтвердить',
-    insert: 'Вставить',
-    width: 'Ширина',
-    height: 'Высота'
-  },
-  controls: {
-    clear: 'Очистить',
-    undo: 'Отменить',
-    redo: 'Повторить',
-    fontSize: 'Размер шрифта',
-    color: 'Цвет',
-    textColor: 'Цвет текста',
-    tempColors: 'Temp Colors',
-    backgroundColor: 'Цвет фона',
-    bold: 'Жирный',
-    lineHeight: 'Межстрочный интервал',
-    letterSpacing: 'Межбуквенный интервал',
-    textIndent: 'Отступ',
-    increaseIndent: 'Увеличить отступ',
-    decreaseIndent: 'Уменьшить отступ',
-    italic: 'Курсив',
-    underline: 'Подчеркнутый',
-    strikeThrough: 'Перечеркнутый',
-    fontFamily: 'Шрифт',
-    textAlign: 'Расположение текста',
-    alignLeft: 'По левому краю',
-    alignCenter: 'По центру',
-    alignRight: 'По правому краю',
-    alignJustify: 'По ширине',
-    floatLeft: 'Обтекание слева',
-    floatRight: 'Обтекание справа',
-    superScript: 'Надстрочный индекс',
-    subScript: 'Подстрочный индекс',
-    removeStyles: 'Убрать стили',
-    headings: 'Заголовки',
-    header: 'Заголовок',
-    normal: 'Обычный',
-    orderedList: 'Упорядоченный список',
-    unorderedList: 'Неупорядоченный список',
-    blockQuote: 'Цитата',
-    code: 'Код',
-    link: 'Вставить ссылку',
-    unlink: 'Убрать ссылку',
-    hr: 'Горизонтальная линия',
-    media: 'Медиа',
-    mediaLibirary: 'Медиа библиотека',
-    emoji: 'Emoji',
-    fullscreen: 'Полноэкранный режим',
-    exitFullscreen: 'Выйти из полноэкранного режима'
-  },
-  linkEditor: {
-    textInputPlaceHolder: 'Введите текст ссылки',
-    linkInputPlaceHolder: 'Вставить ссылку',
-    inputWithEnterPlaceHolder: 'Вставить ссылку и нажать Enter',
-    openInNewWindow: 'Открыть в новом окне',
-    removeLink: 'Убрать ссылку'
-  },
-  audioPlayer: {
-    title: 'Воспроизвести аудиофайл'
-  },
-  videoPlayer: {
-    title: 'Воспроизвести видеофайл',
-    embedTitle: 'Embed Media'
-  },
-  media: {
-    image: 'Картинка',
-    video: 'Видео',
-    audio: 'Аудио',
-    embed: 'Встроенное'
-  }
-});
-// CONCATENATED MODULE: ./languages/fr.js
-/* harmony default export */ var fr = ({
-  base: {
-    remove: 'Supprimer',
-    cancel: 'Annuler',
-    confirm: 'Confirmer',
-    inert: 'Insérer',
-    width: 'Largeur',
-    height: 'Hauteur'
-  },
-  controls: {
-    clear: 'Effacer',
-    undo: 'Annuler',
-    redo: 'Refaire',
-    fontSize: 'Taille de police',
-    color: 'Couleur',
-    textColor: 'Texte',
-    tempColors: 'Couleurs temporaire',
-    backgroundColor: "Couleur d'arrière plan",
-    bold: 'Gras',
-    lineHeight: 'Hauteur de ligne',
-    letterSpacing: 'Espacement des lettres',
-    textIndent: 'Indentation du texte',
-    increaseIndent: "Augmenter l'indentation",
-    decreaseIndent: "Réduire l'indentation",
-    italic: 'Italique',
-    underline: 'Souligner',
-    strikeThrough: 'Barrer',
-    fontFamily: "Police d'écriture",
-    textAlign: 'Alignement du texte',
-    alignLeft: 'Aligner à gauche',
-    alignCenter: 'Aligner au centre',
-    alignRight: 'Aligner à droite',
-    alignJustify: 'Justifier',
-    floatLeft: 'Déplacer à gauche',
-    floatRight: 'Déplacer à droite',
-    superScript: 'Super-script',
-    subScript: 'Sous-script',
-    removeStyles: 'Supprimer les styles',
-    headings: 'Titres',
-    header: 'Entêtes',
-    normal: 'Normal',
-    orderedList: 'Liste ordonnée',
-    unorderedList: 'Liste non-ordonnée',
-    blockQuote: 'Citation',
-    code: 'Code',
-    link: 'Insérer un lien',
-    unlink: 'Supprimer le lien',
-    hr: 'Ligne horizontale',
-    media: 'Média',
-    mediaLibirary: 'Bibliothêque',
-    emoji: 'Emoji',
-    fullscreen: 'Plein écran',
-    exitFullscreen: 'Quitter le plein écran'
-  },
-  linkEditor: {
-    textInputPlaceHolder: 'Insérer le texte à afficher',
-    linkInputPlaceHolder: 'Insérer le lien URL',
-    inputWithEnterPlaceHolder: 'Insérer le lien URL puis appuyer sur Entrée',
-    openInNewWindow: 'Ouvrir dans une nouvelle fenêtre',
-    removeLink: 'Supprimer le lien'
-  },
-  audioPlayer: {
-    title: 'Lancer le son audio'
-  },
-  videoPlayer: {
-    title: 'Lancer la video',
-    embedTitle: 'Intégrer média'
-  },
-  media: {
-    image: 'Image',
-    video: 'Vidéo',
-    audio: 'Audio',
-    embed: 'Intégré'
-  }
-});
-// CONCATENATED MODULE: ./languages/pt-br.js
-/* harmony default export */ var pt_br = ({
-  base: {
-    remove: 'Remover',
-    cancel: 'Cancelar',
-    confirm: 'Confirmar',
-    inert: 'Inserir',
-    width: 'Largura',
-    height: 'Altura'
-  },
-  controls: {
-    clear: 'Limpar',
-    undo: 'Desfazer',
-    redo: 'Refazer',
-    fontSize: 'Tamanho da Fonte',
-    color: 'Cor',
-    textColor: 'Texto',
-    tempColors: 'Temp Colors',
-    backgroundColor: 'Cor de Fundo',
-    bold: 'Negrito',
-    lineHeight: 'Altura da LinhaLine Height',
-    letterSpacing: 'Espaçamento entre Letras',
-    textIndent: 'Identação de Texto',
-    increaseIndent: 'Aumentar Identação',
-    decreaseIndent: 'Diminuir Identção',
-    italic: 'Itálico',
-    underline: 'Sublinhado',
-    strikeThrough: 'Riscado',
-    fontFamily: 'Família da Fonte',
-    textAlign: 'Alinhamento de Texto',
-    alignLeft: 'Alinhamento à Esquerda',
-    alignCenter: 'Alinhamento Centralizado',
-    alignRight: 'Alinhamento à Direita',
-    alignJustify: 'Alinhamento Justificado',
-    floatLeft: 'Flutuação à Esquerda',
-    floatRight: 'Flutuação à Direita',
-    superScript: 'Sobrescrito',
-    subScript: 'Subscrito',
-    removeStyles: 'Remover Estilos',
-    headings: 'Cabeçalhos',
-    header: 'Cabeçalho',
-    normal: 'Normal',
-    orderedList: 'Lista Ordenada',
-    unorderedList: 'Lista Não Ordenada',
-    blockQuote: 'Citação',
-    code: 'Código',
-    link: 'Link',
-    unlink: 'Remover Link',
-    hr: 'Linha Horizontal',
-    media: 'Mídia',
-    mediaLibirary: 'Biblioteca de Mídia',
-    emoji: 'Emoji',
-    fullscreen: 'Tela Cheia',
-    exitFullscreen: 'Sair de Tela Cheia'
-  },
-  linkEditor: {
-    textInputPlaceHolder: 'Insira o texto do link',
-    linkInputPlaceHolder: 'Insira a URL do link',
-    inputWithEnterPlaceHolder: 'Insira a URL do link e aperte Enter',
-    openInNewWindow: 'Abrir em nova janela',
-    removeLink: 'Remover Link'
-  },
-  audioPlayer: {
-    title: 'Tocar Áudio'
-  },
-  videoPlayer: {
-    title: 'Tocar Vídeo',
-    embedTitle: 'Mídia Embutida'
-  },
-  media: {
-    image: 'Imagem',
-    video: 'Vídeo',
-    audio: 'Áudio',
-    embed: 'Embutido'
-  }
-});
-// CONCATENATED MODULE: ./languages/vi-vn.js
-/* harmony default export */ var vi_vn = ({
-  base: {
-    remove: 'Xóa bỏ',
-    cancel: 'Hủy bỏ',
-    confirm: 'Xác nhận',
-    inert: 'Chèn vào',
-    width: 'Độ rộng',
-    height: 'Độ cao'
-  },
-  controls: {
-    clear: 'Xóa toàn bộ nội dung',
-    undo: 'Hủy bỏ',
-    redo: 'Làm lại',
-    fontSize: 'Size chữ',
-    lineHeight: 'Độ cao hàng',
-    letterSpacing: 'Khoảng cách chữ',
-    textIndent: 'Khoảng cách đoạn văn',
-    increaseIndent: 'Tăng khoảng cách',
-    decreaseIndent: 'Giảm khoảng cách',
-    border: 'Đường viền',
-    color: 'Màu sắc',
-    textColor: 'Màu chữ',
-    backgroundColor: 'Màu nền',
-    tempColors: 'Màu tạm thời',
-    bold: 'Tô đậm',
-    italic: 'In nghiêng',
-    underline: 'Gạch dưới',
-    strikeThrough: 'Xóa gạch dưới',
-    fontFamily: 'Font chữ',
-    textAlign: 'Căn chỉnh văn bản',
-    alignLeft: 'Căn trái',
-    alignCenter: 'Căn giữa',
-    alignRight: 'Căn phải',
-    alignJustify: 'Hai lề',
-    floatLeft: 'Float left',
-    floatRight: 'Float right',
-    superScript: 'Chỉ số trên',
-    subScript: 'Chỉ số dưới',
-    removeStyles: 'Xóa style',
-    headings: 'Tiêu đề',
-    header: 'Tiêu đề',
-    normal: 'Quy tắc thông thường',
-    orderedList: 'Kiểu sắp xếp',
-    unorderedList: 'Kiểu không sắp xếp',
-    blockQuote: 'Trích dẫn',
-    code: 'Code',
-    link: 'Liên kết',
-    unlink: 'Gỡ liên kết',
-    hr: 'Horizontal line',
-    media: 'Media',
-    mediaLibirary: 'Kho media',
-    emoji: 'Biểu tượng cảm xúc',
-    fullscreen: 'Toàn màn hình',
-    exitFullscreen: 'Thoát khỏi chế độ toàn màn hình'
-  },
-  linkEditor: {
-    textInputPlaceHolder: 'Nhập văn bản liên kết',
-    linkInputPlaceHolder: 'Nhập địa chỉ liên kết',
-    inputWithEnterPlaceHolder: 'Nhập địa chỉ liên kết và Enter',
-    openInNewWindow: 'Mở trong tab mới',
-    removeLink: 'Gỡ liên kết'
-  },
-  audioPlayer: {
-    title: 'Phát tệp âm thanh'
-  },
-  videoPlayer: {
-    title: 'Phát tệp video',
-    embedTitle: 'Media nhúng'
-  },
-  media: {
-    image: 'Hình ảnh',
-    video: 'Video',
-    audio: 'Âm thanh',
-    embed: 'Media nhúng'
-  }
-});
 // CONCATENATED MODULE: ./languages/index.js
-
-
-
-
-
-
-
-
-
 
 
 /* harmony default export */ var languages = ({
   en: en,
-  zh: zh,
-  'zh-hant': zh_hant,
-  pl: pl,
-  kr: kr,
-  tr: tr,
-  jpn: jpn,
-  ru: ru,
-  fr: fr,
-  'pt-br': pt_br,
-  'vi-vn': vi_vn
+  zh: zh
 });
 // CONCATENATED MODULE: ./configs/keybindings.js
  // TODO
@@ -5477,7 +5569,7 @@ var external_braft_finder_default = /*#__PURE__*/__webpack_require__.n(external_
 });
 // CONCATENATED MODULE: ./configs/props.js
 /* harmony default export */ var configs_props = ({
-  language: 'en',
+  language: 'zh',
   controls: ['undo', 'redo', 'separator', 'font-size', 'line-height', 'letter-spacing', 'separator', 'text-color', 'bold', 'italic', 'underline', 'strike-through', 'separator', 'superscript', 'subscript', 'remove-styles', 'emoji', 'separator', 'text-indent', 'text-align', 'separator', 'headings', 'list-ul', 'list-ol', 'blockquote', 'code', 'separator', 'media', 'link', 'table', 'split', 'hr', 'separator', 'clear', 'separator', 'fullscreen'],
   excludeControls: [],
   extendControls: [],
@@ -5872,7 +5964,7 @@ if (!responsiveHelperInited && (typeof window === "undefined" ? "undefined" : ty
   responsiveHelperInited = true;
 }
 // EXTERNAL MODULE: ./components/common/DropDown/style.scss
-var DropDown_style = __webpack_require__(63);
+var DropDown_style = __webpack_require__(65);
 
 // CONCATENATED MODULE: ./components/common/DropDown/index.jsx
 
@@ -6102,7 +6194,7 @@ ControlGroup_ControlGroup.propTypes = {
 };
 /* harmony default export */ var business_ControlGroup = (ControlGroup_ControlGroup);
 // EXTERNAL MODULE: ./components/business/LinkEditor/style.scss
-var LinkEditor_style = __webpack_require__(64);
+var LinkEditor_style = __webpack_require__(66);
 
 // CONCATENATED MODULE: ./components/business/LinkEditor/index.jsx
 
@@ -6413,7 +6505,7 @@ var blocks = {
   blockquote: 'blockquote'
 };
 // EXTERNAL MODULE: ./components/business/Headings/style.scss
-var Headings_style = __webpack_require__(65);
+var Headings_style = __webpack_require__(67);
 
 // CONCATENATED MODULE: ./components/business/Headings/index.jsx
 
@@ -6445,7 +6537,7 @@ var Headings_Headings = function Headings(props) {
   }, headings.map(function (item) {
     var isActive = props.current === item.command;
     return /*#__PURE__*/external_react_default.a.createElement("li", {
-      key: Object(dist["v4"])(),
+      key: Object(uuid_dist["v4"])(),
       role: "presentation",
       className: "menu-item".concat(isActive ? ' active' : ''),
       onClick: function onClick() {
@@ -6467,7 +6559,7 @@ Headings_Headings.propTypes = {
 };
 /* harmony default export */ var business_Headings = (Headings_Headings);
 // EXTERNAL MODULE: ./components/common/ColorPicker/style.scss
-var ColorPicker_style = __webpack_require__(66);
+var ColorPicker_style = __webpack_require__(68);
 
 // CONCATENATED MODULE: ./components/common/ColorPicker/index.jsx
 
@@ -6484,7 +6576,7 @@ var ColorPicker_ColorPicker = function ColorPicker(props) {
     var className = props.color && item.toLowerCase() === props.color.toLowerCase() ? 'color-item active' : 'color-item';
     return /*#__PURE__*/external_react_default.a.createElement("li", {
       role: "presentation",
-      key: Object(dist["v4"])(),
+      key: Object(uuid_dist["v4"])(),
       title: item,
       className: className,
       style: {
@@ -6512,7 +6604,7 @@ ColorPicker_ColorPicker.propTypes = {
 };
 /* harmony default export */ var common_ColorPicker = (ColorPicker_ColorPicker);
 // EXTERNAL MODULE: ./components/business/TextColor/style.scss
-var TextColor_style = __webpack_require__(67);
+var TextColor_style = __webpack_require__(69);
 
 // CONCATENATED MODULE: ./components/business/TextColor/index.jsx
 
@@ -6683,7 +6775,7 @@ TextColor_TextColor.propTypes = {
 };
 /* harmony default export */ var business_TextColor = (TextColor_TextColor);
 // EXTERNAL MODULE: ./components/business/FontSize/style.scss
-var FontSize_style = __webpack_require__(68);
+var FontSize_style = __webpack_require__(70);
 
 // CONCATENATED MODULE: ./components/business/FontSize/index.jsx
 
@@ -6737,7 +6829,7 @@ var FontSize_FontSize = function FontSize(props) {
     className: "bf-font-sizes"
   }, props.fontSizes.map(function (item) {
     return /*#__PURE__*/external_react_default.a.createElement("li", {
-      key: Object(dist["v4"])(),
+      key: Object(uuid_dist["v4"])(),
       role: "presentation",
       className: item === currentFontSize ? 'active' : null,
       "data-size": item,
@@ -6758,7 +6850,7 @@ FontSize_FontSize.propTypes = {
 };
 /* harmony default export */ var business_FontSize = (FontSize_FontSize);
 // EXTERNAL MODULE: ./components/business/LineHeight/style.scss
-var LineHeight_style = __webpack_require__(69);
+var LineHeight_style = __webpack_require__(71);
 
 // CONCATENATED MODULE: ./components/business/LineHeight/index.jsx
 
@@ -6809,7 +6901,7 @@ var LineHeight_LineHeight = function LineHeight(props) {
     className: "bf-line-heights"
   }, props.lineHeights.map(function (item) {
     return /*#__PURE__*/external_react_default.a.createElement("li", {
-      key: Object(dist["v4"])(),
+      key: Object(uuid_dist["v4"])(),
       role: "presentation",
       className: item === currentLineHeight ? 'active' : null,
       "data-size": item,
@@ -6833,7 +6925,7 @@ LineHeight_LineHeight.propTypes = {
 };
 /* harmony default export */ var business_LineHeight = (LineHeight_LineHeight);
 // EXTERNAL MODULE: ./components/business/FontFamily/style.scss
-var FontFamily_style = __webpack_require__(70);
+var FontFamily_style = __webpack_require__(72);
 
 // CONCATENATED MODULE: ./components/business/FontFamily/index.jsx
 
@@ -6888,7 +6980,7 @@ var FontFamily_FontFamily = function FontFamily(props) {
     className: "menu"
   }, props.fontFamilies.map(function (item, index) {
     return /*#__PURE__*/external_react_default.a.createElement("li", {
-      key: Object(dist["v4"])(),
+      key: Object(uuid_dist["v4"])(),
       role: "presentation",
       className: "menu-item ".concat(index === currentIndex ? 'active' : ''),
       "data-name": item.name,
@@ -6986,7 +7078,7 @@ var TextAlign_TextAlign = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/external_react_default.a.createElement(business_ControlGroup, null, this.props.textAligns.map(function (item, index) {
         return /*#__PURE__*/external_react_default.a.createElement("button", {
           type: "button",
-          key: Object(dist["v4"])(),
+          key: Object(uuid_dist["v4"])(),
           "data-title": textAlignmentTitles[index],
           "data-alignment": item,
           className: dist_mergeClassNames('control-item button', item === _this2.state.currentAlignment && 'active'),
@@ -7010,7 +7102,7 @@ TextAlign_TextAlign.propTypes = {
 };
 /* harmony default export */ var business_TextAlign = (TextAlign_TextAlign);
 // EXTERNAL MODULE: ./components/business/EmojiPicker/style.scss
-var EmojiPicker_style = __webpack_require__(71);
+var EmojiPicker_style = __webpack_require__(73);
 
 // CONCATENATED MODULE: ./components/business/EmojiPicker/index.jsx
 
@@ -7051,7 +7143,7 @@ var EmojiPicker_EmojiPicker = function EmojiPicker(props) {
     className: "bf-emojis"
   }, props.emojis.map(function (item) {
     return /*#__PURE__*/external_react_default.a.createElement("li", {
-      key: Object(dist["v4"])(),
+      key: Object(uuid_dist["v4"])(),
       "data-emoji": item,
       onClick: function onClick(event) {
         return EmojiPicker_insertEmoji(event, props);
@@ -7069,7 +7161,7 @@ EmojiPicker_EmojiPicker.propTypes = {
 };
 /* harmony default export */ var business_EmojiPicker = (EmojiPicker_EmojiPicker);
 // EXTERNAL MODULE: ./components/business/LetterSpacing/style.scss
-var LetterSpacing_style = __webpack_require__(72);
+var LetterSpacing_style = __webpack_require__(74);
 
 // CONCATENATED MODULE: ./components/business/LetterSpacing/index.jsx
 
@@ -7123,7 +7215,7 @@ var LetterSpacing_LetterSpacing = function LetterSpacing(props) {
     className: "bf-letter-spacings"
   }, props.letterSpacings.map(function (item) {
     return /*#__PURE__*/external_react_default.a.createElement("li", {
-      key: Object(dist["v4"])(),
+      key: Object(uuid_dist["v4"])(),
       role: "presentation",
       className: item === currentLetterSpacing ? 'active' : null,
       "data-size": item,
@@ -7251,7 +7343,7 @@ TextIndent_TextIndent.propTypes = {
 };
 /* harmony default export */ var business_TextIndent = (TextIndent_TextIndent);
 // EXTERNAL MODULE: ./components/business/ControlBar/style.scss
-var ControlBar_style = __webpack_require__(73);
+var ControlBar_style = __webpack_require__(75);
 
 // CONCATENATED MODULE: ./components/business/ControlBar/index.jsx
 
@@ -7559,7 +7651,7 @@ var ControlBar_ControlBar = /*#__PURE__*/function (_React$Component) {
 
         if (itemKey.toLowerCase() === 'separator') {
           return /*#__PURE__*/external_react_default.a.createElement("span", {
-            key: Object(dist["v4"])(),
+            key: Object(uuid_dist["v4"])(),
             className: "separator-line"
           });
         }
@@ -7580,7 +7672,7 @@ var ControlBar_ControlBar = /*#__PURE__*/function (_React$Component) {
 
         if (controlItem.type === 'headings') {
           return /*#__PURE__*/external_react_default.a.createElement(business_Headings, extends_default()({
-            key: Object(dist["v4"])(),
+            key: Object(uuid_dist["v4"])(),
             headings: headings,
             current: currentBlockType,
             onChange: function onChange(command) {
@@ -7591,7 +7683,7 @@ var ControlBar_ControlBar = /*#__PURE__*/function (_React$Component) {
 
         if (controlItem.type === 'text-color') {
           return /*#__PURE__*/external_react_default.a.createElement(business_TextColor, extends_default()({
-            key: Object(dist["v4"])(),
+            key: Object(uuid_dist["v4"])(),
             colors: colors,
             colorPicker: colorPicker,
             theme: colorPickerTheme,
@@ -7602,7 +7694,7 @@ var ControlBar_ControlBar = /*#__PURE__*/function (_React$Component) {
 
         if (controlItem.type === 'font-size') {
           return /*#__PURE__*/external_react_default.a.createElement(business_FontSize, extends_default()({
-            key: Object(dist["v4"])(),
+            key: Object(uuid_dist["v4"])(),
             fontSizes: fontSizes,
             defaultCaption: controlItem.title
           }, commonProps));
@@ -7610,7 +7702,7 @@ var ControlBar_ControlBar = /*#__PURE__*/function (_React$Component) {
 
         if (controlItem.type === 'line-height') {
           return /*#__PURE__*/external_react_default.a.createElement(business_LineHeight, extends_default()({
-            key: Object(dist["v4"])(),
+            key: Object(uuid_dist["v4"])(),
             lineHeights: lineHeights,
             defaultCaption: controlItem.title
           }, commonProps));
@@ -7618,7 +7710,7 @@ var ControlBar_ControlBar = /*#__PURE__*/function (_React$Component) {
 
         if (controlItem.type === 'letter-spacing') {
           return /*#__PURE__*/external_react_default.a.createElement(business_LetterSpacing, extends_default()({
-            key: Object(dist["v4"])(),
+            key: Object(uuid_dist["v4"])(),
             letterSpacings: letterSpacings,
             defaultCaption: controlItem.title
           }, commonProps));
@@ -7626,14 +7718,14 @@ var ControlBar_ControlBar = /*#__PURE__*/function (_React$Component) {
 
         if (controlItem.type === 'text-indent') {
           return /*#__PURE__*/external_react_default.a.createElement(business_TextIndent, extends_default()({
-            key: Object(dist["v4"])(),
+            key: Object(uuid_dist["v4"])(),
             defaultCaption: controlItem.title
           }, commonProps));
         }
 
         if (controlItem.type === 'font-family') {
           return /*#__PURE__*/external_react_default.a.createElement(business_FontFamily, extends_default()({
-            key: Object(dist["v4"])(),
+            key: Object(uuid_dist["v4"])(),
             fontFamilies: fontFamilies,
             defaultCaption: controlItem.title
           }, commonProps));
@@ -7641,7 +7733,7 @@ var ControlBar_ControlBar = /*#__PURE__*/function (_React$Component) {
 
         if (controlItem.type === 'emoji') {
           return /*#__PURE__*/external_react_default.a.createElement(business_EmojiPicker, extends_default()({
-            key: Object(dist["v4"])(),
+            key: Object(uuid_dist["v4"])(),
             emojis: emojis,
             defaultCaption: controlItem.text
           }, commonProps));
@@ -7649,7 +7741,7 @@ var ControlBar_ControlBar = /*#__PURE__*/function (_React$Component) {
 
         if (controlItem.type === 'link') {
           return /*#__PURE__*/external_react_default.a.createElement(business_LinkEditor, extends_default()({
-            key: Object(dist["v4"])(),
+            key: Object(uuid_dist["v4"])(),
             defaultLinkTarget: defaultLinkTarget,
             allowInsertLinkText: allowInsertLinkText
           }, commonProps));
@@ -7657,7 +7749,7 @@ var ControlBar_ControlBar = /*#__PURE__*/function (_React$Component) {
 
         if (controlItem.type === 'text-align') {
           return /*#__PURE__*/external_react_default.a.createElement(business_TextAlign, extends_default()({
-            key: Object(dist["v4"])(),
+            key: Object(uuid_dist["v4"])(),
             textAligns: textAligns
           }, commonProps));
         }
@@ -7669,7 +7761,7 @@ var ControlBar_ControlBar = /*#__PURE__*/function (_React$Component) {
 
           return /*#__PURE__*/external_react_default.a.createElement("button", {
             type: "button",
-            key: Object(dist["v4"])(),
+            key: Object(uuid_dist["v4"])(),
             "data-title": controlItem.title,
             disabled: controlItem.disabled,
             className: "control-item media button",
@@ -7679,7 +7771,7 @@ var ControlBar_ControlBar = /*#__PURE__*/function (_React$Component) {
 
         if (controlItem.type === 'dropdown') {
           return /*#__PURE__*/external_react_default.a.createElement(common_DropDown, extends_default()({
-            key: Object(dist["v4"])(),
+            key: Object(uuid_dist["v4"])(),
             className: "control-item extend-control-item dropdown ".concat(controlItem.className || ''),
             caption: controlItem.text,
             htmlCaption: controlItem.html,
@@ -7696,7 +7788,7 @@ var ControlBar_ControlBar = /*#__PURE__*/function (_React$Component) {
         if (controlItem.type === 'modal') {
           return /*#__PURE__*/external_react_default.a.createElement("button", {
             type: "button",
-            key: Object(dist["v4"])(),
+            key: Object(uuid_dist["v4"])(),
             "data-title": controlItem.title,
             disabled: controlItem.disabled,
             className: "control-item extend-control-item button ".concat(controlItem.className || ''),
@@ -7731,7 +7823,7 @@ var ControlBar_ControlBar = /*#__PURE__*/function (_React$Component) {
 
         if (controlItem.type === 'component') {
           return /*#__PURE__*/external_react_default.a.createElement("div", {
-            key: Object(dist["v4"])(),
+            key: Object(uuid_dist["v4"])(),
             className: "component-wrapper ".concat(controlItem.className || '')
           }, controlItem.component);
         }
@@ -7739,7 +7831,7 @@ var ControlBar_ControlBar = /*#__PURE__*/function (_React$Component) {
         if (controlItem.type === 'button') {
           return /*#__PURE__*/external_react_default.a.createElement("button", {
             type: "button",
-            key: Object(dist["v4"])(),
+            key: Object(uuid_dist["v4"])(),
             "data-title": controlItem.title,
             disabled: controlItem.disabled,
             className: "control-item button ".concat(controlItem.className || ''),
@@ -7763,7 +7855,7 @@ var ControlBar_ControlBar = /*#__PURE__*/function (_React$Component) {
 
           return /*#__PURE__*/external_react_default.a.createElement("button", {
             type: "button",
-            key: Object(dist["v4"])(),
+            key: Object(uuid_dist["v4"])(),
             disabled: disabled,
             "data-title": controlItem.title,
             className: _this3.getControlItemClassName({
@@ -7814,10 +7906,10 @@ ControlBar_ControlBar.propTypes = {
   textBackgroundColor: prop_types_default.a.any
 };
 // EXTERNAL MODULE: ../node_modules/draft-js/dist/Draft.css
-var Draft = __webpack_require__(74);
+var Draft = __webpack_require__(76);
 
 // EXTERNAL MODULE: ./assets/scss/_base.scss
-var _base = __webpack_require__(75);
+var _base = __webpack_require__(77);
 
 // CONCATENATED MODULE: ./editor/index.jsx
 
@@ -8216,11 +8308,11 @@ var editor_BraftEditor = /*#__PURE__*/function (_React$Component) {
         return restProps;
       }
 
-      var porpsMap = Object(external_immutable_["Map"])(restProps);
+      var propsMap = Object(external_immutable_["Map"])(restProps);
       propInterceptors.forEach(function (interceptor) {
-        porpsMap = porpsMap.merge(Object(external_immutable_["Map"])(interceptor(porpsMap.toJS(), _this3) || {}));
+        propsMap = propsMap.merge(Object(external_immutable_["Map"])(interceptor(propsMap.toJS(), _this3) || {}));
       });
-      return porpsMap.toJS();
+      return propsMap.toJS();
     }
   }, {
     key: "lockOrUnlockEditor",
@@ -8433,11 +8525,11 @@ external_draft_js_["EditorState"].prototype.setConvertOptions = function setConv
 external_draft_js_["EditorState"].prototype.toHTML = function toHTML() {
   var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var convertOptions = this.convertOptions || {};
-  return Object(external_braft_convert_["convertEditorStateToHTML"])(this, index_objectSpread({}, convertOptions, {}, options));
+  return Object(dist["convertEditorStateToHTML"])(this, index_objectSpread({}, convertOptions, {}, options));
 };
 
 external_draft_js_["EditorState"].prototype.toRAW = function toRAW(noStringify) {
-  return noStringify ? Object(external_braft_convert_["convertEditorStateToRaw"])(this) : JSON.stringify(Object(external_braft_convert_["convertEditorStateToRaw"])(this));
+  return noStringify ? Object(dist["convertEditorStateToRaw"])(this) : JSON.stringify(Object(dist["convertEditorStateToRaw"])(this));
 };
 
 external_draft_js_["EditorState"].prototype.toText = function toText() {
@@ -8464,23 +8556,23 @@ external_draft_js_["EditorState"].createFrom = function (content) {
   }
 
   if (typeof_default()(content) === 'object' && content && content.blocks && content.entityMap) {
-    editorState = Object(external_braft_convert_["convertRawToEditorState"])(content, getDecorators(customOptions.editorId));
+    editorState = Object(dist["convertRawToEditorState"])(content, getDecorators(customOptions.editorId));
   }
 
   if (typeof content === 'string') {
     try {
       if (/^(-)?\d+$/.test(content)) {
-        editorState = Object(external_braft_convert_["convertHTMLToEditorState"])(content, getDecorators(customOptions.editorId), customOptions, 'create');
+        editorState = Object(dist["convertHTMLToEditorState"])(content, getDecorators(customOptions.editorId), customOptions, 'create');
       } else {
         editorState = external_draft_js_["EditorState"].createFrom(JSON.parse(content), customOptions);
       }
     } catch (error) {
-      editorState = Object(external_braft_convert_["convertHTMLToEditorState"])(content, getDecorators(customOptions.editorId), customOptions, 'create');
+      editorState = Object(dist["convertHTMLToEditorState"])(content, getDecorators(customOptions.editorId), customOptions, 'create');
     }
   }
 
   if (typeof content === 'number') {
-    editorState = Object(external_braft_convert_["convertHTMLToEditorState"])(content.toLocaleString().replace(/,/g, ''), getDecorators(customOptions.editorId), customOptions, 'create');
+    editorState = Object(dist["convertHTMLToEditorState"])(content.toLocaleString().replace(/,/g, ''), getDecorators(customOptions.editorId), customOptions, 'create');
   } else {
     editorState = external_draft_js_["EditorState"].createEmpty(getDecorators(customOptions.editorId));
   }
@@ -8506,25 +8598,13 @@ editor_0.createEditorState = external_draft_js_["EditorState"].createFrom;
 // [] allows custom shortcuts
 
 /***/ }),
-/* 54 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 55 */,
 /* 56 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 57 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
+/* 57 */,
 /* 58 */
 /***/ (function(module, exports) {
 
@@ -8628,6 +8708,18 @@ editor_0.createEditorState = external_draft_js_["EditorState"].createFrom;
 
 /***/ }),
 /* 75 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 77 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
