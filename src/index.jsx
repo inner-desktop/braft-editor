@@ -1,5 +1,6 @@
 import BraftEditor, { EditorState } from './editor'
-import { convertRawToEditorState, convertHTMLToEditorState, convertEditorStateToRaw, convertEditorStateToHTML } from '@inner-desktop/braft-convert'
+import covert, { convertRawToEditorState, convertHTMLToEditorState, convertEditorStateToRaw, convertEditorStateToHTML } from './covert'
+import * as utils from './utils'
 import { createExtensibleEditor, compositeStyleImportFn, compositeStyleExportFn, compositeEntityImportFn, compositeEntityExportFn, compositeBlockImportFn, compositeBlockExportFn } from 'helpers/extension'
 import { getDecorators } from 'renderers'
 
@@ -65,6 +66,13 @@ BraftEditor.createEditorState = EditorState.createFrom = (content, options = {})
 
 export default createExtensibleEditor(BraftEditor)
 export { EditorState, getDecorators }
+
+export { convertRawToEditorState, convertHTMLToEditorState, convertEditorStateToRaw, convertEditorStateToHTML }
+
+export {
+  utils,
+  covert
+}
 
 // 2.1版本开发计划
 // [ ]优化选中多行文字是插入链接报错的问题

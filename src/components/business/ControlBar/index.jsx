@@ -12,7 +12,7 @@ import EmojiPicker from 'components/business/EmojiPicker'
 import LetterSpacingPicker from 'components/business/LetterSpacing'
 import TextIndent from 'components/business/TextIndent'
 import DropDown from 'components/common/DropDown'
-import { ContentUtils } from '@inner-desktop/braft-utils'
+import * as ContentUtils from 'utils/content'
 import { showModal } from 'components/common/Modal'
 import { getExtensionControls } from 'helpers/extension'
 

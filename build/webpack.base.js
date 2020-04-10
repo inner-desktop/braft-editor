@@ -6,7 +6,7 @@ module.exports = {
   module: {
     //加载器配置
     rules: [
-      { 
+      {
         test: /\.(scss|css)$/,
         use: ExtractTextPlugin.extract([
           // 'style-loader',
@@ -58,7 +58,7 @@ module.exports = {
     modules: [path.resolve(__dirname, '../src'), 'node_modules'],
     alias: {
       'react': path.join(__dirname, '../node_modules', 'react'),
-      'scssinc': path.join(__dirname, '../src/assets/scss/_inc.scss')
+      'scssinc': path.join(__dirname, '../src/assets/scss/_inc.scss'),
     },
     extensions: ['.js', '.jsx']
   }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ContentUtils } from '@inner-desktop/braft-utils'
+import * as ContentUtils  from 'utils/content'
 import './style.scss'
 
 export default class HorizontalLine extends React.Component {

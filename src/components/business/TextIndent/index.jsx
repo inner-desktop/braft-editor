@@ -1,5 +1,5 @@
 import React from 'react'
-import { ContentUtils } from '@inner-desktop/braft-utils'
+import * as ContentUtils  from 'utils/content'
 import ControlGroup from 'components/business/ControlGroup'
 
 export default class TextAlign extends React.Component {

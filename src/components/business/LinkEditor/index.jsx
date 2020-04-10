@@ -3,7 +3,7 @@ import React from 'react'
 import Switch from 'components/common/Switch'
 import DropDown from 'components/common/DropDown'
 import ControlGroup from 'components/business/ControlGroup'
-import { ContentUtils } from '@inner-desktop/braft-utils'
+import * as ContentUtils  from 'utils/content'
 
 export default class LinkEditor extends React.Component {
 

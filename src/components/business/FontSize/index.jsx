@@ -1,7 +1,7 @@
 import './style.scss'
 import React from 'react'
 import DropDown from 'components/common/DropDown'
-import { ContentUtils } from '@inner-desktop/braft-utils'
+import * as ContentUtils  from 'utils/content'
 
 const toggleFontSize = (event, props) => {
 

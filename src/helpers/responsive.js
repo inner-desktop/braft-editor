@@ -1,8 +1,8 @@
-import { BaseUtils } from '@inner-desktop/braft-utils'
+import * as BaseUtils  from 'utils/base'
 
 let resizeEventHandlers = []
 let responsiveHelperInited = false
-let debouce = false
+let debounce = false
 
 export default {
 
@@ -21,12 +21,12 @@ export default {
 if (!responsiveHelperInited && typeof window === 'object') {
 
   window.addEventListener('resize', (event) => {
-    clearTimeout(debouce)
-    debouce = setTimeout(() => {
+    clearTimeout(debounce)
+    debounce = setTimeout(() => {
       resizeEventHandlers.map((item) => {
         typeof item.eventHandler === 'function' && item.eventHandler(event)
       })
-      debouce = false
+      debounce = false
     }, 100)
   })
 

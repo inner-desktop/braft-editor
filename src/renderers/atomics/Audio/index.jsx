@@ -1,7 +1,7 @@
 import './style.scss'
 import React from 'react'
 import PlayerModal from 'components/business/PlayerModal'
-import { ContentUtils } from '@inner-desktop/braft-utils'
+import * as ContentUtils  from 'utils/content'
 
 export default class Audio extends React.Component {
 

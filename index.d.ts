@@ -16,7 +16,23 @@ export type EditorState = _EditorState & {
   isEmpty(): boolean;
 };
 
-export { DraftEditorProps };
+declare namespace covert {
+  interface BraftCovertType {
+    convertRawToEditorState: Function,
+    convertHTMLToEditorState: Function,
+    convertEditorStateToRaw: Function,
+    convertEditorStateToHTML: Function,
+  }
+}
+
+declare namespace utils {
+  interface BraftUtilsType {
+    ContentUtils: any,
+    BaseUtils: any,
+    ColorUtils: any,
+  }
+}
+export { covert, utils, DraftEditorProps }
 
 export interface BraftEditorProps {
   value?: EditorState;
@@ -25,17 +41,7 @@ export interface BraftEditorProps {
   id?: string,
   editorId?: string,
   readOnly?: boolean;
-  language?:
-    | 'zh'
-    | 'zh-hant'
-    | 'en'
-    | 'tr'
-    | 'ru'
-    | 'jpn'
-    | 'kr'
-    | 'pl'
-    | 'fr'
-    | ((languages: any, context: any) => any);
+  language?:  'zh' | 'en' | ((languages: any, context: any) => any);
   controls?: ControlType[];
   excludeControls?: BuiltInControlType[];
   extendControls?: ExtendControlType[];
