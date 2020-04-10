@@ -3,7 +3,7 @@ import 'assets/scss/_base.scss'
 import React from 'react'
 import languages from 'languages'
 import BraftFinder from 'braft-finder'
-import { ColorUtils, ContentUtils } from 'braft-utils'
+import { ColorUtils, ContentUtils } from '@inner-desktop/braft-utils'
 import { Editor, EditorState } from 'draft-js'
 import { Map } from 'immutable'
 import getKeyBindingFn from 'configs/keybindings'
@@ -179,14 +179,14 @@ export default class BraftEditor extends React.Component {
 
         const tempColors = ColorUtils.detectColorsFromDraftState(nextEditorState.toRAW(true))
         nextEditorState.setConvertOptions(getConvertOptions(this.editorProps))
-  
+
         this.setState({
           tempColors: filterColors([...this.state.tempColors, ...tempColors], currentProps.colors),
           editorState: nextEditorState
         }, () => {
           this.props.onChange && this.props.onChange(nextEditorState)
         })
-  
+
       } else {
         this.setState({
           editorState: nextEditorState
@@ -332,7 +332,7 @@ export default class BraftEditor extends React.Component {
   }
 
   render () {
-    
+
     let {
       id, editorId, controls, excludeControls, extendControls, readOnly, disabled, media, language, colors, colorPicker, colorPickerTheme, colorPickerAutoHide, hooks,
       fontSizes, fontFamilies, emojis, placeholder, fixPlaceholder, headings, imageControls, imageResizable, lineHeights, letterSpacings, textAligns, textBackgroundColor, allowInsertLinkText, defaultLinkTarget,

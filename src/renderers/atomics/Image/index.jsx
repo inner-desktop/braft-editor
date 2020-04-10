@@ -1,6 +1,6 @@
 import './style.scss'
 import React from 'react'
-import { ContentUtils } from 'braft-utils'
+import { ContentUtils } from '@inner-desktop/braft-utils'
 import Switch from 'components/common/Switch'
 import { imageControlItems } from 'configs/controls'
 
@@ -35,14 +35,14 @@ export default class Image extends React.Component {
       this.initialHeight +=  e.screenY-this.initialTop
       this.initialWidth +=  -e.screenX+this.initialLeft
     }
-    
-   
+
+
     this.initialLeft = e.screenX
     this.initialTop = e.screenY
   }
 
   moveImage = (e) => {
-    
+
     this.changeSize(e)
 
     this.setState({
@@ -169,17 +169,17 @@ export default class Image extends React.Component {
               {...meta}
             />
             {toolbarVisible && imageResizable ?
-              <div 
+              <div
                 className='bf-csize-icon right-bottom'
                 onMouseDown={this.repareChangeSize('rightbottom')}
               /> : null}
             {toolbarVisible &&  imageResizable ?
-              <div 
+              <div
                 className='bf-csize-icon left-bottom'
                 onMouseDown={this.repareChangeSize('leftbottom')}
               /> : null}
-            <div 
-              className={`bf-pre-csize ${this.reSizeType}`} 
+            <div
+              className={`bf-pre-csize ${this.reSizeType}`}
               style={{width: `${tempWidth}px`, height:`${tempHeight}px`}}
             />
           </div>

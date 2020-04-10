@@ -2,7 +2,7 @@ import './style.scss'
 import React from 'react'
 import DropDown from 'components/common/DropDown'
 import BuiltinColorPicker from 'components/common/ColorPicker'
-import { ContentUtils } from 'braft-utils'
+import { ContentUtils } from '@inner-desktop/braft-utils'
 
 export default class TextColor extends React.Component {
 

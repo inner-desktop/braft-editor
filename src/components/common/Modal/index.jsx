@@ -1,7 +1,7 @@
 import './style.scss'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BaseUtils } from 'braft-utils'
+import { BaseUtils } from '@inner-desktop/braft-utils'
 
 export default class Modal extends React.Component {
 

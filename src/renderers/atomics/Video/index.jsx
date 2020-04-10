@@ -1,7 +1,7 @@
 import './style.scss'
 import React from 'react'
 import PlayerModal from 'components/business/PlayerModal'
-import { ContentUtils } from 'braft-utils'
+import { ContentUtils } from '@inner-desktop/braft-utils'
 
 export default class Video extends React.Component {
 

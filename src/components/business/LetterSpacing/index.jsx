@@ -1,7 +1,7 @@
 import './style.scss'
 import React from 'react'
 import DropDown from 'components/common/DropDown'
-import { ContentUtils } from 'braft-utils'
+import { ContentUtils } from '@inner-desktop/braft-utils'
 
 const toggleLetterSpacing = (event, props) => {
 

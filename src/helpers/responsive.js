@@ -1,4 +1,4 @@
-import { BaseUtils } from 'braft-utils'
+import { BaseUtils } from '@inner-desktop/braft-utils'
 
 let resizeEventHandlers = []
 let responsiveHelperInited = false
