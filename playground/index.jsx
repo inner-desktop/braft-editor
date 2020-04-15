@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import BraftEditor from '../src'
+import BraftEditor, { utils } from '../src'
 import ColorPicker from 'braft-extensions/dist/color-picker'
 import Table from 'braft-extensions/dist/table'
 import CodeHighlighter from 'braft-extensions/dist/code-highlighter'
@@ -39,9 +39,8 @@ class Demo extends React.Component {
     this.state = {
       count: 0,
       readOnly: false,
-      editorState: BraftEditor.createEditorState('<p data-foo="adasd" class="my-classname"><img src="https://www.baidu.com/img/bd_logo1.png?where=super" /><span style="color:#e25041;">asdasdasda</span>asdads</p>')
+      editorState: BraftEditor.createEditorState('<p></p><div class="media-wrap attachment-wrap" data-card-type="attachment" data-card-url="https://media.w3.org/2010/05/sintel/trailer.mp4" data-card-meta="%7B%22fileSize%22%3A%2212kb%22%2C%22fileType%22%3A%22PPT%22%2C%22fileName%22%3A%22draftEditor_test_file.ppt%22%7D"><div class="attachment-icon attachment-icon-ppt">PPT</div><div class="attachment-content"><div class="attachment-content-title">draftEditor_test_file.ppt</div><div class="attachment-content-desc">12kb</div></div></div><p></p>')
     }
-
   }
 
   handleChange = (editorState) => {
@@ -51,6 +50,50 @@ class Demo extends React.Component {
 
   logHTML = () => {
     console.log(this.state.editorState.toHTML())
+  }
+
+  insertImage = () => {
+    const newEditorState = utils.ContentUtils.insertMedias(this.state.editorState, [
+      {
+        type: 'IMAGE',
+        url: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*G0nDS5-aESoAAAAAAAAAAABkARQnAQ',
+      },
+    ]);
+    this.setState({
+      editorState: newEditorState
+    })
+  }
+
+  insertVideo = () => {
+    const newEditorState = utils.ContentUtils.insertMedias(this.state.editorState, [
+      {
+        type: 'VIDEO',
+        url: 'https://media.w3.org/2010/05/sintel/trailer.mp4',
+        meta: {
+          poster: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*G0nDS5-aESoAAAAAAAAAAABkARQnAQ'
+        }
+      },
+    ]);
+    this.setState({
+      editorState: newEditorState
+    })
+  }
+
+  insertAttachment = () => {
+    const newEditorState = utils.ContentUtils.insertMedias(this.state.editorState, [
+      {
+        type: 'ATTACHMENT',
+        url: 'https://media.w3.org/2010/05/sintel/trailer.mp4',
+        meta: {
+          fileSize: '12kb',
+          fileType: 'PPT',
+          fileName: 'draftEditor_test_file.ppt'
+        }
+      },
+    ]);
+    this.setState({
+      editorState: newEditorState
+    })
   }
 
   logRAW = () => {
@@ -89,12 +132,22 @@ class Demo extends React.Component {
                 closeOnConfirm: false,
                 component: <div>123123</div>
               }
-            }, {
-              key: 'my-dropdown',
-              type: 'dropdown',
-              text: 'Hello',
-              // disabled: true,
-              component: <h1>Hello World!</h1>
+            },{
+              key: 'insert Image',
+              type: 'button',
+              text: 'Insert Image',
+              onClick: this.insertImage,
+            },{
+              key: 'insert Video',
+              type: 'button',
+              text: 'Insert Video',
+              onClick: this.insertVideo,
+            },
+            {
+              key: 'insert Attachment',
+              type: 'button',
+              text: 'Insert Attachment',
+              onClick: this.insertAttachment,
             }]}
             colors={['#e25041']}
             headings={['header-one', 'unstyled']}

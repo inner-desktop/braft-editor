@@ -3,7 +3,9 @@ import Image from 'renderers/atomics/Image'
 import Video from 'renderers/atomics/Video'
 import Audio from 'renderers/atomics/Audio'
 import Embed from 'renderers/atomics/Embed'
+import Attachment from 'renderers/atomics/Attachment'
 import HorizontalLine from 'renderers/atomics/HorizontalLine'
+
 import { getExtensionBlockRendererFns } from 'helpers/extension'
 
 class BlockRenderFnContext {
@@ -45,6 +47,8 @@ class BlockRenderFnContext {
       return <Embed { ...mediaProps } />
     } else if (mediaType === 'HR') {
       return <HorizontalLine { ...mediaProps } />
+    } else if (mediaType === 'ATTACHMENT') {
+      return <Attachment {...mediaProps} />
     }
 
     if (superProps.extendAtomics) {

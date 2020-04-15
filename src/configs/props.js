@@ -74,7 +74,7 @@ export default {
     56, 64, 72, 96, 120, 144
   ],
   fontFamilies: [{
-    name: 'Araial',
+    name: 'Arial',
     family: 'Arial, Helvetica, sans-serif'
   }, {
     name: 'Georgia',

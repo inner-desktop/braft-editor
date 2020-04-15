@@ -72,7 +72,7 @@ const blockNames = blockTypes.map(key => blocks[key])
 const convertAtomicBlock = (block, contentState, blockNodeAttributes) => {
 
   if (!block || !block.key) {
-    return <p></p>
+    return <p />
   }
 
   const contentBlock = contentState.getBlockForKey(block.key)
@@ -81,20 +81,20 @@ const convertAtomicBlock = (block, contentState, blockNodeAttributes) => {
   nodeAttrAsProps.className = className
 
   if (!contentBlock) {
-    return <p></p>
+    return <p />
   }
 
   const entityKey = contentBlock.getEntityAt(0)
 
   if (!entityKey) {
-    return <p></p>
+    return <p />
   }
 
   const entity = contentState.getEntity(entityKey)
   const mediaType = entity.getType().toLowerCase()
 
   let { float, alignment } = block.data
-  let { url, link, link_target, width, height, meta } = entity.getData()
+  let { url, link, link_target, width, height, meta = {} } = entity.getData()
 
   if (mediaType === 'image') {
 
@@ -111,7 +111,11 @@ const convertAtomicBlock = (block, contentState, blockNodeAttributes) => {
 
     if (link) {
       return (
-        <div className={'media-wrap image-wrap' + styledClassName} style={imageWrapStyle}>
+        <div className={'media-wrap image-wrap' + styledClassName}
+          style={imageWrapStyle}
+          data-card-type='image'
+          data-card-url={url}
+          data-card-meta={meta}>
           <a style={{display:'inline-block'}} href={link} target={link_target}>
             <img {...nodeAttrAsProps} {...meta} src={url} width={width} height={height} style={{width, height}} />
           </a>
@@ -119,7 +123,11 @@ const convertAtomicBlock = (block, contentState, blockNodeAttributes) => {
       )
     } else {
       return (
-        <div className={'media-wrap image-wrap' + styledClassName} style={imageWrapStyle}>
+        <div className={'media-wrap image-wrap' + styledClassName}
+          style={imageWrapStyle}
+          data-card-type='image'
+          data-card-url={url}
+          data-card-meta={meta}>
           <img {...nodeAttrAsProps} {...meta} src={url} width={width} height={height} style={{width, height}}/>
         </div>
       )
@@ -128,15 +136,37 @@ const convertAtomicBlock = (block, contentState, blockNodeAttributes) => {
   } else if (mediaType === 'audio') {
     return <div className="media-wrap audio-wrap"><audio controls {...nodeAttrAsProps} {...meta} src={url} /></div>
   } else if (mediaType === 'video') {
-    return <div className="media-wrap video-wrap"><video controls {...nodeAttrAsProps} {...meta} src={url} width={width} height={height} /></div>
+    return (
+      <div className="media-wrap video-wrap"
+        data-card-type='video'
+        data-card-url={url}
+        data-card-meta={encodeURIComponent(JSON.stringify(meta))}>
+        <video controls {...nodeAttrAsProps} {...meta} src={url} width={width} height={height} />
+      </div>
+    )
   } else if (mediaType === 'embed') {
     return <div className="media-wrap embed-wrap"><div dangerouslySetInnerHTML={{__html: url}}/></div>
   } else if (mediaType === 'hr') {
-    return <hr></hr>
-  } else {
-    return <p></p>
+    return <hr />
+  } else if (mediaType === 'attachment') {
+    return (
+      <div className='media-wrap attachment-wrap'
+        data-card-type='attachment'
+        data-card-url={url}
+        data-card-meta={encodeURIComponent(JSON.stringify(meta))}>
+        <div className={`attachment-icon attachment-icon-${meta.fileType.toLowerCase()}`}>
+          {meta.fileType}
+        </div>
+        <div className='attachment-content'>
+          <div className='attachment-content-title'>{meta.fileName}</div>
+          <div className='attachment-content-desc'>{meta.fileSize}</div>
+        </div>
+      </div>
+    )
   }
-
+  else {
+    return <p />
+  }
 }
 
 const entityToHTML = (options) => (entity, originalText) => {
@@ -379,7 +409,20 @@ const htmlToEntity = (options, source) => (nodeName, node, createEntity) => {
 
   } else if (nodeName === 'hr') {
     return createEntity('HR', 'IMMUTABLE', {})
-  } else if (node.parentNode && node.parentNode.classList.contains('embed-wrap')) {
+  } else if (node && node.classList && node.classList.contains('attachment-wrap')) {
+    let entityData = {
+      url: node.getAttribute('data-card-url') || ''
+    }
+
+    try {
+      entityData.meta = JSON.parse(decodeURIComponent(node.getAttribute('data-card-meta') || ''))
+    } catch (e) {
+      console.error(e)
+      entityData.meta = {}
+    }
+    return createEntity('ATTACHMENT', 'IMMUTABLE', entityData)
+  }
+  else if (node.parentNode && node.parentNode.classList.contains('embed-wrap')) {
 
     const embedContent = node.innerHTML || node.outerHTML
 
@@ -388,9 +431,7 @@ const htmlToEntity = (options, source) => (nodeName, node, createEntity) => {
         url: embedContent
       })
     }
-
   }
-
 }
 
 const htmlToBlock = (options, source) => (nodeName, node) => {

@@ -1957,7 +1957,8 @@ var configs_convertAtomicBlock = function convertAtomicBlock(block, contentState
       link_target = _entity$getData.link_target,
       width = _entity$getData.width,
       height = _entity$getData.height,
-      meta = _entity$getData.meta;
+      _entity$getData$meta = _entity$getData.meta,
+      meta = _entity$getData$meta === void 0 ? {} : _entity$getData$meta;
 
   if (mediaType === 'image') {
     var imageWrapStyle = {};
@@ -1974,7 +1975,10 @@ var configs_convertAtomicBlock = function convertAtomicBlock(block, contentState
     if (link) {
       return external_react_default.a.createElement("div", {
         className: 'media-wrap image-wrap' + styledClassName,
-        style: imageWrapStyle
+        style: imageWrapStyle,
+        "data-card-type": "image",
+        "data-card-url": url,
+        "data-card-meta": meta
       }, external_react_default.a.createElement("a", {
         style: {
           display: 'inline-block'
@@ -1993,7 +1997,10 @@ var configs_convertAtomicBlock = function convertAtomicBlock(block, contentState
     } else {
       return external_react_default.a.createElement("div", {
         className: 'media-wrap image-wrap' + styledClassName,
-        style: imageWrapStyle
+        style: imageWrapStyle,
+        "data-card-type": "image",
+        "data-card-url": url,
+        "data-card-meta": meta
       }, external_react_default.a.createElement("img", extends_default()({}, nodeAttrAsProps, meta, {
         src: url,
         width: width,
@@ -2014,7 +2021,10 @@ var configs_convertAtomicBlock = function convertAtomicBlock(block, contentState
     })));
   } else if (mediaType === 'video') {
     return external_react_default.a.createElement("div", {
-      className: "media-wrap video-wrap"
+      className: "media-wrap video-wrap",
+      "data-card-type": "video",
+      "data-card-url": url,
+      "data-card-meta": encodeURIComponent(JSON.stringify(meta))
     }, external_react_default.a.createElement("video", extends_default()({
       controls: true
     }, nodeAttrAsProps, meta, {
@@ -2032,6 +2042,21 @@ var configs_convertAtomicBlock = function convertAtomicBlock(block, contentState
     }));
   } else if (mediaType === 'hr') {
     return external_react_default.a.createElement("hr", null);
+  } else if (mediaType === 'attachment') {
+    return external_react_default.a.createElement("div", {
+      className: "media-wrap attachment-wrap",
+      "data-card-type": "attachment",
+      "data-card-url": url,
+      "data-card-meta": encodeURIComponent(JSON.stringify(meta))
+    }, external_react_default.a.createElement("div", {
+      className: "attachment-icon attachment-icon-".concat(meta.fileType.toLowerCase())
+    }, meta.fileType), external_react_default.a.createElement("div", {
+      className: "attachment-content"
+    }, external_react_default.a.createElement("div", {
+      className: "attachment-content-title"
+    }, meta.fileName), external_react_default.a.createElement("div", {
+      className: "attachment-content-desc"
+    }, meta.fileSize)));
   } else {
     return external_react_default.a.createElement("p", null);
   }
@@ -2335,6 +2360,19 @@ var htmlToEntity = function htmlToEntity(options, source) {
       return createEntity('IMAGE', 'IMMUTABLE', entityData);
     } else if (nodeName === 'hr') {
       return createEntity('HR', 'IMMUTABLE', {});
+    } else if (node && node.classList && node.classList.contains('attachment-wrap')) {
+      var _entityData = {
+        url: node.getAttribute('data-card-url') || ''
+      };
+
+      try {
+        _entityData.meta = JSON.parse(decodeURIComponent(node.getAttribute('data-card-meta') || ''));
+      } catch (e) {
+        console.error(e);
+        _entityData.meta = {};
+      }
+
+      return createEntity('ATTACHMENT', 'IMMUTABLE', _entityData);
     } else if (node.parentNode && node.parentNode.classList.contains('embed-wrap')) {
       var embedContent = node.innerHTML || node.outerHTML;
 
@@ -3055,7 +3093,7 @@ var content_redo = function redo(editorState) {
   lineHeights: [1, 1.2, 1.5, 1.75, 2, 2.5, 3, 4],
   fontSizes: [12, 14, 16, 18, 20, 24, 28, 30, 32, 36, 40, 48, 56, 64, 72, 96, 120, 144],
   fontFamilies: [{
-    name: 'Araial',
+    name: 'Arial',
     family: 'Arial, Helvetica, sans-serif'
   }, {
     name: 'Georgia',
@@ -4838,7 +4876,6 @@ var typeIconsMap = {
       type = _ref.type,
       language = _ref.language,
       name = _ref.name,
-      url = _ref.url,
       poster = _ref.poster,
       children = _ref.children,
       onRemove = _ref.onRemove;
@@ -4864,9 +4901,7 @@ var typeIconsMap = {
     className: "bfi-play_arrow"
   })), name ? external_react_default.a.createElement("h5", {
     className: "bf-name"
-  }, name) : null, external_react_default.a.createElement("h6", {
-    className: "bf-url"
-  }, url), poster ? external_react_default.a.createElement("div", {
+  }, name) : null, poster ? external_react_default.a.createElement("div", {
     className: "bf-poster",
     style: {
       backgroundImage: "url(".concat(poster, ")")
@@ -5091,8 +5126,79 @@ function (_React$Component) {
 }(external_react_default.a.Component);
 
 
+// EXTERNAL MODULE: ./renderers/atomics/Attachment/style.scss
+var Attachment_style = __webpack_require__(51);
+
+// CONCATENATED MODULE: ./renderers/atomics/Attachment/index.jsx
+
+
+
+
+
+
+
+
+
+
+
+var Attachment_Attachment =
+/*#__PURE__*/
+function (_React$Component) {
+  inherits_default()(Attachment, _React$Component);
+
+  function Attachment() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    classCallCheck_default()(this, Attachment);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = possibleConstructorReturn_default()(this, (_getPrototypeOf2 = getPrototypeOf_default()(Attachment)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "removeAttachment", function () {
+      _this.props.editor.setValue(content_removeBlock(_this.props.editorState, _this.props.block));
+    });
+
+    return _this;
+  }
+
+  createClass_default()(Attachment, [{
+    key: "render",
+    value: function render() {
+      var mediaData = this.props.mediaData;
+      var _mediaData$meta = mediaData.meta,
+          fileSize = _mediaData$meta.fileSize,
+          fileType = _mediaData$meta.fileType,
+          fileName = _mediaData$meta.fileName;
+      return external_react_default.a.createElement("div", {
+        className: "bf-attachment"
+      }, external_react_default.a.createElement("button", {
+        onMouseDown: this.removeAttachment,
+        className: "button-remove"
+      }, external_react_default.a.createElement("i", {
+        className: "bfi-close"
+      })), external_react_default.a.createElement("div", {
+        className: "bf-attachment-icon bf-attachment-icon-".concat(fileType.toLowerCase())
+      }, fileType), external_react_default.a.createElement("div", {
+        className: "bf-attachment-content"
+      }, external_react_default.a.createElement("div", {
+        className: "bf-attachment-content-title"
+      }, fileName), external_react_default.a.createElement("div", {
+        className: "bf-attachment-content-desc"
+      }, fileSize)));
+    }
+  }]);
+
+  return Attachment;
+}(external_react_default.a.Component);
+
+
 // EXTERNAL MODULE: ./renderers/atomics/HorizontalLine/style.scss
-var HorizontalLine_style = __webpack_require__(51);
+var HorizontalLine_style = __webpack_require__(52);
 
 // CONCATENATED MODULE: ./renderers/atomics/HorizontalLine/index.jsx
 
@@ -5160,6 +5266,7 @@ function (_React$Component) {
 
 
 
+
 var blockRendererFn_BlockRenderFnContext = function BlockRenderFnContext() {
   var _this = this;
 
@@ -5203,6 +5310,8 @@ var blockRendererFn_BlockRenderFnContext = function BlockRenderFnContext() {
       return external_react_default.a.createElement(Embed_Embed, mediaProps);
     } else if (mediaType === 'HR') {
       return external_react_default.a.createElement(HorizontalLine_HorizontalLine, mediaProps);
+    } else if (mediaType === 'ATTACHMENT') {
+      return external_react_default.a.createElement(Attachment_Attachment, mediaProps);
     }
 
     if (superProps.extendAtomics) {
@@ -5459,13 +5568,13 @@ var getCustomStyleMap = inlineStyleMap;
 var getCustomStyleFn = inlineStyleFn;
 var getDecorators = decorators;
 // EXTERNAL MODULE: ./components/business/ControlBar/style.scss
-var ControlBar_style = __webpack_require__(52);
+var ControlBar_style = __webpack_require__(53);
 
 // EXTERNAL MODULE: ./components/business/LinkEditor/style.scss
-var LinkEditor_style = __webpack_require__(53);
+var LinkEditor_style = __webpack_require__(54);
 
 // EXTERNAL MODULE: ./components/common/DropDown/style.scss
-var DropDown_style = __webpack_require__(54);
+var DropDown_style = __webpack_require__(55);
 
 // CONCATENATED MODULE: ./helpers/responsive.js
 
@@ -5932,7 +6041,7 @@ function (_React$Component) {
 
 
 // EXTERNAL MODULE: ./components/business/Headings/style.scss
-var Headings_style = __webpack_require__(55);
+var Headings_style = __webpack_require__(56);
 
 // CONCATENATED MODULE: ./configs/maps.js
 
@@ -6029,10 +6138,10 @@ var maps_blocks = {
   })));
 });
 // EXTERNAL MODULE: ./components/business/TextColor/style.scss
-var TextColor_style = __webpack_require__(56);
+var TextColor_style = __webpack_require__(57);
 
 // EXTERNAL MODULE: ./components/common/ColorPicker/style.scss
-var ColorPicker_style = __webpack_require__(57);
+var ColorPicker_style = __webpack_require__(58);
 
 // CONCATENATED MODULE: ./components/common/ColorPicker/index.jsx
 
@@ -6203,7 +6312,7 @@ function (_React$Component) {
 
 
 // EXTERNAL MODULE: ./components/business/FontSize/style.scss
-var FontSize_style = __webpack_require__(58);
+var FontSize_style = __webpack_require__(59);
 
 // CONCATENATED MODULE: ./components/business/FontSize/index.jsx
 
@@ -6263,7 +6372,7 @@ var FontSize_toggleFontSize = function toggleFontSize(event, props) {
   })));
 });
 // EXTERNAL MODULE: ./components/business/LineHeight/style.scss
-var LineHeight_style = __webpack_require__(59);
+var LineHeight_style = __webpack_require__(60);
 
 // CONCATENATED MODULE: ./components/business/LineHeight/index.jsx
 
@@ -6323,7 +6432,7 @@ var LineHeight_toggleLineHeight = function toggleLineHeight(event, props) {
   })));
 });
 // EXTERNAL MODULE: ./components/business/FontFamily/style.scss
-var FontFamily_style = __webpack_require__(60);
+var FontFamily_style = __webpack_require__(61);
 
 // CONCATENATED MODULE: ./components/business/FontFamily/index.jsx
 
@@ -6471,7 +6580,7 @@ function (_React$Component) {
 
 
 // EXTERNAL MODULE: ./components/business/EmojiPicker/style.scss
-var EmojiPicker_style = __webpack_require__(61);
+var EmojiPicker_style = __webpack_require__(62);
 
 // CONCATENATED MODULE: ./components/business/EmojiPicker/index.jsx
 
@@ -6518,7 +6627,7 @@ var EmojiPicker_insertEmoji = function insertEmoji(event, props) {
   }))));
 });
 // EXTERNAL MODULE: ./components/business/LetterSpacing/style.scss
-var LetterSpacing_style = __webpack_require__(62);
+var LetterSpacing_style = __webpack_require__(63);
 
 // CONCATENATED MODULE: ./components/business/LetterSpacing/index.jsx
 
@@ -7897,6 +8006,12 @@ editor_BraftEditor.createEditorState = external_draft_js_["EditorState"].createF
 
 /***/ }),
 /* 62 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 63 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

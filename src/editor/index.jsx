@@ -193,7 +193,6 @@ export default class BraftEditor extends React.Component {
           editorState: nextEditorState
         })
       }
-
     }
 
   }

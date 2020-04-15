@@ -1,0 +1,85 @@
+@import '~scssinc';
+
+.bf-content .bf-attachment {
+  position: relative;
+  box-sizing: content-box;
+  border: 1px solid #E6E6E6;
+  max-width: 438px;
+  height: 72px;
+  border-radius: 4px;
+
+  .bf-attachment-icon {
+    width: 72px;
+    height: 72px;
+    line-height: 72px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: #FFF;
+    display: inline-block;
+    float: left;
+
+    &-doc, &-docx, &-txt  {
+      background-color: #4697FA;
+    }
+
+    &-ppt, &-pptx {
+      background-color: #FF8A46;
+    }
+
+    &-xls, &-xlsx {
+      background-color: #20B283;
+    }
+
+    &-pdf {
+      background-color: #FF5353;
+    }
+  }
+
+  .bf-attachment-content {
+    height: 72px;
+  }
+  .bf-attachment-content-title {
+    height: 42px;
+    font-size: 14px;
+    color: #222222;
+    line-height: 21px;
+    user-select: none;
+    padding: 8px 12px 4px 12px;
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .bf-attachment-content-desc {
+    font-size: 11px;
+    color: #AAAAAA;
+    overflow: hidden;
+    padding: 0 12px;
+  }
+
+
+  .button-remove {
+    position: absolute;
+    z-index: 2;
+    top: -12px;
+    right: -12px;
+    padding: 0;
+    width: 20px;
+    line-height: 20px;
+    height: 20px;
+    background-color: #CCC;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #C1C2C3;
+    }
+  }
+
+}

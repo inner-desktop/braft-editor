@@ -15,7 +15,7 @@ const typeIconsMap = {
   'embed': 'bfi-code'
 }
 
-export default ({title, type, language, name, url, poster, children, onRemove}) => {
+export default ({title, type, language, name, poster, children, onRemove}) => {
 
   return (
     <div className={`bf-player-holder ${type}`}>
@@ -30,9 +30,7 @@ export default ({title, type, language, name, url, poster, children, onRemove}) 
         <i className="bfi-play_arrow"></i>
       </button>
       {name ? <h5 className="bf-name">{name}</h5> : null}
-      <h6 className="bf-url">{url}</h6>
       {poster ? <div className="bf-poster" style={{backgroundImage: `url(${poster})`}}></div> : null}
     </div>
   )
-
 }
