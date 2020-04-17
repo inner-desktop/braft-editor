@@ -115,7 +115,7 @@ const convertAtomicBlock = (block, contentState, blockNodeAttributes) => {
           style={imageWrapStyle}
           data-card-type='image'
           data-card-url={url}
-          data-card-meta={meta}>
+          data-card-meta={encodeURIComponent(JSON.stringify(meta))}>
           <a style={{display:'inline-block'}} href={link} target={link_target}>
             <img {...nodeAttrAsProps} {...meta} src={url} width={width} height={height} style={{width, height}} />
           </a>
@@ -127,7 +127,7 @@ const convertAtomicBlock = (block, contentState, blockNodeAttributes) => {
           style={imageWrapStyle}
           data-card-type='image'
           data-card-url={url}
-          data-card-meta={meta}>
+          data-card-meta={encodeURIComponent(JSON.stringify(meta))}>
           <img {...nodeAttrAsProps} {...meta} src={url} width={width} height={height} style={{width, height}}/>
         </div>
       )
@@ -452,6 +452,10 @@ const htmlToBlock = (options, source) => (nodeName, node) => {
   })
 
   if (node.classList && node.classList.contains('media-wrap')) {
+
+    if (node.classList.contains('attachment-wrap')) {
+      node.innerHTML = ''
+    }
 
     return {
       type: 'atomic',
