@@ -1,6 +1,6 @@
 {
   "name": "@inner-desktop/braft-editor",
-  "version": "2.3.14",
+  "version": "2.3.15",
   "description": "Rich Text Editor Based On Draft.js",
   "keywords": [
     "braft",
