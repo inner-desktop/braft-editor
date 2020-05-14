@@ -15,11 +15,17 @@ export default (props) => {
 
 const viewLink = (event, link) => {
   // 当按下Ctrl/command键时，点击打开链接文字中的url
-  if (event.getModifierState('Control') 
-      || event.getModifierState('Meta')) {
-    const tempLink = document.createElement('a')
-    tempLink.href = link
-    tempLink.target = event.currentTarget.target
-    tempLink.click()
+  // if (event.getModifierState('Control')
+  //     || event.getModifierState('Meta')) {
+  //   const tempLink = document.createElement('a')
+  //   tempLink.href = link
+  //   tempLink.target = event.currentTarget.target
+  //   tempLink.click()
+  // }
+
+  if (link.startsWith('https://') || link.startsWith('http://')) {
+    window.open(link, '_blank')
+  } else {
+    window.open(`http://${link}`)
   }
 }

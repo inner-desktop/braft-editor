@@ -5486,11 +5486,17 @@ var draft_js_multidecorators_default = /*#__PURE__*/__webpack_require__.n(draft_
 
 var viewLink = function viewLink(event, link) {
   // 当按下Ctrl/command键时，点击打开链接文字中的url
-  if (event.getModifierState('Control') || event.getModifierState('Meta')) {
-    var tempLink = document.createElement('a');
-    tempLink.href = link;
-    tempLink.target = event.currentTarget.target;
-    tempLink.click();
+  // if (event.getModifierState('Control')
+  //     || event.getModifierState('Meta')) {
+  //   const tempLink = document.createElement('a')
+  //   tempLink.href = link
+  //   tempLink.target = event.currentTarget.target
+  //   tempLink.click()
+  // }
+  if (link.startsWith('https://') || link.startsWith('http://')) {
+    window.open(link, '_blank');
+  } else {
+    window.open("http://".concat(link));
   }
 };
 // CONCATENATED MODULE: ./renderers/decorators/index.js
@@ -5834,7 +5840,6 @@ function (_React$Component) {
 
 
 
-
 var LinkEditor_LinkEditor =
 /*#__PURE__*/
 function (_React$Component) {
@@ -5970,7 +5975,6 @@ function (_React$Component) {
       var _this$state2 = this.state,
           text = _this$state2.text,
           href = _this$state2.href,
-          target = _this$state2.target,
           textSelected = _this$state2.textSelected;
       var caption = external_react_default.a.createElement("i", {
         className: "bfi-link"
@@ -6008,11 +6012,6 @@ function (_React$Component) {
         onKeyDown: this.handeKeyDown,
         onChange: this.handleInputLink
       })), external_react_default.a.createElement("div", {
-        className: "switch-group"
-      }, external_react_default.a.createElement(Switch, {
-        active: target === '_blank',
-        onClick: this.setTarget
-      }), external_react_default.a.createElement("label", null, this.props.language.linkEditor.openInNewWindow)), external_react_default.a.createElement("div", {
         className: "buttons"
       }, external_react_default.a.createElement("a", {
         onClick: this.handleUnlink,

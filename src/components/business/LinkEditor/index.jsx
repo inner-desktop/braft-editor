@@ -1,6 +1,5 @@
 import './style.scss'
 import React from 'react'
-import Switch from 'components/common/Switch'
 import DropDown from 'components/common/DropDown'
 import ControlGroup from 'components/business/ControlGroup'
 import * as ContentUtils  from 'utils/content'
@@ -45,7 +44,7 @@ export default class LinkEditor extends React.Component {
   render () {
 
     const { allowInsertLinkText } = this.props
-    const { text, href, target, textSelected } = this.state
+    const { text, href, textSelected } = this.state
     const caption = <i className='bfi-link'></i>
 
     return (
@@ -81,13 +80,6 @@ export default class LinkEditor extends React.Component {
                 onKeyDown={this.handeKeyDown}
                 onChange={this.handleInputLink}
               />
-            </div>
-            <div className='switch-group'>
-              <Switch
-                active={target === '_blank'}
-                onClick={this.setTarget}
-              />
-              <label>{this.props.language.linkEditor.openInNewWindow}</label>
             </div>
             <div className='buttons'>
               <a onClick={this.handleUnlink} className='primary button-remove-link pull-left'>
