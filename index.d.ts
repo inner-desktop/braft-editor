@@ -275,6 +275,7 @@ export type HooksType = {
   ['change-block-type']?: HookFunc,
   ['exec-editor-command']?: HookFunc,
   ['insert-emoji']?: HookFunc,
+  ['insert-video']?: HookFunc,
   ['toggle-font-family']?: HookFunc,
   ['toggle-font-size']?: HookFunc,
   ['toggle-letter-spacing']?: HookFunc,

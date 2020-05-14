@@ -4943,6 +4943,10 @@ function (_React$Component) {
 
     _this = possibleConstructorReturn_default()(this, (_getPrototypeOf2 = getPrototypeOf_default()(Video)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
+    defineProperty_default()(assertThisInitialized_default()(_this), "state", {
+      videoURL: ''
+    });
+
     defineProperty_default()(assertThisInitialized_default()(_this), "removeVideo", function () {
       _this.props.editor.setValue(content_removeBlock(_this.props.editorState, _this.props.block));
     });
@@ -4951,6 +4955,25 @@ function (_React$Component) {
   }
 
   createClass_default()(Video, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var hookReturns = this.props.hooks('insert-video', this.props.mediaData)(this.props.mediaData);
+
+      if (hookReturns === false) {
+        return false;
+      }
+
+      if (Object.prototype.toString.call(hookReturns) === '[object Promise]') {
+        hookReturns.then(function (url) {
+          _this2.setState({
+            videoURL: url
+          });
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -4975,7 +4998,7 @@ function (_React$Component) {
         controls: true,
         poster: meta ? meta.poster || '' : ''
       }, external_react_default.a.createElement("source", {
-        src: url
+        src: this.state.videoURL ? this.state.videoURL : url
       })))));
     }
   }]);
