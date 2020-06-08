@@ -1,13 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 export default class extends React.Component {
-
-  shouldComponentUpdate () {
-    return false
+  shouldComponentUpdate() {
+    return false;
   }
 
-  render () {
-    return <div>{this.props.children}</div>
+  render() {
+    return <div>{this.props.children}</div>;
   }
-
 }

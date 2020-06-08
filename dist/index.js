@@ -1453,13 +1453,13 @@ var possibleConstructorReturn_default = /*#__PURE__*/__webpack_require__.n(possi
 var getPrototypeOf = __webpack_require__(8);
 var getPrototypeOf_default = /*#__PURE__*/__webpack_require__.n(getPrototypeOf);
 
-// EXTERNAL MODULE: ../node_modules/@babel/runtime/helpers/assertThisInitialized.js
-var assertThisInitialized = __webpack_require__(1);
-var assertThisInitialized_default = /*#__PURE__*/__webpack_require__.n(assertThisInitialized);
-
 // EXTERNAL MODULE: ../node_modules/@babel/runtime/helpers/inherits.js
 var inherits = __webpack_require__(9);
 var inherits_default = /*#__PURE__*/__webpack_require__.n(inherits);
+
+// EXTERNAL MODULE: ../node_modules/@babel/runtime/helpers/assertThisInitialized.js
+var assertThisInitialized = __webpack_require__(1);
+var assertThisInitialized_default = /*#__PURE__*/__webpack_require__.n(assertThisInitialized);
 
 // EXTERNAL MODULE: ../node_modules/@babel/runtime/helpers/defineProperty.js
 var defineProperty = __webpack_require__(2);
@@ -1636,8 +1636,8 @@ var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_)
 
 
 /* harmony default export */ var languages = ({
-  'en': en,
-  'zh': zh
+  en: en,
+  zh: zh
 });
 // EXTERNAL MODULE: external "braft-finder"
 var external_braft_finder_ = __webpack_require__(18);
@@ -1645,147 +1645,147 @@ var external_braft_finder_default = /*#__PURE__*/__webpack_require__.n(external_
 
 // CONCATENATED MODULE: ./utils/color.js
 var _namedColors = {
-  'aliceblue': '#f0f8ff',
-  'antiquewhite': '#faebd7',
-  'aqua': '#00ffff',
-  'aquamarine': '#7fffd4',
-  'azure': '#f0ffff',
-  'beige': '#f5f5dc',
-  'bisque': '#ffe4c4',
-  'black': '#000000',
-  'blanchedalmond': '#ffebcd',
-  'blue': '#0000ff',
-  'blueviolet': '#8a2be2',
-  'brown': '#a52a2a',
-  'burlywood': '#deb887',
-  'cadetblue': '#5f9ea0',
-  'chartreuse': '#7fff00',
-  'chocolate': '#d2691e',
-  'coral': '#ff7f50',
-  'cornflowerblue': '#6495ed',
-  'cornsilk': '#fff8dc',
-  'crimson': '#dc143c',
-  'cyan': '#00ffff',
-  'darkblue': '#00008b',
-  'darkcyan': '#008b8b',
-  'darkgoldenrod': '#b8860b',
-  'darkgray': '#a9a9a9',
-  'darkgreen': '#006400',
-  'darkkhaki': '#bdb76b',
-  'darkmagenta': '#8b008b',
-  'darkolivegreen': '#556b2f',
-  'darkorange': '#ff8c00',
-  'darkorchid': '#9932cc',
-  'darkred': '#8b0000',
-  'darksalmon': '#e9967a',
-  'darkseagreen': '#8fbc8f',
-  'darkslateblue': '#483d8b',
-  'darkslategray': '#2f4f4f',
-  'darkturquoise': '#00ced1',
-  'darkviolet': '#9400d3',
-  'deeppink': '#ff1493',
-  'deepskyblue': '#00bfff',
-  'dimgray': '#696969',
-  'dodgerblue': '#1e90ff',
-  'firebrick': '#b22222',
-  'floralwhite': '#fffaf0',
-  'forestgreen': '#228b22',
-  'fuchsia': '#ff00ff',
-  'gainsboro': '#dcdcdc',
-  'ghostwhite': '#f8f8ff',
-  'gold': '#ffd700',
-  'goldenrod': '#daa520',
-  'gray': '#808080',
-  'green': '#008000',
-  'greenyellow': '#adff2f',
-  'honeydew': '#f0fff0',
-  'hotpink': '#ff69b4',
+  aliceblue: '#f0f8ff',
+  antiquewhite: '#faebd7',
+  aqua: '#00ffff',
+  aquamarine: '#7fffd4',
+  azure: '#f0ffff',
+  beige: '#f5f5dc',
+  bisque: '#ffe4c4',
+  black: '#000000',
+  blanchedalmond: '#ffebcd',
+  blue: '#0000ff',
+  blueviolet: '#8a2be2',
+  brown: '#a52a2a',
+  burlywood: '#deb887',
+  cadetblue: '#5f9ea0',
+  chartreuse: '#7fff00',
+  chocolate: '#d2691e',
+  coral: '#ff7f50',
+  cornflowerblue: '#6495ed',
+  cornsilk: '#fff8dc',
+  crimson: '#dc143c',
+  cyan: '#00ffff',
+  darkblue: '#00008b',
+  darkcyan: '#008b8b',
+  darkgoldenrod: '#b8860b',
+  darkgray: '#a9a9a9',
+  darkgreen: '#006400',
+  darkkhaki: '#bdb76b',
+  darkmagenta: '#8b008b',
+  darkolivegreen: '#556b2f',
+  darkorange: '#ff8c00',
+  darkorchid: '#9932cc',
+  darkred: '#8b0000',
+  darksalmon: '#e9967a',
+  darkseagreen: '#8fbc8f',
+  darkslateblue: '#483d8b',
+  darkslategray: '#2f4f4f',
+  darkturquoise: '#00ced1',
+  darkviolet: '#9400d3',
+  deeppink: '#ff1493',
+  deepskyblue: '#00bfff',
+  dimgray: '#696969',
+  dodgerblue: '#1e90ff',
+  firebrick: '#b22222',
+  floralwhite: '#fffaf0',
+  forestgreen: '#228b22',
+  fuchsia: '#ff00ff',
+  gainsboro: '#dcdcdc',
+  ghostwhite: '#f8f8ff',
+  gold: '#ffd700',
+  goldenrod: '#daa520',
+  gray: '#808080',
+  green: '#008000',
+  greenyellow: '#adff2f',
+  honeydew: '#f0fff0',
+  hotpink: '#ff69b4',
   'indianred ': '#cd5c5c',
-  'indigo': '#4b0082',
-  'ivory': '#fffff0',
-  'khaki': '#f0e68c',
-  'lavender': '#e6e6fa',
-  'lavenderblush': '#fff0f5',
-  'lawngreen': '#7cfc00',
-  'lemonchiffon': '#fffacd',
-  'lightblue': '#add8e6',
-  'lightcoral': '#f08080',
-  'lightcyan': '#e0ffff',
-  'lightgoldenrodyellow': '#fafad2',
-  'lightgrey': '#d3d3d3',
-  'lightgreen': '#90ee90',
-  'lightpink': '#ffb6c1',
-  'lightsalmon': '#ffa07a',
-  'lightseagreen': '#20b2aa',
-  'lightskyblue': '#87cefa',
-  'lightslategray': '#778899',
-  'lightsteelblue': '#b0c4de',
-  'lightyellow': '#ffffe0',
-  'lime': '#00ff00',
-  'limegreen': '#32cd32',
-  'linen': '#faf0e6',
-  'magenta': '#ff00ff',
-  'maroon': '#800000',
-  'mediumaquamarine': '#66cdaa',
-  'mediumblue': '#0000cd',
-  'mediumorchid': '#ba55d3',
-  'mediumpurple': '#9370d8',
-  'mediumseagreen': '#3cb371',
-  'mediumslateblue': '#7b68ee',
-  'mediumspringgreen': '#00fa9a',
-  'mediumturquoise': '#48d1cc',
-  'mediumvioletred': '#c71585',
-  'midnightblue': '#191970',
-  'mintcream': '#f5fffa',
-  'mistyrose': '#ffe4e1',
-  'moccasin': '#ffe4b5',
-  'navajowhite': '#ffdead',
-  'navy': '#000080',
-  'oldlace': '#fdf5e6',
-  'olive': '#808000',
-  'olivedrab': '#6b8e23',
-  'orange': '#ffa500',
-  'orangered': '#ff4500',
-  'orchid': '#da70d6',
-  'palegoldenrod': '#eee8aa',
-  'palegreen': '#98fb98',
-  'paleturquoise': '#afeeee',
-  'palevioletred': '#d87093',
-  'papayawhip': '#ffefd5',
-  'peachpuff': '#ffdab9',
-  'peru': '#cd853f',
-  'pink': '#ffc0cb',
-  'plum': '#dda0dd',
-  'powderblue': '#b0e0e6',
-  'purple': '#800080',
-  'rebeccapurple': '#663399',
-  'red': '#ff0000',
-  'rosybrown': '#bc8f8f',
-  'royalblue': '#4169e1',
-  'saddlebrown': '#8b4513',
-  'salmon': '#fa8072',
-  'sandybrown': '#f4a460',
-  'seagreen': '#2e8b57',
-  'seashell': '#fff5ee',
-  'sienna': '#a0522d',
-  'silver': '#c0c0c0',
-  'skyblue': '#87ceeb',
-  'slateblue': '#6a5acd',
-  'slategray': '#708090',
-  'snow': '#fffafa',
-  'springgreen': '#00ff7f',
-  'steelblue': '#4682b4',
-  'tan': '#d2b48c',
-  'teal': '#008080',
-  'thistle': '#d8bfd8',
-  'tomato': '#ff6347',
-  'turquoise': '#40e0d0',
-  'violet': '#ee82ee',
-  'wheat': '#f5deb3',
-  'white': '#ffffff',
-  'whitesmoke': '#f5f5f5',
-  'yellow': '#ffff00',
-  'yellowgreen': '#9acd32'
+  indigo: '#4b0082',
+  ivory: '#fffff0',
+  khaki: '#f0e68c',
+  lavender: '#e6e6fa',
+  lavenderblush: '#fff0f5',
+  lawngreen: '#7cfc00',
+  lemonchiffon: '#fffacd',
+  lightblue: '#add8e6',
+  lightcoral: '#f08080',
+  lightcyan: '#e0ffff',
+  lightgoldenrodyellow: '#fafad2',
+  lightgrey: '#d3d3d3',
+  lightgreen: '#90ee90',
+  lightpink: '#ffb6c1',
+  lightsalmon: '#ffa07a',
+  lightseagreen: '#20b2aa',
+  lightskyblue: '#87cefa',
+  lightslategray: '#778899',
+  lightsteelblue: '#b0c4de',
+  lightyellow: '#ffffe0',
+  lime: '#00ff00',
+  limegreen: '#32cd32',
+  linen: '#faf0e6',
+  magenta: '#ff00ff',
+  maroon: '#800000',
+  mediumaquamarine: '#66cdaa',
+  mediumblue: '#0000cd',
+  mediumorchid: '#ba55d3',
+  mediumpurple: '#9370d8',
+  mediumseagreen: '#3cb371',
+  mediumslateblue: '#7b68ee',
+  mediumspringgreen: '#00fa9a',
+  mediumturquoise: '#48d1cc',
+  mediumvioletred: '#c71585',
+  midnightblue: '#191970',
+  mintcream: '#f5fffa',
+  mistyrose: '#ffe4e1',
+  moccasin: '#ffe4b5',
+  navajowhite: '#ffdead',
+  navy: '#000080',
+  oldlace: '#fdf5e6',
+  olive: '#808000',
+  olivedrab: '#6b8e23',
+  orange: '#ffa500',
+  orangered: '#ff4500',
+  orchid: '#da70d6',
+  palegoldenrod: '#eee8aa',
+  palegreen: '#98fb98',
+  paleturquoise: '#afeeee',
+  palevioletred: '#d87093',
+  papayawhip: '#ffefd5',
+  peachpuff: '#ffdab9',
+  peru: '#cd853f',
+  pink: '#ffc0cb',
+  plum: '#dda0dd',
+  powderblue: '#b0e0e6',
+  purple: '#800080',
+  rebeccapurple: '#663399',
+  red: '#ff0000',
+  rosybrown: '#bc8f8f',
+  royalblue: '#4169e1',
+  saddlebrown: '#8b4513',
+  salmon: '#fa8072',
+  sandybrown: '#f4a460',
+  seagreen: '#2e8b57',
+  seashell: '#fff5ee',
+  sienna: '#a0522d',
+  silver: '#c0c0c0',
+  skyblue: '#87ceeb',
+  slateblue: '#6a5acd',
+  slategray: '#708090',
+  snow: '#fffafa',
+  springgreen: '#00ff7f',
+  steelblue: '#4682b4',
+  tan: '#d2b48c',
+  teal: '#008080',
+  thistle: '#d8bfd8',
+  tomato: '#ff6347',
+  turquoise: '#40e0d0',
+  violet: '#ee82ee',
+  wheat: '#f5deb3',
+  white: '#ffffff',
+  whitesmoke: '#f5f5f5',
+  yellow: '#ffff00',
+  yellowgreen: '#9acd32'
 };
 
 var _getHexColor = function _getHexColor(color) {
@@ -1888,7 +1888,7 @@ var defaultFontFamilies = [{
   family: '"Courier New", Courier, monospace'
 }, {
   name: 'Tahoma',
-  family: 'tahoma, arial, \'Hiragino Sans GB\', 宋体, sans-serif'
+  family: "tahoma, arial, 'Hiragino Sans GB', 宋体, sans-serif"
 }];
 var configs_getHexColor = function getHexColor(color) {
   color = color.replace('color:', '').replace(';', '').replace(' ', '');
@@ -1915,8 +1915,8 @@ var blocks = {
   'header-four': 'h4',
   'header-five': 'h5',
   'header-six': 'h6',
-  'unstyled': 'p',
-  'blockquote': 'blockquote'
+  unstyled: 'p',
+  blockquote: 'blockquote'
 };
 var blockTypes = Object.keys(blocks);
 var blockNames = blockTypes.map(function (key) {
@@ -2666,7 +2666,7 @@ var content_updateEachCharacterOfSelection = function updateEachCharacterOfSelec
     }
 
     return block.merge({
-      'characterList': nextCharactersList
+      characterList: nextCharactersList
     });
   });
   return external_draft_js_["EditorState"].push(editorState, contentState.merge({
@@ -3367,7 +3367,7 @@ var handlers_pastedTextHandlers = function pastedTextHandlers(text, html, editor
 
   var tempColors = color_namespaceObject.detectColorsFromHTMLString(html);
   editor.setState({
-    tempColors: [].concat(toConsumableArray_default()(editor.state.tempColors), toConsumableArray_default()(tempColors)).filter(function (item) {
+    tempColors: toConsumableArray_default()(editor.state.tempColors).concat(toConsumableArray_default()(tempColors)).filter(function (item) {
       return editor.editorProps.colors.indexOf(item) === -1;
     }).filter(function (item, index, array) {
       return array.indexOf(item) === index;
@@ -3749,7 +3749,7 @@ var createExtensibleEditor = function createExtensibleEditor(BraftEditor) {
 
 /* harmony default export */ var block_blockRenderMap = (function (props, blockRenderMap) {
   var customBlockRenderMap = Object(external_immutable_["Map"])({
-    'atomic': {
+    atomic: {
       element: ''
     },
     'code-block': {
@@ -4031,15 +4031,15 @@ var imageControlItems = {
     }, "\uE029"),
     command: 'setImageAlignment|right'
   },
-  'size': {
+  size: {
     text: external_react_default.a.createElement("span", null, "\uE3C2"),
     command: 'toggleSizeEditor'
   },
-  'link': {
+  link: {
     text: external_react_default.a.createElement("span", null, "\uE91A"),
     command: 'toggleLinkEditor'
   },
-  'remove': {
+  remove: {
     text: external_react_default.a.createElement("span", null, "\uE9AC"),
     command: 'removeImage'
   }
@@ -4059,7 +4059,7 @@ var imageControlItems = {
 
 
 
-
+ // uploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
 
 var Image_Image =
 /*#__PURE__*/
@@ -4079,7 +4079,7 @@ function (_React$Component) {
 
     _this = possibleConstructorReturn_default()(this, (_getPrototypeOf2 = getPrototypeOf_default()(Image)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "state", {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "state", {
       toolbarVisible: false,
       toolbarOffset: 0,
       linkEditorVisible: false,
@@ -4089,17 +4089,17 @@ function (_React$Component) {
       tempHeight: null
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "initialLeft", void 0);
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "initialLeft", void 0);
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "initialTop", void 0);
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "initialTop", void 0);
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "initialWidth", void 0);
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "initialWidth", void 0);
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "initialHeight", void 0);
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "initialHeight", void 0);
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "reSizeType", void 0);
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "reSizeType", void 0);
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "changeSize", function (e) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "changeSize", function (e) {
       var type = _this.reSizeType;
 
       if (!_this.initialLeft) {
@@ -4121,7 +4121,7 @@ function (_React$Component) {
       _this.initialTop = e.screenY;
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "moveImage", function (e) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "moveImage", function (e) {
       _this.changeSize(e);
 
       _this.setState({
@@ -4130,14 +4130,14 @@ function (_React$Component) {
       });
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "upImage", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "upImage", function () {
       _this.confirmImageSize();
 
       document.removeEventListener('mousemove', _this.moveImage);
       document.removeEventListener('mouseup', _this.upImage);
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "repareChangeSize", function (type) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "repareChangeSize", function (type) {
       return function (e) {
         _this.reSizeType = type;
 
@@ -4152,12 +4152,12 @@ function (_React$Component) {
       };
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "preventDragEvent", function (event) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "preventDragEvent", function (event) {
       event.stopPropagation();
       event.preventDefault();
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleDragStart", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleDragStart", function () {
       if (_this.props.editor.editorProps.readOnly || _this.props.editor.editorProps.disabled) {
         return false;
       }
@@ -4178,12 +4178,12 @@ function (_React$Component) {
       return true;
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleDragEnd", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleDragEnd", function () {
       window.__BRAFT_DRAGING__IMAGE__ = null;
       return false;
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "executeCommand", function (command) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "executeCommand", function (command) {
       if (typeof command === 'string') {
         var _command$split = command.split('|'),
             _command$split2 = slicedToArray_default()(_command$split, 2),
@@ -4196,27 +4196,27 @@ function (_React$Component) {
       }
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "removeImage", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "removeImage", function () {
       _this.props.editor.setValue(content_removeBlock(_this.props.editor.getValue(), _this.props.block));
 
       _this.unlockEditor();
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "toggleLinkEditor", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "toggleLinkEditor", function () {
       _this.setState({
         linkEditorVisible: !_this.state.linkEditorVisible,
         sizeEditorVisible: false
       });
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "toggleSizeEditor", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "toggleSizeEditor", function () {
       _this.setState({
         linkEditorVisible: false,
         sizeEditorVisible: !_this.state.sizeEditorVisible
       });
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleLinkInputKeyDown", function (e) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleLinkInputKeyDown", function (e) {
       if (e.keyCode === 13) {
         _this.confirmImageLink();
       } else {
@@ -4224,7 +4224,7 @@ function (_React$Component) {
       }
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "setImageLink", function (e) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "setImageLink", function (e) {
       _this.setState({
         tempLink: e.currentTarget.value
       });
@@ -4232,7 +4232,7 @@ function (_React$Component) {
       return;
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "confirmImageLink", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "confirmImageLink", function () {
       var link = _this.state.tempLink;
 
       var hookReturns = _this.props.hooks('set-image-link', link)(link);
@@ -4254,7 +4254,7 @@ function (_React$Component) {
       }
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleSizeInputKeyDown", function (e) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleSizeInputKeyDown", function (e) {
       if (e.keyCode === 13) {
         _this.confirmImageSize();
       } else {
@@ -4262,7 +4262,7 @@ function (_React$Component) {
       }
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "setImageWidth", function (_ref) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "setImageWidth", function (_ref) {
       var currentTarget = _ref.currentTarget;
       var value = currentTarget.value;
       value && !isNaN(value) && (value = value + 'px');
@@ -4274,7 +4274,7 @@ function (_React$Component) {
       return;
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "setImageHeight", function (_ref2) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "setImageHeight", function (_ref2) {
       var currentTarget = _ref2.currentTarget;
       var value = currentTarget.value;
       value && !isNaN(value) && (value = value + 'px');
@@ -4286,7 +4286,7 @@ function (_React$Component) {
       return;
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "confirmImageSize", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "confirmImageSize", function () {
       var _this$state = _this.state,
           width = _this$state.tempWidth,
           height = _this$state.tempHeight;
@@ -4309,7 +4309,7 @@ function (_React$Component) {
       window.setImmediate(_this.props.editor.forceRender);
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "setImageFloat", function (float) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "setImageFloat", function (float) {
       var hookReturns = _this.props.hooks('set-image-float', float)(float);
 
       if (hookReturns === false) {
@@ -4327,7 +4327,7 @@ function (_React$Component) {
       _this.unlockEditor();
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "setImageAlignment", function (alignment) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "setImageAlignment", function (alignment) {
       var hookReturns = _this.props.hooks('set-image-alignment', alignment)(alignment);
 
       if (hookReturns === false) {
@@ -4345,7 +4345,7 @@ function (_React$Component) {
       _this.unlockEditor();
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "showToolbar", function (event) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "showToolbar", function (event) {
       if (_this.props.editor.editorProps.readOnly || _this.props.editor.editorProps.disabled) {
         return false;
       }
@@ -4365,7 +4365,7 @@ function (_React$Component) {
       }
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "hideToolbar", function (event) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "hideToolbar", function (event) {
       event.preventDefault();
 
       _this.setState({
@@ -4407,6 +4407,7 @@ function (_React$Component) {
           meta = mediaData.meta;
       var imageStyles = {};
       var clearFix = false;
+      var status = meta.status ? meta.status : 'done';
 
       if (float) {
         alignment = null;
@@ -4645,7 +4646,7 @@ function (_React$Component) {
 
     _this = possibleConstructorReturn_default()(this, getPrototypeOf_default()(Modal).call(this, props));
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleTransitionEnd", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleTransitionEnd", function () {
       if (!_this.rootElement || !_this.rootElement.classList) {
         return false;
       }
@@ -4655,7 +4656,7 @@ function (_React$Component) {
       }
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleMouseDown", function (event) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleMouseDown", function (event) {
       var tagName = event.target.tagName.toLowerCase();
 
       if (tagName === 'input' || tagName === 'textarea') {
@@ -4665,22 +4666,22 @@ function (_React$Component) {
       event.preventDefault();
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleCancel", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleCancel", function () {
       _this.props.closeOnCancel && _this.close();
       _this.props.onCancel && _this.props.onCancel();
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleConfirm", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleConfirm", function () {
       _this.props.closeOnConfirm && _this.close();
       _this.props.onConfirm && _this.props.onConfirm();
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleMaskClick", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleMaskClick", function () {
       _this.props.closeOnBlur && _this.close();
       _this.props.onBlue && _this.props.onBlue();
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "close", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "close", function () {
       _this.unrenderComponent();
 
       _this.props.onClose && _this.props.onClose();
@@ -4871,9 +4872,9 @@ var PlayerModal_playViaModal = function playViaModal(title, component, language)
 };
 
 var typeIconsMap = {
-  'video': 'bfi-film',
-  'audio': 'bfi-music',
-  'embed': 'bfi-code'
+  video: 'bfi-film',
+  audio: 'bfi-music',
+  embed: 'bfi-code'
 };
 /* harmony default export */ var PlayerModal = (function (_ref) {
   var title = _ref.title,
@@ -4943,11 +4944,11 @@ function (_React$Component) {
 
     _this = possibleConstructorReturn_default()(this, (_getPrototypeOf2 = getPrototypeOf_default()(Video)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "state", {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "state", {
       videoURL: ''
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "removeVideo", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "removeVideo", function () {
       _this.props.editor.setValue(content_removeBlock(_this.props.editorState, _this.props.block));
     });
 
@@ -5041,7 +5042,7 @@ function (_React$Component) {
 
     _this = possibleConstructorReturn_default()(this, (_getPrototypeOf2 = getPrototypeOf_default()(Audio)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "removeAudio", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "removeAudio", function () {
       _this.props.editor.setValue(content_removeBlock(_this.props.editorState, _this.props.block));
     });
 
@@ -5114,7 +5115,7 @@ function (_React$Component) {
 
     _this = possibleConstructorReturn_default()(this, (_getPrototypeOf2 = getPrototypeOf_default()(Embed)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "removeEmbed", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "removeEmbed", function () {
       _this.props.editor.setValue(content_removeBlock(_this.props.editorState, _this.props.block));
     });
 
@@ -5186,7 +5187,7 @@ function (_React$Component) {
 
     _this = possibleConstructorReturn_default()(this, (_getPrototypeOf2 = getPrototypeOf_default()(Attachment)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "removeAttachment", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "removeAttachment", function () {
       _this.props.editor.setValue(content_removeBlock(_this.props.editorState, _this.props.block));
     });
 
@@ -5257,7 +5258,7 @@ function (_React$Component) {
 
     _this = possibleConstructorReturn_default()(this, (_getPrototypeOf2 = getPrototypeOf_default()(HorizontalLine)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "removeHorizontalLine", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "removeHorizontalLine", function () {
       _this.props.editor.setValue(content_removeBlock(_this.props.editorState, _this.props.block));
     });
 
@@ -5428,12 +5429,12 @@ var blockRenderFnContext = new blockRendererFn_BlockRenderFnContext();
   var customStyleMap = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   var extensionInlineStyleMap = getExtensionInlineStyleMap(props.editorId);
   return objectSpread_default()({
-    'SUPERSCRIPT': {
+    SUPERSCRIPT: {
       position: 'relative',
       top: '-8px',
       fontSize: '11px'
     },
-    'SUBSCRIPT': {
+    SUBSCRIPT: {
       position: 'relative',
       bottom: '-8px',
       fontSize: '11px'
@@ -5565,7 +5566,7 @@ var createStrategy = function createStrategy(type) {
 
 /* harmony default export */ var decorators = (function (editorId) {
   var extensionDecorators = getExtensionDecorators(editorId);
-  var entityDecorators = [].concat(builtinDecorators, toConsumableArray_default()(extensionDecorators.filter(function (item) {
+  var entityDecorators = builtinDecorators.concat(toConsumableArray_default()(extensionDecorators.filter(function (item) {
     return item.type === 'entity';
   })));
   var strategyDecorators = extensionDecorators.filter(function (item) {
@@ -5574,9 +5575,9 @@ var createStrategy = function createStrategy(type) {
   var classDecorators = extensionDecorators.filter(function (item) {
     return item.type === 'class';
   });
-  return new draft_js_multidecorators_default.a([].concat(toConsumableArray_default()(classDecorators.map(function (item) {
+  return new draft_js_multidecorators_default.a(toConsumableArray_default()(classDecorators.map(function (item) {
     return item.decorator;
-  })), [// combine decorators created with strategy
+  })).concat([// combine decorators created with strategy
   new external_draft_js_["CompositeDecorator"](strategyDecorators.map(function (item) {
     return item.decorator;
   })), // combine decorators for entities
@@ -5673,18 +5674,18 @@ function (_React$Component) {
 
     _this = possibleConstructorReturn_default()(this, (_getPrototypeOf2 = getPrototypeOf_default()(DropDown)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "responsiveResolveId", null);
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "responsiveResolveId", null);
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "dropDownHandlerElement", null);
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "dropDownHandlerElement", null);
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "dropDownContentElement", null);
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "dropDownContentElement", null);
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "state", {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "state", {
       active: false,
       offset: 0
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "fixDropDownPosition", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "fixDropDownPosition", function () {
       var viewRect = _this.props.getContainerNode().getBoundingClientRect();
 
       var handlerRect = _this.dropDownHandlerElement.getBoundingClientRect();
@@ -5710,7 +5711,7 @@ function (_React$Component) {
       }
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "registerClickEvent", function (event) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "registerClickEvent", function (event) {
       var autoHide = _this.props.autoHide;
       var active = _this.state.active;
 
@@ -5721,19 +5722,19 @@ function (_React$Component) {
       autoHide && active && _this.hide();
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "toggle", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "toggle", function () {
       _this.setState({
         active: !_this.state.active
       });
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "show", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "show", function () {
       _this.setState({
         active: true
       });
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "hide", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "hide", function () {
       _this.setState({
         active: false
       });
@@ -5875,9 +5876,9 @@ function (_React$Component) {
 
     _this = possibleConstructorReturn_default()(this, getPrototypeOf_default()(LinkEditor).call(this, props));
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "dropDownInstance", null);
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "dropDownInstance", null);
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handeKeyDown", function (e) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handeKeyDown", function (e) {
       if (e.keyCode === 13) {
         _this.handleConfirm();
 
@@ -5886,35 +5887,35 @@ function (_React$Component) {
       }
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleTnputText", function (e) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleTnputText", function (e) {
       _this.setState({
         text: e.currentTarget.value
       });
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleInputLink", function (e) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleInputLink", function (e) {
       _this.setState({
         href: e.currentTarget.value
       });
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "setTarget", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "setTarget", function () {
       _this.setState({
         target: _this.state.target === '_blank' ? '' : '_blank'
       });
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleCancel", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleCancel", function () {
       _this.dropDownInstance.hide();
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleUnlink", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleUnlink", function () {
       _this.dropDownInstance.hide();
 
       _this.props.editor.setValue(content_toggleSelectionLink(_this.props.editorState, false));
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleConfirm", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleConfirm", function () {
       var _this$state = _this.state,
           text = _this$state.text,
           href = _this$state.href,
@@ -6123,8 +6124,8 @@ var maps_blocks = {
   'header-four': 'h4',
   'header-fiv': 'h5',
   'header-six': 'h6',
-  'unstyled': 'p',
-  'blockquote': 'blockquote'
+  unstyled: 'p',
+  blockquote: 'blockquote'
 };
 // CONCATENATED MODULE: ./components/business/Headings/index.jsx
 
@@ -6225,11 +6226,11 @@ function (_React$Component) {
 
     _this = possibleConstructorReturn_default()(this, (_getPrototypeOf2 = getPrototypeOf_default()(TextColor)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "state", {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "state", {
       colorType: 'color'
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "switchColorType", function (_ref) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "switchColorType", function (_ref) {
       var currentTarget = _ref.currentTarget;
 
       _this.setState({
@@ -6237,7 +6238,7 @@ function (_React$Component) {
       });
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "toggleColor", function (color, closePicker) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "toggleColor", function (color, closePicker) {
       if (color) {
         var hookReturns = _this.props.hooks("toggle-text-".concat(_this.state.colorType), color)(color);
 
@@ -6552,11 +6553,11 @@ function (_React$Component) {
 
     _this = possibleConstructorReturn_default()(this, (_getPrototypeOf2 = getPrototypeOf_default()(TextAlign)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "state", {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "state", {
       currentAlignment: undefined
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "setAlignment", function (event) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "setAlignment", function (event) {
       var alignment = event.currentTarget.dataset.alignment;
 
       var hookReturns = _this.props.hooks('toggle-text-alignment', alignment)(alignment);
@@ -6742,17 +6743,17 @@ function (_React$Component) {
 
     _this = possibleConstructorReturn_default()(this, (_getPrototypeOf2 = getPrototypeOf_default()(TextAlign)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "state", {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "state", {
       currentIndent: 0
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "increaseIndent", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "increaseIndent", function () {
       _this.props.editor.setValue(increaseSelectionIndent(_this.props.editorState));
 
       _this.props.editor.requestFocus();
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "decreaseIndent", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "decreaseIndent", function () {
       _this.props.editor.setValue(decreaseSelectionIndent(_this.props.editorState));
 
       _this.props.editor.requestFocus();
@@ -6832,8 +6833,8 @@ var commandHookMap = {
   'editor-method': 'exec-editor-command'
 };
 var exclusiveInlineStyles = {
-  'superscript': 'subscript',
-  'subscript': 'superscript'
+  superscript: 'subscript',
+  subscript: 'superscript'
 };
 
 var mergeControls = function mergeControls(commonProps, builtControls, extensionControls, extendControls) {
@@ -6879,13 +6880,13 @@ function (_React$Component) {
 
     _this = possibleConstructorReturn_default()(this, (_getPrototypeOf2 = getPrototypeOf_default()(ControlBar)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "allControls", []);
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "allControls", []);
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "mediaLibiraryModal", null);
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "mediaLibiraryModal", null);
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "extendedModals", {});
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "extendedModals", {});
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "openBraftFinder", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "openBraftFinder", function () {
       if (!_this.props.braftFinder || !_this.props.braftFinder.ReactComponent) {
         return false;
       }
@@ -6916,13 +6917,13 @@ function (_React$Component) {
       });
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "bindBraftFinderHook", function (hookName) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "bindBraftFinderHook", function (hookName) {
       return function () {
         return _this.props.hooks(hookName, arguments.length <= 0 ? undefined : arguments[0]).apply(void 0, arguments);
       };
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "insertMedias", function (medias) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "insertMedias", function (medias) {
       _this.props.editor.setValue(insertMedias(_this.props.editorState, medias));
 
       _this.props.editor.requestFocus();
@@ -6932,7 +6933,7 @@ function (_React$Component) {
       _this.closeBraftFinder();
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "closeBraftFinder", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "closeBraftFinder", function () {
       _this.props.media.onCancel && _this.props.media.onCancel();
       _this.mediaLibiraryModal && _this.mediaLibiraryModal.close();
     });
@@ -7316,7 +7317,7 @@ var filterColors = function filterColors(colors, colors2) {
 };
 
 var editor_isControlEnabled = function isControlEnabled(props, controlName) {
-  return [].concat(toConsumableArray_default()(props.controls), toConsumableArray_default()(props.extendControls)).find(function (item) {
+  return toConsumableArray_default()(props.controls).concat(toConsumableArray_default()(props.extendControls)).find(function (item) {
     return item === controlName || item.key === controlName;
   }) && props.excludeControls.indexOf(controlName) === -1;
 };
@@ -7349,7 +7350,7 @@ function (_React$Component) {
 
     _this = possibleConstructorReturn_default()(this, getPrototypeOf_default()(BraftEditor).call(this, props));
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "onChange", function (editorState, callback) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "onChange", function (editorState, callback) {
       if (!(editorState instanceof external_draft_js_["EditorState"])) {
         editorState = external_draft_js_["EditorState"].set(editorState, {
           decorator: _this.editorDecorators
@@ -7368,23 +7369,23 @@ function (_React$Component) {
       });
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "getDraftInstance", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "getDraftInstance", function () {
       return _this.draftInstance;
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "getFinderInstance", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "getFinderInstance", function () {
       return _this.braftFinder;
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "getValue", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "getValue", function () {
       return _this.state.editorState;
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "setValue", function (editorState, callback) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "setValue", function (editorState, callback) {
       return _this.onChange(editorState, callback);
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "forceRender", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "forceRender", function () {
       var selectionState = _this.state.editorState.getSelection();
 
       _this.setValue(external_draft_js_["EditorState"].set(_this.state.editorState, {
@@ -7394,89 +7395,89 @@ function (_React$Component) {
       });
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "onTab", function (event) {
-      if (handlers_keyCommandHandlers('tab', _this.state.editorState, assertThisInitialized_default()(_this)) === 'handled') {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "onTab", function (event) {
+      if (handlers_keyCommandHandlers('tab', _this.state.editorState, assertThisInitialized_default()(assertThisInitialized_default()(_this))) === 'handled') {
         event.preventDefault();
       }
 
       _this.editorProps.onTab && _this.editorProps.onTab(event);
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "onFocus", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "onFocus", function () {
       _this.isFocused = true;
       _this.editorProps.onFocus && _this.editorProps.onFocus(_this.state.editorState);
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "onBlur", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "onBlur", function () {
       _this.isFocused = false;
       _this.editorProps.onBlur && _this.editorProps.onBlur(_this.state.editorState);
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "requestFocus", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "requestFocus", function () {
       setTimeout(function () {
         return _this.draftInstance.focus();
       }, 0);
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleKeyCommand", function (command, editorState) {
-      return handlers_keyCommandHandlers(command, editorState, assertThisInitialized_default()(_this));
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleKeyCommand", function (command, editorState) {
+      return handlers_keyCommandHandlers(command, editorState, assertThisInitialized_default()(assertThisInitialized_default()(_this)));
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleReturn", function (event, editorState) {
-      return handlers_returnHandlers(event, editorState, assertThisInitialized_default()(_this));
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleReturn", function (event, editorState) {
+      return handlers_returnHandlers(event, editorState, assertThisInitialized_default()(assertThisInitialized_default()(_this)));
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleBeforeInput", function (chars, editorState) {
-      return beforeInputHandlers(chars, editorState, assertThisInitialized_default()(_this));
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleBeforeInput", function (chars, editorState) {
+      return beforeInputHandlers(chars, editorState, assertThisInitialized_default()(assertThisInitialized_default()(_this)));
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleDrop", function (selectionState, dataTransfer) {
-      return handlers_dropHandlers(selectionState, dataTransfer, assertThisInitialized_default()(_this));
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleDrop", function (selectionState, dataTransfer) {
+      return handlers_dropHandlers(selectionState, dataTransfer, assertThisInitialized_default()(assertThisInitialized_default()(_this)));
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleDroppedFiles", function (selectionState, files) {
-      return droppedFilesHandlers(selectionState, files, assertThisInitialized_default()(_this));
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleDroppedFiles", function (selectionState, files) {
+      return droppedFilesHandlers(selectionState, files, assertThisInitialized_default()(assertThisInitialized_default()(_this)));
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handlePastedFiles", function (files) {
-      return pastedFilesHandlers(files, assertThisInitialized_default()(_this));
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handlePastedFiles", function (files) {
+      return pastedFilesHandlers(files, assertThisInitialized_default()(assertThisInitialized_default()(_this)));
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleCopyContent", function (event) {
-      return handlers_copyHandlers(event, assertThisInitialized_default()(_this));
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleCopyContent", function (event) {
+      return handlers_copyHandlers(event, assertThisInitialized_default()(assertThisInitialized_default()(_this)));
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handlePastedText", function (text, html, editorState) {
-      return handlers_pastedTextHandlers(text, html, editorState, assertThisInitialized_default()(_this));
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handlePastedText", function (text, html, editorState) {
+      return handlers_pastedTextHandlers(text, html, editorState, assertThisInitialized_default()(assertThisInitialized_default()(_this)));
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "handleCompositionStart", function (event) {
-      return handlers_compositionStartHandler(event, assertThisInitialized_default()(_this));
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleCompositionStart", function (event) {
+      return handlers_compositionStartHandler(event, assertThisInitialized_default()(assertThisInitialized_default()(_this)));
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "undo", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "undo", function () {
       _this.setValue(content_undo(_this.state.editorState));
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "redo", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "redo", function () {
       _this.setValue(content_redo(_this.state.editorState));
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "removeSelectionInlineStyles", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "removeSelectionInlineStyles", function () {
       _this.setValue(content_removeSelectionInlineStyles(_this.state.editorState));
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "insertHorizontalLine", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "insertHorizontalLine", function () {
       _this.setValue(insertHorizontalLine(_this.state.editorState));
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "clearEditorContent", function () {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "clearEditorContent", function () {
       _this.setValue(content_clear(_this.state.editorState), function (editorState) {
         _this.setValue(toggleSelectionIndent(editorState, 0));
       });
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "toggleFullscreen", function (fullscreen) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "toggleFullscreen", function (fullscreen) {
       _this.setState({
         isFullscreen: typeof fullscreen !== 'undefined' ? fullscreen : !_this.state.isFullscreen
       }, function () {
@@ -7484,7 +7485,7 @@ function (_React$Component) {
       });
     });
 
-    defineProperty_default()(assertThisInitialized_default()(_this), "setEditorContainerNode", function (containerNode) {
+    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "setEditorContainerNode", function (containerNode) {
       _this.containerNode = containerNode;
     });
 
@@ -7618,7 +7619,7 @@ function (_React$Component) {
           var tempColors = detectColorsFromDraftState(nextEditorState.toRAW(true));
           nextEditorState.setConvertOptions(editor_getConvertOptions(this.editorProps));
           this.setState({
-            tempColors: filterColors([].concat(toConsumableArray_default()(this.state.tempColors), toConsumableArray_default()(tempColors)), currentProps.colors),
+            tempColors: filterColors(toConsumableArray_default()(this.state.tempColors).concat(toConsumableArray_default()(tempColors)), currentProps.colors),
             editorState: nextEditorState
           }, function () {
             _this3.props.onChange && _this3.props.onChange(nextEditorState);
@@ -7719,7 +7720,7 @@ function (_React$Component) {
         },
         className: controlBarClassName,
         style: controlBarStyle,
-        colors: [].concat(toConsumableArray_default()(colors), toConsumableArray_default()(this.state.tempColors)),
+        colors: toConsumableArray_default()(colors).concat(toConsumableArray_default()(this.state.tempColors)),
         colorPicker: colorPicker,
         colorPickerTheme: colorPickerTheme,
         colorPickerAutoHide: colorPickerAutoHide,

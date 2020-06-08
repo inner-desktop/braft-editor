@@ -1,5 +1,4 @@
 .braft-output-content {
-
   p {
     min-height: 1em;
   }
@@ -9,7 +8,8 @@
     height: auto;
   }
 
-  ul, ol {
+  ul,
+  ol {
     margin: 16px 0;
     padding: 0;
   }
@@ -48,7 +48,7 @@
   .attachment-wrap {
     position: relative;
     box-sizing: content-box;
-    border: 1px solid #E6E6E6;
+    border: 1px solid #e6e6e6;
     max-width: 438px;
     height: 72px;
     border-radius: 4px;
@@ -63,25 +63,29 @@
       text-align: center;
       font-size: 16px;
       font-weight: 500;
-      color: #FFF;
+      color: #fff;
       display: inline-block;
       float: left;
-      background-color: #4697FA;
+      background-color: #4697fa;
 
-      &-doc, &-docx, &-txt  {
-        background-color: #4697FA;
+      &-doc,
+      &-docx,
+      &-txt {
+        background-color: #4697fa;
       }
 
-      &-ppt, &-pptx {
-        background-color: #FF8A46;
+      &-ppt,
+      &-pptx {
+        background-color: #ff8a46;
       }
 
-      &-xls, &-xlsx {
-        background-color: #20B283;
+      &-xls,
+      &-xlsx {
+        background-color: #20b283;
       }
 
       &-pdf {
-        background-color: #FF5353;
+        background-color: #ff5353;
       }
     }
 
@@ -104,7 +108,7 @@
 
     .attachment-content-desc {
       font-size: 11px;
-      color: #AAAAAA;
+      color: #aaaaaa;
       overflow: hidden;
       padding: 0 12px;
     }

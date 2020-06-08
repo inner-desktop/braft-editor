@@ -1,45 +1,44 @@
-import './style.scss'
-import React from 'react'
-import DropDown from 'components/common/DropDown'
-import BuiltinColorPicker from 'components/common/ColorPicker'
-import * as ContentUtils  from 'utils/content'
+import './style.scss';
+import React from 'react';
+import DropDown from 'components/common/DropDown';
+import BuiltinColorPicker from 'components/common/ColorPicker';
+import * as ContentUtils from 'utils/content';
 
 export default class TextColor extends React.Component {
-
   state = {
-    colorType: 'color'
-  }
+    colorType: 'color',
+  };
 
-  render () {
+  render() {
+    let captionStyle = {};
+    let currentColor = null;
+    let { colorType } = this.state;
 
-    let captionStyle = {}
-    let currentColor = null
-    let { colorType } = this.state
+    const selectionStyles = this.props.editorState
+      .getCurrentInlineStyle()
+      .toJS();
 
-    const selectionStyles = this.props.editorState.getCurrentInlineStyle().toJS()
-
-    selectionStyles.forEach(style => {
-
+    selectionStyles.forEach((style) => {
       if (style.indexOf('COLOR-') === 0) {
-        captionStyle.color = '#' + style.split('-')[1]
-        colorType === 'color' && (currentColor = captionStyle.color)
+        captionStyle.color = '#' + style.split('-')[1];
+        colorType === 'color' && (currentColor = captionStyle.color);
       }
 
       if (style.indexOf('BGCOLOR-') === 0) {
-        captionStyle.backgroundColor = '#' + style.split('-')[1]
-        colorType === 'background-color' && (currentColor = captionStyle.backgroundColor)
+        captionStyle.backgroundColor = '#' + style.split('-')[1];
+        colorType === 'background-color' &&
+          (currentColor = captionStyle.backgroundColor);
       }
-
-    })
+    });
 
     const caption = (
-      <i style={captionStyle} className='bfi-text-color'>
-        <span className='path1'></span>
-        <span className='path2'></span>
+      <i style={captionStyle} className="bfi-text-color">
+        <span className="path1"></span>
+        <span className="path2"></span>
       </i>
-    )
+    );
 
-    const ColorPicker = this.props.colorPicker || BuiltinColorPicker
+    const ColorPicker = this.props.colorPicker || BuiltinColorPicker;
 
     return (
       <DropDown
@@ -49,23 +48,30 @@ export default class TextColor extends React.Component {
         autoHide={this.props.autoHide}
         theme={this.props.theme}
         getContainerNode={this.props.getContainerNode}
-        ref={(instance) => this.dropDownInstance = instance}
+        ref={(instance) => (this.dropDownInstance = instance)}
         className={'control-item dropdown text-color-dropdown'}
       >
-        <div className='bf-text-color-picker-wrap'>
-          <div className='bf-color-switch-buttons' style={this.props.enableBackgroundColor ? {} : {display: 'none'}}>
+        <div className="bf-text-color-picker-wrap">
+          <div
+            className="bf-color-switch-buttons"
+            style={this.props.enableBackgroundColor ? {} : { display: 'none' }}
+          >
             <button
-              type='button'
-              data-type='color'
+              type="button"
+              data-type="color"
               className={colorType === 'color' ? 'active' : ''}
               onClick={this.switchColorType}
-            >{this.props.language.controls.textColor}</button>
+            >
+              {this.props.language.controls.textColor}
+            </button>
             <button
-              type='button'
-              data-type='background-color'
+              type="button"
+              data-type="background-color"
               className={colorType === 'background-color' ? 'active' : ''}
               onClick={this.switchColorType}
-            >{this.props.language.controls.backgroundColor}</button>
+            >
+              {this.props.language.controls.backgroundColor}
+            </button>
           </div>
           <ColorPicker
             width={200}
@@ -76,43 +82,47 @@ export default class TextColor extends React.Component {
           />
         </div>
       </DropDown>
-    )
-
+    );
   }
 
   switchColorType = ({ currentTarget }) => {
     this.setState({
-      colorType: currentTarget.dataset.type
-    })
-  }
+      colorType: currentTarget.dataset.type,
+    });
+  };
 
   toggleColor = (color, closePicker) => {
-
     if (color) {
-
-      const hookReturns = this.props.hooks(`toggle-text-${this.state.colorType}`, color)(color)
+      const hookReturns = this.props.hooks(
+        `toggle-text-${this.state.colorType}`,
+        color,
+      )(color);
 
       if (hookReturns === false) {
-        return false
+        return false;
       }
 
       if (typeof hookReturns === 'string') {
-        color =  hookReturns
+        color = hookReturns;
       }
 
       if (this.state.colorType === 'color') {
-        this.props.editor.setValue(ContentUtils.toggleSelectionColor(this.props.editorState, color))
+        this.props.editor.setValue(
+          ContentUtils.toggleSelectionColor(this.props.editorState, color),
+        );
       } else {
-        this.props.editor.setValue(ContentUtils.toggleSelectionBackgroundColor(this.props.editorState, color))
+        this.props.editor.setValue(
+          ContentUtils.toggleSelectionBackgroundColor(
+            this.props.editorState,
+            color,
+          ),
+        );
       }
-
     }
 
     if (closePicker) {
-      this.dropDownInstance.hide()
-      this.props.editor.requestFocus()
+      this.dropDownInstance.hide();
+      this.props.editor.requestFocus();
     }
-
-  }
-
+  };
 }

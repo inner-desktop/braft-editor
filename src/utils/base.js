@@ -1,3 +1,3 @@
-let braftUniqueIndex = 0
+let braftUniqueIndex = 0;
 
-export const UniqueIndex = () => braftUniqueIndex += 1
+export const UniqueIndex = () => (braftUniqueIndex += 1);

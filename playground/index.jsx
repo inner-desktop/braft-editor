@@ -57,6 +57,18 @@ class Demo extends React.Component {
       {
         type: 'IMAGE',
         url: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*G0nDS5-aESoAAAAAAAAAAABkARQnAQ',
+        meta: {
+          status: 'PENDING',
+          percent: 0.1,
+        }
+      },
+      {
+        type: 'IMAGE',
+        url: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*G0nDS5-aESoAAAAAAAAAAABkARQnAQ',
+        meta: {
+          status: 'PENDING',
+          percent: 0.2
+        }
       },
     ]);
     this.setState({

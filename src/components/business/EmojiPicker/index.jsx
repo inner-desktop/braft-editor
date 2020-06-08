@@ -1,28 +1,25 @@
-import './style.scss'
-import React from 'react'
-import DropDown from 'components/common/DropDown'
-import * as ContentUtils  from 'utils/content'
+import './style.scss';
+import React from 'react';
+import DropDown from 'components/common/DropDown';
+import * as ContentUtils from 'utils/content';
 
 const insertEmoji = (event, props) => {
-
-  let emoji = event.currentTarget.dataset.emoji
-  const hookReturns = props.hooks('insert-emoji', emoji)(emoji)
+  let emoji = event.currentTarget.dataset.emoji;
+  const hookReturns = props.hooks('insert-emoji', emoji)(emoji);
 
   if (hookReturns === false) {
-    return false
+    return false;
   }
 
   if (typeof hookReturns === 'string') {
-    emoji = hookReturns
+    emoji = hookReturns;
   }
 
-  props.editor.setValue(ContentUtils.insertText(props.editorState, emoji))
-  props.editor.requestFocus()
-
-}
+  props.editor.setValue(ContentUtils.insertText(props.editorState, emoji));
+  props.editor.requestFocus();
+};
 
 export default (props) => {
-
   return (
     <DropDown
       caption={props.defaultCaption}
@@ -32,20 +29,21 @@ export default (props) => {
       title={props.language.controls.emoji}
       className={'control-item dropdown bf-emoji-dropdown'}
     >
-      <div className='bf-emojis-wrap'>
-        <ul className='bf-emojis'>
+      <div className="bf-emojis-wrap">
+        <ul className="bf-emojis">
           {props.emojis.map((item, index) => {
             return (
               <li
                 key={index}
                 data-emoji={item}
                 onClick={(event) => insertEmoji(event, props)}
-              >{item}</li>
-            )
+              >
+                {item}
+              </li>
+            );
           })}
         </ul>
       </div>
     </DropDown>
-  )
-
-}
+  );
+};

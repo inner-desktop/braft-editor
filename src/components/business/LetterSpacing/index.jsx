@@ -1,40 +1,47 @@
-import './style.scss'
-import React from 'react'
-import DropDown from 'components/common/DropDown'
-import * as ContentUtils  from 'utils/content'
+import './style.scss';
+import React from 'react';
+import DropDown from 'components/common/DropDown';
+import * as ContentUtils from 'utils/content';
 
 const toggleLetterSpacing = (event, props) => {
-
-  let letterSpacing = event.currentTarget.dataset.size
-  const hookReturns = props.hooks('toggle-letter-spacing', letterSpacing)(letterSpacing)
+  let letterSpacing = event.currentTarget.dataset.size;
+  const hookReturns = props.hooks(
+    'toggle-letter-spacing',
+    letterSpacing,
+  )(letterSpacing);
 
   if (hookReturns === false) {
-    return false
+    return false;
   }
 
   if (!isNaN(hookReturns)) {
-    letterSpacing = hookReturns
+    letterSpacing = hookReturns;
   }
 
-  props.editor.setValue(ContentUtils.toggleSelectionLetterSpacing(props.editorState, letterSpacing))
-  props.editor.requestFocus()
-
-}
+  props.editor.setValue(
+    ContentUtils.toggleSelectionLetterSpacing(props.editorState, letterSpacing),
+  );
+  props.editor.requestFocus();
+};
 
 export default (props) => {
-
-  let caption = null
-  let currentLetterSpacing = null
-  let dropDownInstance = null
+  let caption = null;
+  let currentLetterSpacing = null;
+  let dropDownInstance = null;
 
   props.letterSpacings.find((item) => {
-    if (ContentUtils.selectionHasInlineStyle(props.editorState, 'LETTERSPACING-' + item)) {
-      caption = item
-      currentLetterSpacing = item
-      return true
+    if (
+      ContentUtils.selectionHasInlineStyle(
+        props.editorState,
+        'LETTERSPACING-' + item,
+      )
+    ) {
+      caption = item;
+      currentLetterSpacing = item;
+      return true;
     }
-    return false
-  })
+    return false;
+  });
 
   return (
     <DropDown
@@ -42,22 +49,25 @@ export default (props) => {
       caption={caption || props.defaultCaption}
       getContainerNode={props.getContainerNode}
       title={props.language.controls.letterSpacing}
-      ref={(instance) => dropDownInstance = instance}
+      ref={(instance) => (dropDownInstance = instance)}
       className={'control-item dropdown bf-letter-spacing-dropdown'}
     >
-      <ul className='bf-letter-spacings'>
+      <ul className="bf-letter-spacings">
         {props.letterSpacings.map((item, index) => {
           return (
             <li
               key={index}
               className={item === currentLetterSpacing ? 'active' : null}
               data-size={item}
-              onClick={(event) => {toggleLetterSpacing(event, props),dropDownInstance.hide()}}
-            >{item}</li>
-          )
+              onClick={(event) => {
+                toggleLetterSpacing(event, props), dropDownInstance.hide();
+              }}
+            >
+              {item}
+            </li>
+          );
         })}
       </ul>
     </DropDown>
-  )
-
-}
+  );
+};

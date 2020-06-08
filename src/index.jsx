@@ -1,78 +1,138 @@
-import BraftEditor, { EditorState } from './editor'
-import covert, { convertRawToEditorState, convertHTMLToEditorState, convertEditorStateToRaw, convertEditorStateToHTML } from './covert'
-import * as utils from './utils'
-import { createExtensibleEditor, compositeStyleImportFn, compositeStyleExportFn, compositeEntityImportFn, compositeEntityExportFn, compositeBlockImportFn, compositeBlockExportFn } from 'helpers/extension'
-import { getDecorators } from 'renderers'
+import BraftEditor, { EditorState } from './editor';
+import covert, {
+  convertRawToEditorState,
+  convertHTMLToEditorState,
+  convertEditorStateToRaw,
+  convertEditorStateToHTML,
+} from './covert';
+import * as utils from './utils';
+import {
+  createExtensibleEditor,
+  compositeStyleImportFn,
+  compositeStyleExportFn,
+  compositeEntityImportFn,
+  compositeEntityExportFn,
+  compositeBlockImportFn,
+  compositeBlockExportFn,
+} from 'helpers/extension';
+import { getDecorators } from 'renderers';
 
 EditorState.prototype.setConvertOptions = function (options = {}) {
-  this.convertOptions = options
-}
+  this.convertOptions = options;
+};
 
 EditorState.prototype.toHTML = function (options = {}) {
-  const convertOptions = this.convertOptions || {}
-  return convertEditorStateToHTML(this, {...convertOptions, ...options})
-}
+  const convertOptions = this.convertOptions || {};
+  return convertEditorStateToHTML(this, { ...convertOptions, ...options });
+};
 
 EditorState.prototype.toRAW = function (noStringify) {
-  return noStringify ? convertEditorStateToRaw(this) : JSON.stringify(convertEditorStateToRaw(this))
-}
+  return noStringify
+    ? convertEditorStateToRaw(this)
+    : JSON.stringify(convertEditorStateToRaw(this));
+};
 
 EditorState.prototype.toText = function () {
-  return this.getCurrentContent().getPlainText()
-}
+  return this.getCurrentContent().getPlainText();
+};
 
 EditorState.prototype.isEmpty = function () {
-  return !this.getCurrentContent().hasText()
-}
+  return !this.getCurrentContent().hasText();
+};
 
-BraftEditor.createEditorState = EditorState.createFrom = (content, options = {}) => {
+BraftEditor.createEditorState = EditorState.createFrom = (
+  content,
+  options = {},
+) => {
+  options.unitExportFn =
+    options.unitExportFn || BraftEditor.defaultProps.converts.unitExportFn;
+  options.styleImportFn = compositeStyleImportFn(
+    options.styleImportFn,
+    options.editorId,
+  );
+  options.entityImportFn = compositeEntityImportFn(
+    options.entityImportFn,
+    options.editorId,
+  );
+  options.blockImportFn = compositeBlockImportFn(
+    options.blockImportFn,
+    options.editorId,
+  );
 
-  options.unitExportFn = options.unitExportFn || BraftEditor.defaultProps.converts.unitExportFn
-  options.styleImportFn = compositeStyleImportFn(options.styleImportFn, options.editorId)
-  options.entityImportFn = compositeEntityImportFn(options.entityImportFn, options.editorId)
-  options.blockImportFn = compositeBlockImportFn(options.blockImportFn, options.editorId)
-
-  let editorState = null
+  let editorState = null;
 
   if (content instanceof EditorState) {
-    editorState = content
-  } else if (typeof content === 'object' && content && content.blocks && content.entityMap) {
-    editorState = convertRawToEditorState(content, getDecorators(options.editorId))
+    editorState = content;
+  } else if (
+    typeof content === 'object' &&
+    content &&
+    content.blocks &&
+    content.entityMap
+  ) {
+    editorState = convertRawToEditorState(
+      content,
+      getDecorators(options.editorId),
+    );
   } else if (typeof content === 'string') {
     try {
       if (/^(-)?\d+$/.test(content)) {
-        editorState = convertHTMLToEditorState(content, getDecorators(options.editorId), options, 'create')
+        editorState = convertHTMLToEditorState(
+          content,
+          getDecorators(options.editorId),
+          options,
+          'create',
+        );
       } else {
-        editorState = EditorState.createFrom(JSON.parse(content), options)
+        editorState = EditorState.createFrom(JSON.parse(content), options);
       }
     } catch (error) {
-      editorState = convertHTMLToEditorState(content, getDecorators(options.editorId), options, 'create')
+      editorState = convertHTMLToEditorState(
+        content,
+        getDecorators(options.editorId),
+        options,
+        'create',
+      );
     }
   } else if (typeof content === 'number') {
-    editorState = convertHTMLToEditorState(content.toLocaleString().replace(/,/g, ''), getDecorators(options.editorId), options, 'create')
+    editorState = convertHTMLToEditorState(
+      content.toLocaleString().replace(/,/g, ''),
+      getDecorators(options.editorId),
+      options,
+      'create',
+    );
   } else {
-    editorState = EditorState.createEmpty(getDecorators(options.editorId))
+    editorState = EditorState.createEmpty(getDecorators(options.editorId));
   }
 
-  options.styleExportFn = compositeStyleExportFn(options.styleExportFn, options.editorId)
-  options.entityExportFn = compositeEntityExportFn(options.entityExportFn, options.editorId)
-  options.blockExportFn = compositeBlockExportFn(options.blockExportFn, options.editorId)
+  options.styleExportFn = compositeStyleExportFn(
+    options.styleExportFn,
+    options.editorId,
+  );
+  options.entityExportFn = compositeEntityExportFn(
+    options.entityExportFn,
+    options.editorId,
+  );
+  options.blockExportFn = compositeBlockExportFn(
+    options.blockExportFn,
+    options.editorId,
+  );
 
-  editorState.setConvertOptions(options)
+  editorState.setConvertOptions(options);
 
-  return editorState
+  return editorState;
+};
 
-}
-
-export default createExtensibleEditor(BraftEditor)
-export { EditorState, getDecorators }
-
-export { convertRawToEditorState, convertHTMLToEditorState, convertEditorStateToRaw, convertEditorStateToHTML }
+export default createExtensibleEditor(BraftEditor);
+export { EditorState, getDecorators };
 
 export {
-  utils,
-  covert
-}
+  convertRawToEditorState,
+  convertHTMLToEditorState,
+  convertEditorStateToRaw,
+  convertEditorStateToHTML,
+};
+
+export { utils, covert };
 
 // 2.1版本开发计划
 // [ ]优化选中多行文字是插入链接报错的问题

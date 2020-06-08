@@ -1,17 +1,22 @@
-import React from 'react'
+import React from 'react';
 
 export default (props) => {
-
-  const { children, entityKey, contentState } = props
-  const { href, target } = contentState.getEntity(entityKey).getData()
+  const { children, entityKey, contentState } = props;
+  const { href, target } = contentState.getEntity(entityKey).getData();
 
   return (
-    <span className='bf-link-wrap'>
-      <a onClick={(event) => viewLink(event, href)} className='bf-link' href={href} target={target}>{children}</a>
+    <span className="bf-link-wrap">
+      <a
+        onClick={(event) => viewLink(event, href)}
+        className="bf-link"
+        href={href}
+        target={target}
+      >
+        {children}
+      </a>
     </span>
-  )
-
-}
+  );
+};
 
 const viewLink = (event, link) => {
   // 当按下Ctrl/command键时，点击打开链接文字中的url
@@ -24,8 +29,8 @@ const viewLink = (event, link) => {
   // }
 
   if (link.startsWith('https://') || link.startsWith('http://')) {
-    window.open(link, '_blank')
+    window.open(link, '_blank');
   } else {
-    window.open(`http://${link}`)
+    window.open(`http://${link}`);
   }
-}
+};
