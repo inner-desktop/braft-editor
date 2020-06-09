@@ -1,8 +1,10 @@
 import './style.scss';
+import 'react-circular-progressbar/dist/styles.css';
 import React from 'react';
 import * as ContentUtils from 'utils/content';
 import Switch from 'components/common/Switch';
 import { imageControlItems } from 'configs/controls';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 
 // uploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
 
@@ -56,7 +58,7 @@ export default class Image extends React.Component {
     document.removeEventListener('mouseup', this.upImage);
   };
 
-  repareChangeSize = (type) => (e) => {
+  repairChangeSize = (type) => (e) => {
     this.reSizeType = type;
     const imageRect = this.imageElement.getBoundingClientRect();
     this.initialLeft = this.initialTop = 0;
@@ -84,7 +86,9 @@ export default class Image extends React.Component {
     let { url, link, link_target, width, height, meta } = mediaData;
     let imageStyles = {};
     let clearFix = false;
+
     let status = meta.status ? meta.status : 'done';
+    let percent = meta.percent ? meta.percent : '0';
 
     if (float) {
       alignment = null;
@@ -127,6 +131,27 @@ export default class Image extends React.Component {
         return null;
       }
     });
+
+    if (status === 'uploading') {
+      return (
+        <div className="bf-media">
+          <div className="bf-media-progress">
+            <CircularProgressbar
+              value={percent}
+              strokeWidth={8}
+              text={`上传中 ${percent}%`}
+              styles={buildStyles({
+                textSize: 12,
+                pathColor: '#66C2B9',
+                textColor: '#66C2B9',
+                pathTransition:
+                  percent === 0 ? "none" : "stroke-dashoffset 0.5s ease 0s"
+              })}
+            />
+          </div>
+        </div>
+      );
+    }
 
     return (
       <div className="bf-media">
@@ -201,7 +226,7 @@ export default class Image extends React.Component {
               <i
                 style={{ marginLeft: toolbarOffset * -1 }}
                 className="bf-media-toolbar-arrow"
-              ></i>
+              />
             </div>
           ) : null}
           <div
@@ -222,13 +247,13 @@ export default class Image extends React.Component {
             {toolbarVisible && imageResizable ? (
               <div
                 className="bf-csize-icon right-bottom"
-                onMouseDown={this.repareChangeSize('rightbottom')}
+                onMouseDown={this.repairChangeSize('rightbottom')}
               />
             ) : null}
             {toolbarVisible && imageResizable ? (
               <div
                 className="bf-csize-icon left-bottom"
-                onMouseDown={this.repareChangeSize('leftbottom')}
+                onMouseDown={this.repairChangeSize('leftbottom')}
               />
             ) : null}
             <div
@@ -241,7 +266,7 @@ export default class Image extends React.Component {
           <div
             className="clearfix"
             style={{ clear: 'both', height: 0, lineHeight: 0, float: 'none' }}
-          ></div>
+          />
         )}
       </div>
     );
