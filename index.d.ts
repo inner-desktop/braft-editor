@@ -17,72 +17,72 @@ export type EditorState = _EditorState & {
 };
 
 declare interface IBraftCovert {
-  convertRawToEditorState();
-  convertHTMLToEditorState();
-  convertEditorStateToRaw();
-  convertEditorStateToHTML();
+  convertRawToEditorState: Function;
+  convertHTMLToEditorState: Function;
+  convertEditorStateToRaw: Function;
+  convertEditorStateToHTML: Function;
 }
 
 declare interface IBraftContentUtils {
-  isEditorState();
-  registerStrictBlockType();
-  createEmptyEditorState();
-  createEditorState();
-  isSelectionCollapsed();
-  selectionContainsBlockType();
-  selectionContainsStrictBlock();
-  selectBlock();
-  selectNextBlock();
-  removeBlock();
-  getSelectionBlock();
-  updateEachCharacterOfSelection();
-  getSelectedBlocks();
-  setSelectionBlockData();
-  getSelectionBlockData();
-  getSelectionBlockType();
-  getSelectionText();
-  toggleSelectionBlockType();
-  getSelectionEntityType();
-  getSelectionEntityData();
-  toggleSelectionEntity();
-  toggleSelectionLink();
-  getSelectionInlineStyle();
-  selectionHasInlineStyle();
-  toggleSelectionInlineStyle();
-  removeSelectionInlineStyles();
-  toggleSelectionAlignment();
-  toggleSelectionIndent();
-  increaseSelectionIndent();
-  decreaseSelectionIndent();
-  toggleSelectionColor();
-  toggleSelectionBackgroundColor();
-  toggleSelectionFontSize();
-  toggleSelectionLineHeight();
-  toggleSelectionFontFamily();
-  toggleSelectionLetterSpacing();
-  insertText();
-  insertHTML();
-  insertAtomicBlock();
-  insertHorizontalLine();
-  insertMedias();
-  setMediaData();
-  removeMedia();
-  setMediaPosition();
-  clear();
-  handleKeyCommand();
-  undo();
-  redo();
+  isEditorState: Function;
+  registerStrictBlockType: Function;
+  createEmptyEditorState: Function;
+  createEditorState: Function;
+  isSelectionCollapsed: Function;
+  selectionContainsBlockType: Function;
+  selectionContainsStrictBlock: Function;
+  selectBlock: Function;
+  selectNextBlock: Function;
+  removeBlock: Function;
+  getSelectionBlock: Function;
+  updateEachCharacterOfSelection: Function;
+  getSelectedBlocks: Function;
+  setSelectionBlockData: Function;
+  getSelectionBlockData: Function;
+  getSelectionBlockType: Function;
+  getSelectionText: Function;
+  toggleSelectionBlockType: Function;
+  getSelectionEntityType: Function;
+  getSelectionEntityData: Function;
+  toggleSelectionEntity: Function;
+  toggleSelectionLink: Function;
+  getSelectionInlineStyle: Function;
+  selectionHasInlineStyle: Function;
+  toggleSelectionInlineStyle: Function;
+  removeSelectionInlineStyles: Function;
+  toggleSelectionAlignment: Function;
+  toggleSelectionIndent: Function;
+  increaseSelectionIndent: Function;
+  decreaseSelectionIndent: Function;
+  toggleSelectionColor: Function;
+  toggleSelectionBackgroundColor: Function;
+  toggleSelectionFontSize: Function;
+  toggleSelectionLineHeight: Function;
+  toggleSelectionFontFamily: Function;
+  toggleSelectionLetterSpacing: Function;
+  insertText: Function;
+  insertHTML: Function;
+  insertAtomicBlock: Function;
+  insertHorizontalLine: Function;
+  insertMedias: Function;
+  setMediaData: Function;
+  removeMedia: Function;
+  setMediaPosition: Function;
+  clear: Function;
+  handleKeyCommand: Function;
+  undo: Function;
+  redo: Function;
 }
 
 declare interface IBraftBaseUtils {
-  UniqueIndex()
+  UniqueIndex: Function
 }
 
 declare interface IBraftColorUtils {
-  namedColors();
-  getHexColor();
-  detectColorsFromHTMLString();
-  detectColorsFromDraftState();
+  namedColors: Function;
+  getHexColor: Function;
+  detectColorsFromHTMLString: Function;
+  detectColorsFromDraftState: Function;
 }
 
 declare interface IBraftUtils {
