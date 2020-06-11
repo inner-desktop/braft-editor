@@ -85,3 +85,13 @@
     }
   }
 }
+
+.bf-media {
+  .bf-media-progress {
+    user-select: none;
+    text-align: center;
+    width: 96px;
+    font-size: 24px;
+    height: 96px;
+  }
+}

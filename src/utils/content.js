@@ -13,13 +13,13 @@ import Immutable from 'immutable';
 
 const strictBlockTypes = ['atomic'];
 
-export const registerStrictBlockType = (blockType) => {
-  strictBlockTypes.indexOf(blockType) === -1 &&
-    strictBlockTypes.push(blockType);
-};
-
 export const isEditorState = (editorState) => {
   return editorState instanceof EditorState;
+};
+
+export const registerStrictBlockType = (blockType) => {
+  strictBlockTypes.indexOf(blockType) === -1 &&
+  strictBlockTypes.push(blockType);
 };
 
 export const createEmptyEditorState = (editorDecorators) => {

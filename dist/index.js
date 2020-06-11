@@ -1371,12 +1371,8 @@ __webpack_require__.r(__webpack_exports__);
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, "EditorState", function() { return /* reexport */ external_draft_js_["EditorState"]; });
 __webpack_require__.d(__webpack_exports__, "getDecorators", function() { return /* reexport */ getDecorators; });
-__webpack_require__.d(__webpack_exports__, "convertRawToEditorState", function() { return /* reexport */ covert_convertRawToEditorState; });
-__webpack_require__.d(__webpack_exports__, "convertHTMLToEditorState", function() { return /* reexport */ covert_convertHTMLToEditorState; });
-__webpack_require__.d(__webpack_exports__, "convertEditorStateToRaw", function() { return /* reexport */ covert_convertEditorStateToRaw; });
-__webpack_require__.d(__webpack_exports__, "convertEditorStateToHTML", function() { return /* reexport */ covert_convertEditorStateToHTML; });
-__webpack_require__.d(__webpack_exports__, "utils", function() { return /* reexport */ utils_namespaceObject; });
-__webpack_require__.d(__webpack_exports__, "covert", function() { return /* reexport */ covert; });
+__webpack_require__.d(__webpack_exports__, "BraftCovert", function() { return /* binding */ BraftCovert; });
+__webpack_require__.d(__webpack_exports__, "BraftUtils", function() { return /* binding */ BraftUtils; });
 
 // NAMESPACE OBJECT: ./utils/color.js
 var color_namespaceObject = {};
@@ -1389,8 +1385,8 @@ __webpack_require__.d(color_namespaceObject, "detectColorsFromDraftState", funct
 // NAMESPACE OBJECT: ./utils/content.js
 var content_namespaceObject = {};
 __webpack_require__.r(content_namespaceObject);
-__webpack_require__.d(content_namespaceObject, "registerStrictBlockType", function() { return registerStrictBlockType; });
 __webpack_require__.d(content_namespaceObject, "isEditorState", function() { return content_isEditorState; });
+__webpack_require__.d(content_namespaceObject, "registerStrictBlockType", function() { return registerStrictBlockType; });
 __webpack_require__.d(content_namespaceObject, "createEmptyEditorState", function() { return content_createEmptyEditorState; });
 __webpack_require__.d(content_namespaceObject, "createEditorState", function() { return content_createEditorState; });
 __webpack_require__.d(content_namespaceObject, "isSelectionCollapsed", function() { return isSelectionCollapsed; });
@@ -1442,13 +1438,6 @@ __webpack_require__.d(content_namespaceObject, "redo", function() { return conte
 var base_namespaceObject = {};
 __webpack_require__.r(base_namespaceObject);
 __webpack_require__.d(base_namespaceObject, "UniqueIndex", function() { return UniqueIndex; });
-
-// NAMESPACE OBJECT: ./utils/index.js
-var utils_namespaceObject = {};
-__webpack_require__.r(utils_namespaceObject);
-__webpack_require__.d(utils_namespaceObject, "ContentUtils", function() { return content_namespaceObject; });
-__webpack_require__.d(utils_namespaceObject, "BaseUtils", function() { return base_namespaceObject; });
-__webpack_require__.d(utils_namespaceObject, "ColorUtils", function() { return color_namespaceObject; });
 
 // EXTERNAL MODULE: ../node_modules/@babel/runtime/helpers/typeof.js
 var helpers_typeof = __webpack_require__(13);
@@ -2583,11 +2572,11 @@ var external_immutable_default = /*#__PURE__*/__webpack_require__.n(external_imm
 
 
 var strictBlockTypes = ['atomic'];
-var registerStrictBlockType = function registerStrictBlockType(blockType) {
-  strictBlockTypes.indexOf(blockType) === -1 && strictBlockTypes.push(blockType);
-};
 var content_isEditorState = function isEditorState(editorState) {
   return editorState instanceof external_draft_js_["EditorState"];
+};
+var registerStrictBlockType = function registerStrictBlockType(blockType) {
+  strictBlockTypes.indexOf(blockType) === -1 && strictBlockTypes.push(blockType);
 };
 var content_createEmptyEditorState = function createEmptyEditorState(editorDecorators) {
   return external_draft_js_["EditorState"].createEmpty(editorDecorators);
@@ -4651,8 +4640,8 @@ var Image_Image = /*#__PURE__*/function (_React$Component) {
           meta = mediaData.meta;
       var imageStyles = {};
       var clearFix = false;
-      var status = meta.status ? meta.status : 'done';
-      var percent = meta.percent ? meta.percent : '0';
+      var status = meta && meta.status ? meta.status : 'done';
+      var percent = meta && meta.percent ? meta.percent : '0';
 
       if (float) {
         alignment = null;
@@ -4703,7 +4692,7 @@ var Image_Image = /*#__PURE__*/function (_React$Component) {
             textSize: 12,
             pathColor: '#66C2B9',
             textColor: '#66C2B9',
-            pathTransition: percent === 0 ? "none" : "stroke-dashoffset 0.5s ease 0s"
+            pathTransition: percent === 0 ? 'none' : 'stroke-dashoffset 0.5s ease 0s'
           })
         })));
       }
@@ -5455,6 +5444,7 @@ function Attachment_isNativeReflectConstruct() { if (typeof Reflect === "undefin
 
 
 
+
 var Attachment_Attachment = /*#__PURE__*/function (_React$Component) {
   inherits_default()(Attachment, _React$Component);
 
@@ -5485,7 +5475,30 @@ var Attachment_Attachment = /*#__PURE__*/function (_React$Component) {
       var _mediaData$meta = mediaData.meta,
           fileSize = _mediaData$meta.fileSize,
           fileType = _mediaData$meta.fileType,
-          fileName = _mediaData$meta.fileName;
+          fileName = _mediaData$meta.fileName,
+          _mediaData$meta$statu = _mediaData$meta.status,
+          status = _mediaData$meta$statu === void 0 ? 'done' : _mediaData$meta$statu,
+          _mediaData$meta$perce = _mediaData$meta.percent,
+          percent = _mediaData$meta$perce === void 0 ? 0 : _mediaData$meta$perce;
+
+      if (status === 'uploading') {
+        return /*#__PURE__*/external_react_default.a.createElement("div", {
+          className: "bf-media"
+        }, /*#__PURE__*/external_react_default.a.createElement("div", {
+          className: "bf-media-progress"
+        }, /*#__PURE__*/external_react_default.a.createElement(index_esm_CircularProgressbar, {
+          value: percent,
+          strokeWidth: 8,
+          text: "\u4E0A\u4F20\u4E2D ".concat(percent, "%"),
+          styles: buildStyles({
+            textSize: 12,
+            pathColor: '#66C2B9',
+            textColor: '#66C2B9',
+            pathTransition: percent === 0 ? 'none' : 'stroke-dashoffset 0.5s ease 0s'
+          })
+        })));
+      }
+
       return /*#__PURE__*/external_react_default.a.createElement("div", {
         className: "bf-attachment"
       }, /*#__PURE__*/external_react_default.a.createElement("button", {
@@ -8220,8 +8233,17 @@ editor_BraftEditor.createEditorState = external_draft_js_["EditorState"].createF
 
 /* harmony default export */ var index_0 = __webpack_exports__["default"] = (createExtensibleEditor(editor_BraftEditor));
 
-
- // 2.1版本开发计划
+var BraftCovert = {
+  convertRawToEditorState: covert_convertRawToEditorState,
+  convertHTMLToEditorState: covert_convertHTMLToEditorState,
+  convertEditorStateToRaw: covert_convertEditorStateToRaw,
+  convertEditorStateToHTML: covert_convertEditorStateToHTML
+};
+var BraftUtils = {
+  ContentUtils: content_namespaceObject,
+  BaseUtils: base_namespaceObject,
+  ColorUtils: color_namespaceObject
+}; // 2.1版本开发计划
 // [ ]优化选中多行文字是插入链接报错的问题
 // [ ]新增编辑器内图片删除hook
 // 2.2版本开发计划

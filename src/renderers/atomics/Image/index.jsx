@@ -87,8 +87,8 @@ export default class Image extends React.Component {
     let imageStyles = {};
     let clearFix = false;
 
-    let status = meta.status ? meta.status : 'done';
-    let percent = meta.percent ? meta.percent : '0';
+    let status = meta && meta.status ? meta.status : 'done';
+    let percent = meta && meta.percent ? meta.percent : '0';
 
     if (float) {
       alignment = null;
@@ -145,7 +145,7 @@ export default class Image extends React.Component {
                 pathColor: '#66C2B9',
                 textColor: '#66C2B9',
                 pathTransition:
-                  percent === 0 ? "none" : "stroke-dashoffset 0.5s ease 0s"
+                  percent === 0 ? 'none' : 'stroke-dashoffset 0.5s ease 0s',
               })}
             />
           </div>

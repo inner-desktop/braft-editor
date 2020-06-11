@@ -1,13 +1,35 @@
 import React from 'react';
 import * as ContentUtils from 'utils/content';
 import './style.scss';
+import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 
 export default class Attachment extends React.Component {
   render() {
     const { mediaData } = this.props;
     const {
-      meta: { fileSize, fileType, fileName },
+      meta: { fileSize, fileType, fileName, status = 'done', percent = 0 },
     } = mediaData;
+
+    if (status === 'uploading') {
+      return (
+        <div className="bf-media">
+          <div className="bf-media-progress">
+            <CircularProgressbar
+              value={percent}
+              strokeWidth={8}
+              text={`上传中 ${percent}%`}
+              styles={buildStyles({
+                textSize: 12,
+                pathColor: '#66C2B9',
+                textColor: '#66C2B9',
+                pathTransition:
+                  percent === 0 ? 'none' : 'stroke-dashoffset 0.5s ease 0s',
+              })}
+            />
+          </div>
+        </div>
+      );
+    }
 
     return (
       <div className="bf-attachment">

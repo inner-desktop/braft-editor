@@ -1,11 +1,14 @@
 import BraftEditor, { EditorState } from './editor';
-import covert, {
+
+import {
   convertRawToEditorState,
   convertHTMLToEditorState,
   convertEditorStateToRaw,
   convertEditorStateToHTML,
 } from './covert';
-import * as utils from './utils';
+
+import { ContentUtils, BaseUtils, ColorUtils } from './utils';
+
 import {
   createExtensibleEditor,
   compositeStyleImportFn,
@@ -125,14 +128,18 @@ BraftEditor.createEditorState = EditorState.createFrom = (
 export default createExtensibleEditor(BraftEditor);
 export { EditorState, getDecorators };
 
-export {
+export const BraftCovert = {
   convertRawToEditorState,
   convertHTMLToEditorState,
   convertEditorStateToRaw,
   convertEditorStateToHTML,
 };
 
-export { utils, covert };
+export const BraftUtils = {
+  ContentUtils,
+  BaseUtils,
+  ColorUtils,
+};
 
 // 2.1版本开发计划
 // [ ]优化选中多行文字是插入链接报错的问题

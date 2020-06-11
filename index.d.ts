@@ -3,9 +3,9 @@ import {
   EditorProps as DraftEditorProps,
   EditorState as _EditorState,
   RawDraftContentState,
-} from 'draft-js'
-import * as Immutable from 'immutable'
-import * as React from 'react'
+} from 'draft-js';
+import * as Immutable from 'immutable';
+import * as React from 'react';
 
 export type EditorState = _EditorState & {
   [key: string]: any;
@@ -16,32 +16,95 @@ export type EditorState = _EditorState & {
   isEmpty(): boolean;
 };
 
-declare namespace covert {
-  interface BraftCovertType {
-    convertRawToEditorState: Function,
-    convertHTMLToEditorState: Function,
-    convertEditorStateToRaw: Function,
-    convertEditorStateToHTML: Function,
-  }
+declare interface IBraftCovert {
+  convertRawToEditorState();
+  convertHTMLToEditorState();
+  convertEditorStateToRaw();
+  convertEditorStateToHTML();
 }
 
-declare namespace utils {
-  interface BraftUtilsType {
-    ContentUtils: any,
-    BaseUtils: any,
-    ColorUtils: any,
-  }
+declare interface IBraftContentUtils {
+  isEditorState();
+  registerStrictBlockType();
+  createEmptyEditorState();
+  createEditorState();
+  isSelectionCollapsed();
+  selectionContainsBlockType();
+  selectionContainsStrictBlock();
+  selectBlock();
+  selectNextBlock();
+  removeBlock();
+  getSelectionBlock();
+  updateEachCharacterOfSelection();
+  getSelectedBlocks();
+  setSelectionBlockData();
+  getSelectionBlockData();
+  getSelectionBlockType();
+  getSelectionText();
+  toggleSelectionBlockType();
+  getSelectionEntityType();
+  getSelectionEntityData();
+  toggleSelectionEntity();
+  toggleSelectionLink();
+  getSelectionInlineStyle();
+  selectionHasInlineStyle();
+  toggleSelectionInlineStyle();
+  removeSelectionInlineStyles();
+  toggleSelectionAlignment();
+  toggleSelectionIndent();
+  increaseSelectionIndent();
+  decreaseSelectionIndent();
+  toggleSelectionColor();
+  toggleSelectionBackgroundColor();
+  toggleSelectionFontSize();
+  toggleSelectionLineHeight();
+  toggleSelectionFontFamily();
+  toggleSelectionLetterSpacing();
+  insertText();
+  insertHTML();
+  insertAtomicBlock();
+  insertHorizontalLine();
+  insertMedias();
+  setMediaData();
+  removeMedia();
+  setMediaPosition();
+  clear();
+  handleKeyCommand();
+  undo();
+  redo();
 }
-export { covert, utils, DraftEditorProps }
+
+declare interface IBraftBaseUtils {
+  UniqueIndex()
+}
+
+declare interface IBraftColorUtils {
+  namedColors();
+  getHexColor();
+  detectColorsFromHTMLString();
+  detectColorsFromDraftState();
+}
+
+declare interface IBraftUtils {
+  ContentUtils: IBraftContentUtils;
+  BaseUtils: IBraftBaseUtils;
+  ColorUtils: IBraftColorUtils;
+}
+
+declare var BraftCovert: IBraftCovert;
+
+declare var BraftUtils: IBraftUtils;
+
+export { DraftEditorProps, BraftCovert, BraftUtils };
 
 export interface BraftEditorProps {
   value?: EditorState;
   defaultValue?: EditorState;
   placeholder?: string;
-  id?: string,
-  editorId?: string,
+  id?: string;
+  editorId?: string;
   readOnly?: boolean;
-  language?:  'zh' | 'en' | ((languages: any, context: any) => any);
+  language?: 'zh' | 'en' | ((languages: any, context: any) => any);
   controls?: ControlType[];
   excludeControls?: BuiltInControlType[];
   extendControls?: ExtendControlType[];
@@ -91,7 +154,7 @@ export interface BraftEditorProps {
 export default class BraftEditor extends React.Component<BraftEditorProps> {
   static createEditorState(
     content: string | any,
-    options?: object
+    options?: object,
   ): EditorState;
   static use(extension: object | object[]): void;
   undo(): void;
@@ -107,10 +170,10 @@ export default class BraftEditor extends React.Component<BraftEditorProps> {
 export type ControlType =
   | BuiltInControlType
   | {
-  key: BuiltInControlType;
-  title?: string;
-  text?: string | React.ReactNode;
-}
+      key: BuiltInControlType;
+      title?: string;
+      text?: string | React.ReactNode;
+    }
   | ExtendControlType;
 
 export type BuiltInControlType =
@@ -145,97 +208,89 @@ export type BuiltInControlType =
   | 'table';
 
 export type ExtendControlType =
-  'separator'
+  | 'separator'
   | {
-  key: string;
-  type: 'button';
-  title?: string;
-  className?: string;
-  html?: string | null;
-  text?: string | React.ReactNode;
-  onClick?: Function;
-  disabled?: boolean;
-}
+      key: string;
+      type: 'button';
+      title?: string;
+      className?: string;
+      html?: string | null;
+      text?: string | React.ReactNode;
+      onClick?: Function;
+      disabled?: boolean;
+    }
   | {
-  key: string;
-  type: 'dropdown';
-  title?: string;
-  className?: string;
-  html?: string | null;
-  text?: string | React.ReactNode;
-  showArrow?: boolean;
-  arrowActive?: boolean;
-  autoHide?: boolean;
-  component: React.ReactNode;
-  disabled?: boolean;
-}
+      key: string;
+      type: 'dropdown';
+      title?: string;
+      className?: string;
+      html?: string | null;
+      text?: string | React.ReactNode;
+      showArrow?: boolean;
+      arrowActive?: boolean;
+      autoHide?: boolean;
+      component: React.ReactNode;
+      disabled?: boolean;
+    }
   | {
-  key: string;
-  type: 'modal';
-  title?: string;
-  className?: string;
-  html?: string | null;
-  text?: string | React.ReactNode;
-  onClick?: Function;
-  disabled?: boolean;
-  modal: {
-    id: string;
-    title?: string;
-    className?: string;
-    width?: number;
-    height?: number;
-    showFooter?: boolean;
-    showCancel?: boolean;
-    showConfirm?: boolean;
-    confirmable?: boolean;
-    showClose?: boolean;
-    closeOnBlur?: boolean;
-    closeOnConfirm?: boolean;
-    closeOnCancel?: boolean;
-    cancelText?: string;
-    confirmText?: string;
-    bottomText?: React.ReactNode;
-    onConfirm?: Function;
-    onCancel?: Function;
-    onClose?: Function;
-    onBlur?: Function;
-    children: React.ReactNode;
-  };
-}
+      key: string;
+      type: 'modal';
+      title?: string;
+      className?: string;
+      html?: string | null;
+      text?: string | React.ReactNode;
+      onClick?: Function;
+      disabled?: boolean;
+      modal: {
+        id: string;
+        title?: string;
+        className?: string;
+        width?: number;
+        height?: number;
+        showFooter?: boolean;
+        showCancel?: boolean;
+        showConfirm?: boolean;
+        confirmable?: boolean;
+        showClose?: boolean;
+        closeOnBlur?: boolean;
+        closeOnConfirm?: boolean;
+        closeOnCancel?: boolean;
+        cancelText?: string;
+        confirmText?: string;
+        bottomText?: React.ReactNode;
+        onConfirm?: Function;
+        onCancel?: Function;
+        onClose?: Function;
+        onBlur?: Function;
+        children: React.ReactNode;
+      };
+    }
   | {
-  key: string;
-  type: 'component';
-  component: React.ReactNode;
-};
+      key: string;
+      type: 'component';
+      component: React.ReactNode;
+    };
 
 export type MediaType = {
-  items?: any[],
-  uploadFn?: (
-    params: {
-      file: File;
-      progress: (progress: number) => void;
-      libraryId: string;
-      success: (
-        res: {
-          url: string;
-          meta: {
-            id: string;
-            title: string;
-            alt: string;
-            loop: boolean;
-            autoPlay: boolean;
-            controls: boolean;
-            poster: string;
-          };
-        }
-      ) => void;
-      error: (
-        err: {
-          msg: string;
-        }
-      ) => void;
-    }
-  ) => void;
+  items?: any[];
+  uploadFn?: (params: {
+    file: File;
+    progress: (progress: number) => void;
+    libraryId: string;
+    success: (res: {
+      url: string;
+      meta: {
+        id: string;
+        title: string;
+        alt: string;
+        loop: boolean;
+        autoPlay: boolean;
+        controls: boolean;
+        poster: string;
+      };
+    }) => void;
+    error: (err: { msg: string }) => void;
+  }) => void;
   validateFn?: (file: File) => boolean | PromiseLike<any>;
   accepts?: {
     image?: string | false;
@@ -263,36 +318,36 @@ export type ImageControlType =
   | 'size'
   | 'remove'
   | {
-  text?: string;
-  render?: (mediaData: any) => void;
-  onClick?: (block: any) => void;
-};
+      text?: string;
+      render?: (mediaData: any) => void;
+      onClick?: (block: any) => void;
+    };
 
 export type HooksType = {
-  ['toggle-link']?: HookFunc,
-  ['open-braft-finder']?: HookFunc,
-  ['toggle-inline-style']?: HookFunc,
-  ['change-block-type']?: HookFunc,
-  ['exec-editor-command']?: HookFunc,
-  ['insert-emoji']?: HookFunc,
-  ['insert-video']?: HookFunc,
-  ['toggle-font-family']?: HookFunc,
-  ['toggle-font-size']?: HookFunc,
-  ['toggle-letter-spacing']?: HookFunc,
-  ['toggle-line-height']?: HookFunc,
-  ['toggle-text-alignment']?: HookFunc,
-  ['toggle-text-color']?: HookFunc,
-  ['toggle-text-background-color']?: HookFunc,
-  ['select-medias']?: HookFunc,
-  ['deselect-medias']?: HookFunc,
-  ['remove-medias']?: HookFunc,
-  ['insert-medias']?: HookFunc,
-  ['select-files']?: HookFunc,
-  ['set-image-link-target']?: HookFunc,
-  ['set-image-link']?: HookFunc,
-  ['set-image-size']?: HookFunc,
-  ['set-image-float']?: HookFunc,
-  ['set-image-alignment']?: HookFunc,
+  ['toggle-link']?: HookFunc;
+  ['open-braft-finder']?: HookFunc;
+  ['toggle-inline-style']?: HookFunc;
+  ['change-block-type']?: HookFunc;
+  ['exec-editor-command']?: HookFunc;
+  ['insert-emoji']?: HookFunc;
+  ['insert-video']?: HookFunc;
+  ['toggle-font-family']?: HookFunc;
+  ['toggle-font-size']?: HookFunc;
+  ['toggle-letter-spacing']?: HookFunc;
+  ['toggle-line-height']?: HookFunc;
+  ['toggle-text-alignment']?: HookFunc;
+  ['toggle-text-color']?: HookFunc;
+  ['toggle-text-background-color']?: HookFunc;
+  ['select-medias']?: HookFunc;
+  ['deselect-medias']?: HookFunc;
+  ['remove-medias']?: HookFunc;
+  ['insert-medias']?: HookFunc;
+  ['select-files']?: HookFunc;
+  ['set-image-link-target']?: HookFunc;
+  ['set-image-link']?: HookFunc;
+  ['set-image-size']?: HookFunc;
+  ['set-image-float']?: HookFunc;
+  ['set-image-alignment']?: HookFunc;
 };
 
 export type HookFunc = (any: any) => any;
